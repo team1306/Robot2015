@@ -1,7 +1,8 @@
 package org.usfirst.frc.team1306.robot;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
-import org.usfirst.frc.team1306.robot.commands.ExampleCommand;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -34,5 +35,63 @@ public class OI {
     // Start the command when the button is released  and let it run the command
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
+	
+    private final Joystick leftStick;
+    private final Joystick rightStick;
+    private final XboxController xbox;
+
+    private final Button buttonA;
+    private final Button buttonB;
+    private final Button buttonX;
+    private final Button buttonY;
+    private final Button buttonLB;
+    private final Button buttonRB;
+    private final Button buttonBack;
+    private final Button buttonStart;
+    private final Button buttonLS;
+    private final Button buttonRS;
+    
+    public OI() {
+    	
+        leftStick = new Joystick(RobotMap.LEFT_STICK);
+        rightStick = new Joystick(RobotMap.RIGHT_STICK);
+        xbox = new XboxController(RobotMap.XBOX_CONTROLLER);
+
+        buttonA = new JoystickButton(xbox, XboxController.A);
+        buttonB = new JoystickButton(xbox, XboxController.B);
+        buttonX = new JoystickButton(xbox, XboxController.X);
+        buttonY = new JoystickButton(xbox, XboxController.Y);
+        buttonLB = new JoystickButton(xbox, XboxController.LB);
+        buttonRB = new JoystickButton(xbox, XboxController.RB);
+        buttonBack = new JoystickButton(xbox, XboxController.BACK);
+        buttonStart = new JoystickButton(xbox, XboxController.START);
+        buttonLS = new JoystickButton(xbox, XboxController.LS);
+        buttonRS = new JoystickButton(xbox, XboxController.RS);
+        
+    }
+    
+    public double moveX() {
+    	return deadband(leftStick.getX());
+    }
+    
+    public double moveY() {
+    	return deadband(leftStick.getY());
+    }
+    
+    public double rotation() {
+    	return deadband(rightStick.getX());
+    }
+    
+    private double deadband(double original) {
+        if (original < -DEADBAND) {
+            return (original + DEADBAND) / (1.0 - DEADBAND);
+        } else if (original > DEADBAND) {
+            return (original - DEADBAND) / (1.0 - DEADBAND);
+        } else {
+            return 0.0;
+        }
+    }
+    
+    private static final double DEADBAND = 0.15;
 }
 
