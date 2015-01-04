@@ -1,5 +1,6 @@
 package org.usfirst.frc.team1306.robot;
 
+import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -71,15 +72,15 @@ public class OI {
     }
     
     public double moveX() {
-    	return deadband(leftStick.getX());
+    	return deadband(xbox.getX(GenericHID.Hand.kLeft));
     }
     
     public double moveY() {
-    	return deadband(leftStick.getY());
+    	return deadband(xbox.getY(GenericHID.Hand.kLeft));
     }
     
     public double rotation() {
-    	return deadband(rightStick.getX());
+    	return deadband(xbox.getX(GenericHID.Hand.kRight));
     }
     
     private double deadband(double original) {
