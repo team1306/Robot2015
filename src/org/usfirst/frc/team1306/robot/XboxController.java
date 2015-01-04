@@ -1,7 +1,6 @@
 package org.usfirst.frc.team1306.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class XboxController extends Joystick{
 
