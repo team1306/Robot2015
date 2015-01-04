@@ -12,7 +12,7 @@ public class TeleopDrive extends CommandBase {
 
 	public TeleopDrive() {
 		// Use requires() here to declare subsystem dependencies
-		requires(Robot.mecanumDrive);
+		requires(drivetrain);
 		oi = getOI();
 	}
 
@@ -22,7 +22,7 @@ public class TeleopDrive extends CommandBase {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		Robot.mecanumDrive.drive(oi.moveX(), oi.moveY(), oi.rotation());
+		drivetrain.drive(oi.moveX(), oi.moveY(), oi.rotation());
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -32,12 +32,12 @@ public class TeleopDrive extends CommandBase {
 
 	// Called once after isFinished returns true
 	protected void end() {
-		Robot.mecanumDrive.stop();
+		drivetrain.stop();
 	}
 
 	// Called when another command which requires one or more of the same
 	// subsystems is scheduled to run
 	protected void interrupted() {
-		Robot.mecanumDrive.stop();
+		drivetrain.stop();
 	}
 }

@@ -2,6 +2,7 @@
 package org.usfirst.frc.team1306.robot;
 
 import org.usfirst.frc.team1306.robot.subsystems.MecanumDrive;
+import org.usfirst.frc.team1306.robot.commands.CommandBase;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -17,7 +18,6 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
  */
 public class Robot extends IterativeRobot {
 
-	public static final MecanumDrive mecanumDrive = new MecanumDrive();
 	public static OI oi;
 
     Command autonomousCommand;
@@ -27,7 +27,7 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
-		oi = new OI();
+    	CommandBase.init();
         // instantiate the command used for the autonomous period
         //autonomousCommand = new ExampleCommand();
     }
@@ -61,7 +61,7 @@ public class Robot extends IterativeRobot {
      * You can use it to reset subsystems before shutting down.
      */
     public void disabledInit(){
-    	mecanumDrive.stop();
+    	CommandBase.drivetrain.stop();
     }
 
     /**
