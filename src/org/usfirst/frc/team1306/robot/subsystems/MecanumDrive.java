@@ -19,6 +19,9 @@ public class MecanumDrive extends Subsystem {
 	
 	public MecanumDrive() {
 		robotDrive = new RobotDrive(RobotMap.FRONT_LEFT, RobotMap.REAR_LEFT, RobotMap.FRONT_RIGHT, RobotMap.REAR_RIGHT);
+		robotDrive.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
+		robotDrive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
+		robotDrive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
 	}
 
     public void initDefaultCommand() {
