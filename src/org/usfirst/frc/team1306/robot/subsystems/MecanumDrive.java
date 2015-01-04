@@ -6,6 +6,7 @@ import org.usfirst.frc.team1306.robot.commands.TeleopDrive;
 
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -20,7 +21,8 @@ public class MecanumDrive extends Subsystem {
 	public MecanumDrive() {
 		robotDrive = new RobotDrive(RobotMap.FRONT_LEFT, RobotMap.REAR_LEFT, RobotMap.FRONT_RIGHT, RobotMap.REAR_RIGHT);
 		robotDrive.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
-		robotDrive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
+		robotDrive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, false);
+		robotDrive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
 		robotDrive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
 	}
 
@@ -29,6 +31,8 @@ public class MecanumDrive extends Subsystem {
     }
     
     public void drive(double x, double y, double rotation) {
+    	SmartDashboard.putNumber("X", x);
+    	SmartDashboard.putNumber("Y", y);
     	robotDrive.mecanumDrive_Cartesian(x, y, rotation, 0.0);
     }
     
