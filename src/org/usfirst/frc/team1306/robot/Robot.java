@@ -1,7 +1,6 @@
 
 package org.usfirst.frc.team1306.robot;
 
-import org.usfirst.frc.team1306.robot.subsystems.MecanumDrive;
 import org.usfirst.frc.team1306.robot.commands.CommandBase;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
