@@ -1,6 +1,7 @@
 package org.usfirst.frc.team1306.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class XboxController extends Joystick{
 
@@ -10,7 +11,7 @@ public class XboxController extends Joystick{
     
     public double getX(Hand hand) {
         if (hand.equals(Hand.kLeft)) {
-            return getRawAxis(1);
+            return getRawAxis(0);
         } else {
             return getRawAxis(4);
         }
@@ -18,7 +19,7 @@ public class XboxController extends Joystick{
     
     public double getY(Hand hand) {
         if (hand.equals(Hand.kLeft)) {
-            return -getRawAxis(2);
+            return -getRawAxis(1);
         } else {
             return -getRawAxis(5);
         }
