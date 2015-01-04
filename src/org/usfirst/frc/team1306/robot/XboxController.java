@@ -10,9 +10,9 @@ public class XboxController extends Joystick{
     
     public double getX(Hand hand) {
         if (hand.equals(Hand.kLeft)) {
-            return getRawAxis(0);
+            return -getRawAxis(0);
         } else {
-            return getRawAxis(4);
+            return -getRawAxis(4);
         }
     }
     
