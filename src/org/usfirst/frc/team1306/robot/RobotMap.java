@@ -26,6 +26,9 @@ public class RobotMap {
 	public static final int ELEVATOR_BOTTOM = 0;
 	public static final int ELEVATOR_TOP = 1;
 	
+	// Manipulator actuators
+	public static final int ELEVATOR_MOTOR = 4;
+	
 	// Driver station
 	public static final int LEFT_STICK = 1;
 	public static final int RIGHT_STICK = 2;
