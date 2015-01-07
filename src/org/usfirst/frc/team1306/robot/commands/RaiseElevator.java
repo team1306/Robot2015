@@ -10,6 +10,7 @@ public class RaiseElevator extends CommandBase {
 	private final OI oi;
 
     public RaiseElevator() {
+    	super("Raise Elevator");
     	requires(elevator);
     	oi = getOI();
     }

@@ -10,6 +10,7 @@ public class LowerElevator extends CommandBase {
 	private final OI oi;
 
     public LowerElevator() {
+    	super("Lower Elevator");
         requires(elevator);
         oi = getOI();
     }
