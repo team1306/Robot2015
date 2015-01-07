@@ -36,12 +36,20 @@ public class Elevator extends Subsystem {
     	elevatorMotor.set(0.0);
     }
     
-    public void raise() {
+    public void up() {
     	elevatorMotor.set(0.5*direction);
     }
     
-    public void lower() {
+    public void down() {
     	elevatorMotor.set(-0.5*direction);
+    }
+    
+    public boolean hitTop() {
+    	return topLimit.get();
+    }
+    
+    public boolean hitBottom() {
+    	return bottomLimit.get();
     }
 }
 
