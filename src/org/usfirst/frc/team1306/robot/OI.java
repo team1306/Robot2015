@@ -83,6 +83,14 @@ public class OI {
     	return deadband(xbox.getX(GenericHID.Hand.kRight));
     }
     
+    public double leftTrigger() {
+    	return deadband(xbox.getLeftTrigger());
+    }
+    
+    public double rightTrigger() {
+    	return deadband(xbox.getRightTrigger());
+    }
+    
     private double deadband(double original) {
         if (original < -DEADBAND) {
             return (original + DEADBAND) / (1.0 - DEADBAND);
