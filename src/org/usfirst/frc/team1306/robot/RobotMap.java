@@ -16,11 +16,17 @@ public class RobotMap {
     // public static int rangefinderPort = 1;
     // public static int rangefinderModule = 1;
 	
+	// Drive train motors
 	public static final int FRONT_LEFT = 3;
 	public static final int REAR_LEFT = 2;
 	public static final int FRONT_RIGHT = 1;
 	public static final int REAR_RIGHT = 0;
 	
+	// Misc inputs
+	public static final int ELEVATOR_BOTTOM = 0;
+	public static final int ELEVATOR_TOP = 1;
+	
+	// Driver station
 	public static final int LEFT_STICK = 1;
 	public static final int RIGHT_STICK = 2;
 	public static final int XBOX_CONTROLLER = 0;
