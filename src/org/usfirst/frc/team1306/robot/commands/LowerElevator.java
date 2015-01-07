@@ -11,7 +11,7 @@ public class LowerElevator extends CommandBase {
 
     public LowerElevator() {
         requires(elevator);
-        oi = new OI();
+        oi = getOI();
     }
 
     // Called just before this Command runs the first time
