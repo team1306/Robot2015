@@ -16,6 +16,8 @@ public class Elevator extends Subsystem {
 	
 	private final Talon elevatorMotor;
 	
+	private static final int direction = 1;
+	
 	public Elevator() {
     	topLimit = new DigitalInput(RobotMap.ELEVATOR_TOP);
     	bottomLimit = new DigitalInput(RobotMap.ELEVATOR_BOTTOM);
@@ -27,19 +29,19 @@ public class Elevator extends Subsystem {
     }
     
     public void start() {
-    	
+    	elevatorMotor.set(0.0);
     }
     
     public void stop() {
-    	
+    	elevatorMotor.set(0.0);
     }
     
     public void raise() {
-    	
+    	elevatorMotor.set(0.5*direction);
     }
     
     public void lower() {
-    	
+    	elevatorMotor.set(-0.5*direction);
     }
 }
 
