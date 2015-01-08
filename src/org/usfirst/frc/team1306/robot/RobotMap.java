@@ -25,7 +25,7 @@ public class RobotMap {
 	// Misc inputs
 	public static final int ELEVATOR_BOTTOM = 0;
 	public static final int ELEVATOR_TOP = 1;
-	public static final int GYRO = 2;
+	public static final int GYRO = 0;
 	
 	// Manipulator actuators
 	public static final int ELEVATOR_MOTOR = 4;
