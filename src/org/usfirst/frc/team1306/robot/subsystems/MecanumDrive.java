@@ -41,6 +41,7 @@ public class MecanumDrive extends Subsystem {
     	SmartDashboard.putNumber("Accel X", accel.getX());
     	SmartDashboard.putNumber("Accel Y", accel.getY());
     	SmartDashboard.putNumber("Accel Z", accel.getZ());
+    	SmartDashboard.putNumber("Velocity", Math.sqrt(x*x + y*y));
     	robotDrive.mecanumDrive_Cartesian(x, y, rotation, 0.0);
     }
     
