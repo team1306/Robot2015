@@ -10,11 +10,11 @@ public class RaiseElevator extends CommandBase {
 	
 	private final OI oi;
 
-    public RaiseElevator() {
+	public RaiseElevator() {
     	super("Raise Elevator");
     	requires(elevator);
     	oi = getOI();
-    }
+	}
 
     // Called just before this Command runs the first time
     protected void initialize() {
