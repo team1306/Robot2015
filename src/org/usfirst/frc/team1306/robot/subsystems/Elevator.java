@@ -21,6 +21,9 @@ public class Elevator extends Subsystem {
 	private static final int direction = 1;
 	private static final int level = 0;
 	
+	public static final int levelOne = 1; // this should be the encoder position
+	public static final int levelTwo = 2;
+	
 	public Elevator() {
     	topLimit = new DigitalInput(RobotMap.ELEVATOR_TOP);
     	bottomLimit = new DigitalInput(RobotMap.ELEVATOR_BOTTOM);
