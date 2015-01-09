@@ -13,14 +13,20 @@ public class Elevator extends Subsystem {
 	
 	private final DigitalInput topLimit;
 	private final DigitalInput bottomLimit;
+	private final DigitalInput stageOne;
+	private final DigitalInput stageTwo;
 	
 	private final Talon elevatorMotor;
 	
 	private static final int direction = 1;
+	private static final int level = 0;
 	
 	public Elevator() {
     	topLimit = new DigitalInput(RobotMap.ELEVATOR_TOP);
     	bottomLimit = new DigitalInput(RobotMap.ELEVATOR_BOTTOM);
+    	
+    	stageOne = new DigitalInput(RobotMap.LEVEL_ONE);
+    	stageTwo = new DigitalInput(RobotMap.LEVEL_TWO);
     	
     	elevatorMotor = new Talon(RobotMap.ELEVATOR_MOTOR);
 	}
@@ -50,6 +56,24 @@ public class Elevator extends Subsystem {
     
     public boolean hitBottom() {
     	return bottomLimit.get();
+    }
+    
+    public int getLevel() {
+    	return level;
+    }
+    
+    public boolean hitLevel(int i) {
+    	switch(i) {
+    	case 0:
+    		return hitBottom();
+		case 1:
+    		return stageOne.get();
+    	case 2:
+    		return stageTwo.get();
+    	case 3:
+    		return hitTop();
+    	}
+    	return false;
     }
 }
 
