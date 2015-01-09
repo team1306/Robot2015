@@ -48,6 +48,10 @@ public class RobotMap {
 		DRIVE_REAR_RIGHT = new Talon(0);
 		
 		DRIVETRAIN = new RobotDrive(DRIVE_FRONT_LEFT, DRIVE_REAR_LEFT, DRIVE_FRONT_RIGHT, DRIVE_REAR_RIGHT);
+		DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
+		DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kFrontRight, false);
+		DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
+		DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
 		
 		ELEVATOR_BOTTOM_LIMIT = new DigitalInput(0);
 		ELEVATOR_TOP_LIMIT = new DigitalInput(1);
