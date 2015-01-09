@@ -12,10 +12,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *
  */
 public class PIDMecanumDrive extends PIDSubsystem {
-	
-	private final RobotDrive robotDrive;
-	private final Gyro gyro;
-
 
     // Initialize your subsystem here
     public PIDMecanumDrive() {
@@ -26,13 +22,6 @@ public class PIDMecanumDrive extends PIDSubsystem {
     	
     	super("Drivetrain", 0.0005, 0.0, 0.0);
     	
-		robotDrive = new RobotDrive(RobotMap.FRONT_LEFT, RobotMap.REAR_LEFT, RobotMap.FRONT_RIGHT, RobotMap.REAR_RIGHT);
-		robotDrive.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
-		robotDrive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, false);
-		robotDrive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
-		robotDrive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
-		
-		gyro = new Gyro(RobotMap.GYRO);
 		
 		pidOut = 0.0;
 		
@@ -57,7 +46,7 @@ public class PIDMecanumDrive extends PIDSubsystem {
         // Return your input value for the PID loop
         // e.g. a sensor, like a potentiometer:
         // yourPot.getAverageVoltage() / kYourMaxVoltage;
-    	return gyro.getAngle();
+    	return RobotMap.GYRO.getAngle();
     }
     
     private double pidOut;
@@ -75,16 +64,16 @@ public class PIDMecanumDrive extends PIDSubsystem {
     	} else {
     		changeSetpoint();
     	}
-    	robotDrive.mecanumDrive_Cartesian(x, y, rotation, gyro.getAngle());
+    	RobotMap.DRIVETRAIN.mecanumDrive_Cartesian(x, y, rotation, RobotMap.GYRO.getAngle());
     	
-    	SmartDashboard.putNumber("Gyro", gyro.getAngle());
+    	SmartDashboard.putNumber("Gyro", RobotMap.GYRO.getAngle());
     }
     
     public void stop() {
-    	robotDrive.mecanumDrive_Cartesian(0.0, 0.0, 0.0, 0.0);
+    	RobotMap.DRIVETRAIN.mecanumDrive_Cartesian(0.0, 0.0, 0.0, 0.0);
     }
     
     private void changeSetpoint() {
-    	setSetpoint((int)Math.round(gyro.getAngle()) % 360);
+    	setSetpoint((int)Math.round(RobotMap.GYRO.getAngle()) % 360);
     }
 }

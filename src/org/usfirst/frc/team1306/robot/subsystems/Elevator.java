@@ -2,22 +2,13 @@ package org.usfirst.frc.team1306.robot.subsystems;
 
 import org.usfirst.frc.team1306.robot.RobotMap;
 
-import edu.wpi.first.wpilibj.DigitalInput;
-import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
  *
  */
 public class Elevator extends Subsystem {
-	
-	private final DigitalInput topLimit;
-	private final DigitalInput bottomLimit;
-	private final DigitalInput stageOne;
-	private final DigitalInput stageTwo;
-	
-	private final Talon elevatorMotor;
-	
+
 	private static final int direction = 1;
 	private static final int level = 0;
 	
@@ -25,58 +16,37 @@ public class Elevator extends Subsystem {
 	public static final int levelTwo = 2;
 	
 	public Elevator() {
-    	topLimit = new DigitalInput(RobotMap.ELEVATOR_TOP);
-    	bottomLimit = new DigitalInput(RobotMap.ELEVATOR_BOTTOM);
-    	
-    	stageOne = new DigitalInput(RobotMap.LEVEL_ONE);
-    	stageTwo = new DigitalInput(RobotMap.LEVEL_TWO);
-    	
-    	elevatorMotor = new Talon(RobotMap.ELEVATOR_MOTOR);
 	}
 
     public void initDefaultCommand() {
     }
     
     public void start() {
-    	elevatorMotor.set(0.0);
+    	RobotMap.ELEVATOR_MOTOR.set(0.0);
     }
     
     public void stop() {
-    	elevatorMotor.set(0.0);
+    	RobotMap.ELEVATOR_MOTOR.set(0.0);
     }
     
     public void up() {
-    	elevatorMotor.set(0.5*direction);
+    	RobotMap.ELEVATOR_MOTOR.set(0.5*direction);
     }
     
     public void down() {
-    	elevatorMotor.set(-0.5*direction);
+    	RobotMap.ELEVATOR_MOTOR.set(-0.5*direction);
     }
     
     public boolean hitTop() {
-    	return topLimit.get();
+    	return RobotMap.ELEVATOR_TOP_LIMIT.get();
     }
     
     public boolean hitBottom() {
-    	return bottomLimit.get();
+    	return RobotMap.ELEVATOR_BOTTOM_LIMIT.get();
     }
     
     public int getLevel() {
     	return level;
-    }
-    
-    public boolean hitLevel(int i) {
-    	switch(i) {
-    	case 0:
-    		return hitBottom();
-		case 1:
-    		return stageOne.get();
-    	case 2:
-    		return stageTwo.get();
-    	case 3:
-    		return hitTop();
-    	}
-    	return false;
     }
 }
 
