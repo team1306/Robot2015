@@ -10,7 +10,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Elevator extends Subsystem {
 
 	private static final int direction = 1;
-	private static final int level = 0;
 	
 	public static final int levelOne = 1; // this should be the encoder position
 	public static final int levelTwo = 2;
@@ -33,8 +32,16 @@ public class Elevator extends Subsystem {
     	RobotMap.ELEVATOR_MOTOR.set(0.5*direction);
     }
     
+    public void up(double speed) {
+    	RobotMap.ELEVATOR_MOTOR.set(speed*direction);
+    }
+    
     public void down() {
     	RobotMap.ELEVATOR_MOTOR.set(-0.5*direction);
+    }
+    
+    public void down(double speed) {
+    	RobotMap.ELEVATOR_MOTOR.set(-speed*direction);
     }
     
     public boolean hitTop() {
@@ -43,10 +50,6 @@ public class Elevator extends Subsystem {
     
     public boolean hitBottom() {
     	return RobotMap.ELEVATOR_BOTTOM_LIMIT.get();
-    }
-    
-    public int getLevel() {
-    	return level;
     }
 }
 
