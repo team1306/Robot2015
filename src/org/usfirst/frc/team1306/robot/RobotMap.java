@@ -1,9 +1,11 @@
 package org.usfirst.frc.team1306.robot;
 
+import edu.wpi.first.wpilibj.BuiltInAccelerometer;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.interfaces.Accelerometer;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -34,6 +36,7 @@ public class RobotMap {
 	public static DigitalInput ELEVATOR_BOTTOM_LIMIT;
 	public static DigitalInput ELEVATOR_TOP_LIMIT;
 	public static Gyro GYRO;
+	public static Accelerometer ACCEL;
 	
 	// Manipulator actuators
 	public static Talon ELEVATOR_MOTOR;
@@ -49,6 +52,7 @@ public class RobotMap {
 		ELEVATOR_BOTTOM_LIMIT = new DigitalInput(0);
 		ELEVATOR_TOP_LIMIT = new DigitalInput(1);
 		GYRO = new Gyro(0);
+		ACCEL = new BuiltInAccelerometer();
 		
 		ELEVATOR_MOTOR = new Talon(4);
 	}
