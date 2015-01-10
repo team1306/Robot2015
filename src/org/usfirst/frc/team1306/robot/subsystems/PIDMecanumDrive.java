@@ -67,6 +67,7 @@ public class PIDMecanumDrive extends PIDSubsystem {
         // e.g. yourMotor.set(output);
     	
     	pidOut = -output;
+    	
     }
         
     public void drive(double x, double y, double rotation) {
@@ -76,6 +77,7 @@ public class PIDMecanumDrive extends PIDSubsystem {
     		changeSetpoint();
     	}
     	robotDrive.mecanumDrive_Cartesian(x, y, rotation, gyro.getAngle());
+    	SmartDashboard.putNumber("Rotation", rotation);
     	
     	SmartDashboard.putNumber("Gyro", gyro.getAngle());
     }

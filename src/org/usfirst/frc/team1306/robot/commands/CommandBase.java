@@ -2,8 +2,8 @@ package org.usfirst.frc.team1306.robot.commands;
 
 import org.usfirst.frc.team1306.robot.OI;
 import org.usfirst.frc.team1306.robot.subsystems.Elevator;
-import org.usfirst.frc.team1306.robot.subsystems.MecanumDrive;
 import org.usfirst.frc.team1306.robot.subsystems.PIDMecanumDrive;
+import org.usfirst.frc.team1306.robot.subsystems.Vision;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -17,6 +17,7 @@ public abstract class CommandBase extends Command {
     // Create a single static instance of all of your subsystems
     public static PIDMecanumDrive drivetrain;
     public static Elevator elevator;
+    public static Vision vision;
 
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely
@@ -28,6 +29,7 @@ public abstract class CommandBase extends Command {
         
         drivetrain = new PIDMecanumDrive();
         elevator = new Elevator();
+        vision = new Vision();
 
         
         // Show what command your subsystem is running on the SmartDashboard
