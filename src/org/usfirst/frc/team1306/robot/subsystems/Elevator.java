@@ -2,54 +2,54 @@ package org.usfirst.frc.team1306.robot.subsystems;
 
 import org.usfirst.frc.team1306.robot.RobotMap;
 
-import edu.wpi.first.wpilibj.DigitalInput;
-import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
  *
  */
 public class Elevator extends Subsystem {
-	
-	private final DigitalInput topLimit;
-	private final DigitalInput bottomLimit;
-	
-	private final Talon elevatorMotor;
-	
+
 	private static final int direction = 1;
 	
+	public static final int levelOne = 1; // this should be the encoder position
+	public static final int levelTwo = 2;
+	
 	public Elevator() {
-    	topLimit = new DigitalInput(RobotMap.ELEVATOR_TOP);
-    	bottomLimit = new DigitalInput(RobotMap.ELEVATOR_BOTTOM);
-    	
-    	elevatorMotor = new Talon(RobotMap.ELEVATOR_MOTOR);
 	}
 
     public void initDefaultCommand() {
     }
     
     public void start() {
-    	elevatorMotor.set(0.0);
+    	RobotMap.ELEVATOR_MOTOR.set(0.0);
     }
     
     public void stop() {
-    	elevatorMotor.set(0.0);
+    	RobotMap.ELEVATOR_MOTOR.set(0.0);
     }
     
     public void up() {
-    	elevatorMotor.set(0.5*direction);
+    	RobotMap.ELEVATOR_MOTOR.set(0.5*direction);
+    }
+    
+    public void up(double speed) {
+    	RobotMap.ELEVATOR_MOTOR.set(speed*direction);
     }
     
     public void down() {
-    	elevatorMotor.set(-0.5*direction);
+    	RobotMap.ELEVATOR_MOTOR.set(-0.5*direction);
+    }
+    
+    public void down(double speed) {
+    	RobotMap.ELEVATOR_MOTOR.set(-speed*direction);
     }
     
     public boolean hitTop() {
-    	return topLimit.get();
+    	return RobotMap.ELEVATOR_TOP_LIMIT.get();
     }
     
     public boolean hitBottom() {
-    	return bottomLimit.get();
+    	return RobotMap.ELEVATOR_BOTTOM_LIMIT.get();
     }
 }
 

@@ -1,19 +1,20 @@
-package org.usfirst.frc.team1306.robot.commands;
+package org.usfirst.frc.team1306.robot.commands.elevator;
 
 import org.usfirst.frc.team1306.robot.OI;
+import org.usfirst.frc.team1306.robot.commands.CommandBase;
 
 /**
  *
  */
-public class LowerElevator extends CommandBase {
+public class RaiseElevator extends CommandBase {
 	
 	private final OI oi;
 
-    public LowerElevator() {
-    	super("Lower Elevator");
-        requires(elevator);
-        oi = getOI();
-    }
+	public RaiseElevator() {
+    	super("Raise Elevator");
+    	requires(elevator);
+    	oi = getOI();
+	}
 
     // Called just before this Command runs the first time
     protected void initialize() {
@@ -22,8 +23,8 @@ public class LowerElevator extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(!elevator.hitBottom()) {
-    		elevator.down();
+    	if(!elevator.hitTop()) {
+    		elevator.up();
     	}
     }
 
