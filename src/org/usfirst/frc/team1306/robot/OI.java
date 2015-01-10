@@ -61,7 +61,7 @@ public class OI {
         buttonA = new JoystickButton(xbox, XboxController.A);
         buttonB = new JoystickButton(xbox, XboxController.B);
         buttonX = new JoystickButton(xbox, XboxController.X);
-        buttonY = new JoystickButton(xbox, XboxController.Y);
+        buttonY = new JoystickButton(xbox, XboxController.Y); 
         buttonLB = new JoystickButton(xbox, XboxController.LB);
         buttonRB = new JoystickButton(xbox, XboxController.RB);
         buttonBack = new JoystickButton(xbox, XboxController.BACK);
@@ -71,10 +71,12 @@ public class OI {
         
     }
     
+    //X axis for left side is moveX
     public double moveX() {
     	return deadband(xbox.getX(GenericHID.Hand.kLeft));
     }
-    
+
+    //Y axis for left side is moveY
     public double moveY() {
     	return deadband(xbox.getY(GenericHID.Hand.kLeft));
     }
