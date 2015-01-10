@@ -1,7 +1,6 @@
 package org.usfirst.frc.team1306.robot.commands.autonomous;
 
 import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc.team1306.robot.commands.CommandBase;
 import org.usfirst.frc.team1306.robot.OI;
