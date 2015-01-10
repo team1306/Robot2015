@@ -93,5 +93,58 @@ public class OI {
         
     }
     
+    /**
+     * Warning! getRightTrigger() and getLeftTrigger() both use getRawAxis(3).
+     * As getRawAxis(3) goes below zero, getRightTrigger() increases, and as
+     * getRawAxis(3) goes above zero, getLeftTrigger() increases. If both
+     * triggers are pressed, both of them will be treated as zero. You can only
+     * use one trigger at a time.
+     */
+    public double getAuxRT() {
+        return deadband(-Math.min(xboxAux.getRawAxis(3), 0));
+    }
+
+    public double getAuxLT() {
+        return deadband(Math.max(xboxAux.getRawAxis(3), 0));
+    }
+    
+    public double getDriveRT() {
+        return deadband(-Math.min(xboxAux.getRawAxis(3), 0));
+    }
+    
+    public double getDriveLT() {
+        return deadband(Math.max(xboxAux.getRawAxis(3), 0));
+    }
+    
+    public double getAuxDPad() {
+        return xboxAux.getRawAxis(6);
+    }
+
+    //X axis for left side is moveX
+    public double moveX() {
+    	return deadband(xboxDrive.getX(GenericHID.Hand.kLeft));
+    }
+
+    //Y axis for left side is moveY
+    public double moveY() {
+    	return deadband(xboxDrive.getY(GenericHID.Hand.kLeft));
+    }
+    
+    public double rotation() {
+    	return deadband(xboxDrive.getX(GenericHID.Hand.kRight));
+    }
+    
+    private double deadband(double original) {
+        if (original < -DEADBAND) {
+            return (original + DEADBAND) / (1.0 - DEADBAND);
+        } else if (original > DEADBAND) {
+            return (original - DEADBAND) / (1.0 - DEADBAND);
+        } else {
+            return 0.0;
+        }
+    }
+    
+    private static final double DEADBAND = 0.15;
+    
 }
 
