@@ -134,6 +134,25 @@ public class OI {
     	return deadband(xboxDrive.getX(GenericHID.Hand.kRight));
     }
     
+    // movement for elevator from aux controller
+    public double elevatorDir() {
+    	return deadband(xboxAux.getY(GenericHID.Hand.kRight));
+    }
+
+    public boolean getLevel(int i) {
+    	switch(i) {
+    	case 0:
+    		return buttonYAux.get();
+    	case 1:
+    		return buttonBAux.get();
+    	case 2:
+    		return buttonAAux.get();
+    	case 3:
+    		return buttonXAux.get();
+    	}
+    	return false;
+    }
+    
     private double deadband(double original) {
         if (original < -DEADBAND) {
             return (original + DEADBAND) / (1.0 - DEADBAND);
