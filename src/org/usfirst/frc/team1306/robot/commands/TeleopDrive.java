@@ -10,6 +10,7 @@ public class TeleopDrive extends CommandBase {
 	private final OI oi;
 
 	public TeleopDrive() {
+		super("Drive");
 		// Use requires() here to declare subsystem dependencies
 		requires(drivetrain);
 		oi = getOI();

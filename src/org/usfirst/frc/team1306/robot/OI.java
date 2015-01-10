@@ -54,9 +54,9 @@ public class OI {
     
     public OI() {
     	
-        leftStick = new Joystick(RobotMap.LEFT_STICK);
-        rightStick = new Joystick(RobotMap.RIGHT_STICK);
-        xbox = new XboxController(RobotMap.XBOX_CONTROLLER);
+        leftStick = new Joystick(1);
+        rightStick = new Joystick(2);
+        xbox = new XboxController(0);
 
         buttonA = new JoystickButton(xbox, XboxController.A);
         buttonB = new JoystickButton(xbox, XboxController.B);
@@ -83,6 +83,14 @@ public class OI {
     
     public double rotation() {
     	return deadband(xbox.getX(GenericHID.Hand.kRight));
+    }
+    
+    public double leftTrigger() {
+    	return deadband(xbox.getLeftTrigger());
+    }
+    
+    public double rightTrigger() {
+    	return deadband(xbox.getRightTrigger());
     }
     
     private double deadband(double original) {
