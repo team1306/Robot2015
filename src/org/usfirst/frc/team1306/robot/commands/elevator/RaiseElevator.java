@@ -23,14 +23,14 @@ public class RaiseElevator extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(!elevator.hitTop() && !elevator.done()) {
-    		elevator.goTo(elevator.getPoint() + 5);
+    	if(!elevator.hitTop()) {
+    		elevator.goTo(elevator.getPoint() + 10*(int)oi.getAuxRT());
     	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return elevator.hitTop() || (oi.rightTrigger() == 0);
+        return elevator.hitTop() || (oi.getAuxRT() == 0);
     }
 
     // Called once after isFinished returns true
