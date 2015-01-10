@@ -93,38 +93,5 @@ public class OI {
         
     }
     
-    //X axis for left side is moveX
-    public double moveXDrive() {
-    	return deadband(xboxDrive.getX(GenericHID.Hand.kLeft));
-    }
-
-    //Y axis for left side is moveY
-    public double moveYDrive() {
-    	return deadband(xboxDrive.getY(GenericHID.Hand.kLeft));
-    }
-    
-    public double rotation() {
-    	return deadband(xboxDrive.getX(GenericHID.Hand.kRight));
-    }
-    
-    public double leftTriggerDrive() {
-    	return deadband(xboxDrive.getLeftTrigger());
-    }
-    
-    public double rightTriggerDrive() {
-    	return deadband(xboxDrive.getRightTrigger());
-    }
-    
-    private double deadband(double original) {
-        if (original < -DEADBAND) {
-            return (original + DEADBAND) / (1.0 - DEADBAND);
-        } else if (original > DEADBAND) {
-            return (original - DEADBAND) / (1.0 - DEADBAND);
-        } else {
-            return 0.0;
-        }
-    }
-    
-    private static final double DEADBAND = 0.15;
 }
 
