@@ -39,7 +39,7 @@ public class OI {
 	
     private final Joystick leftStick;
     private final Joystick rightStick;
-    private final XboxController xbox;
+    private final XboxController xboxDrive;
 
     private final Button buttonA;
     private final Button buttonB;
@@ -56,41 +56,41 @@ public class OI {
     	
         leftStick = new Joystick(1);
         rightStick = new Joystick(2);
-        xbox = new XboxController(0);
+        xboxDrive = new XboxController(0);
 
-        buttonA = new JoystickButton(xbox, XboxController.A);
-        buttonB = new JoystickButton(xbox, XboxController.B);
-        buttonX = new JoystickButton(xbox, XboxController.X);
-        buttonY = new JoystickButton(xbox, XboxController.Y); 
-        buttonLB = new JoystickButton(xbox, XboxController.LB);
-        buttonRB = new JoystickButton(xbox, XboxController.RB);
-        buttonBack = new JoystickButton(xbox, XboxController.BACK);
-        buttonStart = new JoystickButton(xbox, XboxController.START);
-        buttonLS = new JoystickButton(xbox, XboxController.LS);
-        buttonRS = new JoystickButton(xbox, XboxController.RS);
+        buttonA = new JoystickButton(xboxDrive, XboxController.A);
+        buttonB = new JoystickButton(xboxDrive, XboxController.B);
+        buttonX = new JoystickButton(xboxDrive, XboxController.X);
+        buttonY = new JoystickButton(xboxDrive, XboxController.Y); 
+        buttonLB = new JoystickButton(xboxDrive, XboxController.LB);
+        buttonRB = new JoystickButton(xboxDrive, XboxController.RB);
+        buttonBack = new JoystickButton(xboxDrive, XboxController.BACK);
+        buttonStart = new JoystickButton(xboxDrive, XboxController.START);
+        buttonLS = new JoystickButton(xboxDrive, XboxController.LS);
+        buttonRS = new JoystickButton(xboxDrive, XboxController.RS);
         
     }
     
     //X axis for left side is moveX
     public double moveX() {
-    	return deadband(xbox.getX(GenericHID.Hand.kLeft));
+    	return deadband(xboxDrive.getX(GenericHID.Hand.kLeft));
     }
 
     //Y axis for left side is moveY
     public double moveY() {
-    	return deadband(xbox.getY(GenericHID.Hand.kLeft));
+    	return deadband(xboxDrive.getY(GenericHID.Hand.kLeft));
     }
     
     public double rotation() {
-    	return deadband(xbox.getX(GenericHID.Hand.kRight));
+    	return deadband(xboxDrive.getX(GenericHID.Hand.kRight));
     }
     
     public double leftTrigger() {
-    	return deadband(xbox.getLeftTrigger());
+    	return deadband(xboxDrive.getLeftTrigger());
     }
     
     public double rightTrigger() {
-    	return deadband(xbox.getRightTrigger());
+    	return deadband(xboxDrive.getRightTrigger());
     }
     
     private double deadband(double original) {
