@@ -43,7 +43,7 @@ public class RobotMap {
 	public static Talon ELEVATOR_MOTOR;
 	public static Encoder ELEVATOR_ENCODER;
 	
-	public static void init() {
+	static {
 		DRIVE_FRONT_LEFT = new Talon(3);
 		DRIVE_REAR_LEFT = new Talon(2);
 		DRIVE_FRONT_RIGHT = new Talon(1);

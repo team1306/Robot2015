@@ -39,7 +39,7 @@ public class PIDMecanumDrive extends PIDSubsystem {
     
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        setDefaultCommand(new TeleopDrive());
+        //setDefaultCommand(new TeleopDrive());
     }
     
     protected double returnPIDInput() {
@@ -76,6 +76,6 @@ public class PIDMecanumDrive extends PIDSubsystem {
     }
     
     private void changeSetpoint() {
-    	setSetpoint((int)Math.round(RobotMap.GYRO.getAngle()) % 360);
+    	//setSetpoint((int)Math.round(RobotMap.GYRO.getAngle()) % 360);
     }
 }
