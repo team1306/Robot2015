@@ -18,13 +18,13 @@ public class RaiseElevator extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	elevator.start();
+    	elevator.goTo(elevator.getPoint());
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(!elevator.hitTop()) {
-    		elevator.up();
+    	if(!elevator.hitTop() && !elevator.done()) {
+    		elevator.goTo(elevator.getPoint() + (int)oi.rightTrigger()*10);
     	}
     }
 
@@ -35,12 +35,12 @@ public class RaiseElevator extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-    	elevator.stop();
+    	elevator.goTo(elevator.getPoint());
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	elevator.stop();
+    	elevator.goTo(elevator.getPoint());
     }
 }
