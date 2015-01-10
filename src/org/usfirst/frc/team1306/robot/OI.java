@@ -37,47 +37,69 @@ public class OI {
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
 	
-    private final Joystick leftStick;
-    private final Joystick rightStick;
-    private final XboxController xboxDrive;
 
-    private final Button buttonA;
-    private final Button buttonB;
-    private final Button buttonX;
-    private final Button buttonY;
-    private final Button buttonLB;
-    private final Button buttonRB;
-    private final Button buttonBack;
-    private final Button buttonStart;
-    private final Button buttonLS;
-    private final Button buttonRS;
+    private final XboxController xboxDrive;
+    private final XboxController xboxAux;
+
+    private final Button buttonADrive;
+    private final Button buttonBDrive;
+    private final Button buttonXDrive;
+    private final Button buttonYDrive;
+    private final Button buttonLBDrive;
+    private final Button buttonRBDrive;
+    private final Button buttonBackDrive;
+    private final Button buttonStartDrive;
+    private final Button buttonLSDrive;
+    private final Button buttonRSDrive;
+    
+    
+    private final Button buttonAAux;
+    private final Button buttonBAux;
+    private final Button buttonXAux;
+    private final Button buttonYAux;
+    private final Button buttonLBAux;
+    private final Button buttonRBAux;
+    private final Button buttonBackAux;
+    private final Button buttonStartAux;
+    private final Button buttonLSAux;
+    private final Button buttonRSAux;
     
     public OI() {
     	
-        leftStick = new Joystick(1);
-        rightStick = new Joystick(2);
         xboxDrive = new XboxController(0);
+        xboxAux = new XboxController(1);
 
-        buttonA = new JoystickButton(xboxDrive, XboxController.A);
-        buttonB = new JoystickButton(xboxDrive, XboxController.B);
-        buttonX = new JoystickButton(xboxDrive, XboxController.X);
-        buttonY = new JoystickButton(xboxDrive, XboxController.Y); 
-        buttonLB = new JoystickButton(xboxDrive, XboxController.LB);
-        buttonRB = new JoystickButton(xboxDrive, XboxController.RB);
-        buttonBack = new JoystickButton(xboxDrive, XboxController.BACK);
-        buttonStart = new JoystickButton(xboxDrive, XboxController.START);
-        buttonLS = new JoystickButton(xboxDrive, XboxController.LS);
-        buttonRS = new JoystickButton(xboxDrive, XboxController.RS);
+        buttonADrive = new JoystickButton(xboxDrive, XboxController.A);
+        buttonBDrive = new JoystickButton(xboxDrive, XboxController.B);
+        buttonXDrive = new JoystickButton(xboxDrive, XboxController.X);
+        buttonYDrive = new JoystickButton(xboxDrive, XboxController.Y); 
+        buttonLBDrive = new JoystickButton(xboxDrive, XboxController.LB);
+        buttonRBDrive = new JoystickButton(xboxDrive, XboxController.RB);
+        buttonBackDrive = new JoystickButton(xboxDrive, XboxController.BACK);
+        buttonStartDrive = new JoystickButton(xboxDrive, XboxController.START);
+        buttonLSDrive = new JoystickButton(xboxDrive, XboxController.LS);
+        buttonRSDrive = new JoystickButton(xboxDrive, XboxController.RS);
+
+        buttonAAux = new JoystickButton(xboxAux, XboxController.A);
+        buttonBAux = new JoystickButton(xboxAux, XboxController.B);
+        buttonXAux = new JoystickButton(xboxAux, XboxController.X);
+        buttonYAux = new JoystickButton(xboxAux, XboxController.Y); 
+        buttonLBAux = new JoystickButton(xboxAux, XboxController.LB);
+        buttonRBAux = new JoystickButton(xboxAux, XboxController.RB);
+        buttonBackAux = new JoystickButton(xboxAux, XboxController.BACK);
+        buttonStartAux = new JoystickButton(xboxAux, XboxController.START);
+        buttonLSAux = new JoystickButton(xboxAux, XboxController.LS);
+        buttonRSAux = new JoystickButton(xboxAux, XboxController.RS);
         
     }
     
     //X axis for left side is moveX
-    public double moveX() {
+    public double moveXDrive() {
     	return deadband(xboxDrive.getX(GenericHID.Hand.kLeft));
     }
 
     //Y axis for left side is moveY
-    public double moveY() {
+    public double moveYDrive() {
     	return deadband(xboxDrive.getY(GenericHID.Hand.kLeft));
     }
     
@@ -85,11 +107,11 @@ public class OI {
     	return deadband(xboxDrive.getX(GenericHID.Hand.kRight));
     }
     
-    public double leftTrigger() {
+    public double leftTriggerDrive() {
     	return deadband(xboxDrive.getLeftTrigger());
     }
     
-    public double rightTrigger() {
+    public double rightTriggerDrive() {
     	return deadband(xboxDrive.getRightTrigger());
     }
     
