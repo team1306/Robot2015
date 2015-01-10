@@ -19,7 +19,7 @@ public class MecanumDrive extends Subsystem {
 	}
 
     public void initDefaultCommand() {
-        setDefaultCommand(new TeleopDrive());
+        //setDefaultCommand(new TeleopDrive());
     }
     
     public void drive(double x, double y, double rotation) {
