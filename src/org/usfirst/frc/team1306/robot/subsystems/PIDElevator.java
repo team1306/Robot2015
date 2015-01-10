@@ -1,6 +1,7 @@
 package org.usfirst.frc.team1306.robot.subsystems;
 
 import org.usfirst.frc.team1306.robot.RobotMap;
+import org.usfirst.frc.team1306.robot.commands.elevator.RunElevator;
 
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -35,7 +36,7 @@ public class PIDElevator extends PIDSubsystem {
     
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
+        setDefaultCommand(new RunElevator());
     }
     
     public int getPoint() {
