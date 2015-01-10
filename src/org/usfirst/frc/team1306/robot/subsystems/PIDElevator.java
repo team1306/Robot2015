@@ -38,6 +38,26 @@ public class PIDElevator extends PIDSubsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
+    public int getPoint() {
+    	return RobotMap.ELEVATOR_ENCODER.get();
+    }
+    
+    public boolean done() {
+    	return Math.abs(pidOut) < 0.03;
+    }
+
+    public void goTo(int point) {
+    	setSetpoint(point);
+    }
+    
+    public boolean hitTop() {
+    	return RobotMap.ELEVATOR_TOP_LIMIT.get();
+    }
+    
+    public boolean hitBottom() {
+    	return RobotMap.ELEVATOR_BOTTOM_LIMIT.get();
+    }
+    
     protected double returnPIDInput() {
         // Return your input value for the PID loop
         // e.g. a sensor, like a potentiometer:
@@ -48,10 +68,7 @@ public class PIDElevator extends PIDSubsystem {
     protected void usePIDOutput(double output) {
         // Use output to drive your system, like a motor
         // e.g. yourMotor.set(output);
+    	pidOut = output;
     	RobotMap.ELEVATOR_MOTOR.set(output);
-    }
-    
-    protected void goTo(int point) {
-    	setSetpoint(point);
     }
 }
