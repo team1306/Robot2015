@@ -47,7 +47,15 @@ public class PIDElevator extends PIDSubsystem {
     }
 
     public void goTo(int point) {
-    	setSetpoint(point);
+    	if(point - getPoint() > 0 && hitTop()) {
+    		setSetpoint(getPoint());
+    	}
+    	else if(point - getPoint() < 0 && hitBottom()) {
+    		setSetpoint(getPoint());
+    	}
+    	else {
+    		setSetpoint(point);
+    	}
     }
     
     public boolean hitTop() {
