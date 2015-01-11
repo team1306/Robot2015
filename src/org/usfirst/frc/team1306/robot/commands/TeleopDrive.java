@@ -20,23 +20,33 @@ public class TeleopDrive extends CommandBase {
 	protected void initialize() {
 	}
 
-	// Called repeatedly when this Command is scheduled to run
+	/**
+	 * This method is called repeatedly when this command is run.
+	 * It takes the values of the joysticks on the drive xbox controller
+	 * and turns it into movements for the mecanum drivetrain.
+	 */
 	protected void execute() {
 		drivetrain.drive(oi.moveX(), oi.moveY(), oi.rotation());
 	}
 
-	// Make this return true when this Command no longer needs to run execute()
+	/**
+	 * This method returns true when this Command no longer needs to run execute()
+	 */
 	protected boolean isFinished() {
 		return false;
 	}
 
-	// Called once after isFinished returns true
+	/**
+	 * Called once after isFinished returns true.
+	 */
 	protected void end() {
 		drivetrain.stop();
 	}
 
-	// Called when another command which requires one or more of the same
-	// subsystems is scheduled to run
+	/**
+	 * Called when another command which requires one or more of the same
+	 * subsystems is scheduled to run.
+	 */
 	protected void interrupted() {
 		drivetrain.stop();
 	}
