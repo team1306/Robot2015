@@ -19,30 +19,56 @@ public class Elevator extends Subsystem {
 	public void initDefaultCommand() {
 	}
 
+	/**
+	 * Call this method once to start using the elevator safely.
+	 */
 	public void start() {
 		RobotMap.ELEVATOR_MOTOR.set(0.0);
 	}
 
+	/**
+	 * Call this method once to stop using the elevator safely.
+	 */
 	public void stop() {
 		RobotMap.ELEVATOR_MOTOR.set(0.0);
 	}
 
+	/**
+	 * Move the elevator up at a fixed speed.
+	 */
 	public void up() {
 		RobotMap.ELEVATOR_MOTOR.set(0.5 * direction);
 	}
 
+	/**
+	 * Move the elevator up at a given speed.
+	 * 
+	 * @param speed	Speed of elevator movement
+	 */
 	public void up(double speed) {
 		RobotMap.ELEVATOR_MOTOR.set(speed * direction);
 	}
 
+	/**
+	 * Move the elevator down at a fixed speed.
+	 */
 	public void down() {
 		RobotMap.ELEVATOR_MOTOR.set(-0.5 * direction);
 	}
 
+	/**
+	 * Move the elevator down at a given speed.
+	 * 
+	 * @param speed	Speed of elevator movement
+	 */
 	public void down(double speed) {
 		RobotMap.ELEVATOR_MOTOR.set(-speed * direction);
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public boolean hitTop() {
 		return RobotMap.ELEVATOR_TOP_LIMIT.get();
 	}
