@@ -38,14 +38,18 @@ public class PIDElevator extends PIDSubsystem {
 		setDefaultCommand(new RunElevator());
 	}
 
+	/**
+	 * Gets the elevator's current position
+	 * @return elevator's position
+	 */
 	public int getPoint() {
 		return RobotMap.ELEVATOR_ENCODER.get();
 	}
 
-	public boolean done() {
-		return Math.abs(pidOut) < 0.03;
-	}
-
+	/**
+	 * Tells elevator to go to specified encoder position
+	 * @param point Target point
+	 */
 	public void goTo(int point) {
 		if (point - getPoint() > 0 && hitTop()) {
 			setSetpoint(getPoint());
@@ -56,14 +60,22 @@ public class PIDElevator extends PIDSubsystem {
 		}
 	}
 
+	/**
+	 * Tells if elevator hits the top
+	 * @return true if at upper limit
+	 */
 	public boolean hitTop() {
 		return RobotMap.ELEVATOR_TOP_LIMIT.get();
 	}
 
+	/**
+	 * Tells if elevator hits the bottom
+	 * @return true if at bottom limit
+	 */
 	public boolean hitBottom() {
 		return RobotMap.ELEVATOR_BOTTOM_LIMIT.get();
 	}
-
+	
 	protected double returnPIDInput() {
 		// Return your input value for the PID loop
 		// e.g. a sensor, like a potentiometer:
