@@ -36,4 +36,8 @@ public abstract class CommandBase extends Command {
 	public CommandBase() {
 		super();
 	}
+
+	public static OI getOI() {
+		return oi;
+	}
 }
