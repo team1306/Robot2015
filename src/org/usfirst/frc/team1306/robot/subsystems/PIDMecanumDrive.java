@@ -56,6 +56,12 @@ public class PIDMecanumDrive extends PIDSubsystem {
 
 	}
 
+	/**
+	 * Drives the robot
+	 * @param x The x translation vector
+	 * @param y The y translation vector
+	 * @param rotation Angular velocity
+	 */
 	public void drive(double x, double y, double rotation) {
 		if (rotation == 0.0) {
 			rotation = pidOut;
@@ -69,11 +75,17 @@ public class PIDMecanumDrive extends PIDSubsystem {
 		SmartDashboard.putNumber("Gyro", RobotMap.GYRO.getAngle());
 	}
 
+	/**
+	 * Stops robot
+	 */
 	public void stop() {
 		RobotMap.DRIVETRAIN.mecanumDrive_Cartesian(0.0, 0.0, 0.0, 0.0);
 	}
 
+	/**
+	 * Changes setpoint to the direction the robot is currently facing
+	 */
 	private void changeSetpoint() {
-		// setSetpoint((int)Math.round(RobotMap.GYRO.getAngle()) % 360);
+		setSetpoint((int)Math.round(RobotMap.GYRO.getAngle()) % 360);
 	}
 }
