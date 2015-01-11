@@ -4,6 +4,9 @@ import org.usfirst.frc.team1306.robot.OI;
 import org.usfirst.frc.team1306.robot.RobotMap;
 import org.usfirst.frc.team1306.robot.commands.CommandBase;
 
+import edu.wpi.first.wpilibj.command.WaitCommand;
+import edu.wpi.first.wpilibj.smartdashboard.*;
+
 /**
  *
  */
@@ -14,6 +17,8 @@ public class RunElevator extends CommandBase {
 	private static final int levelOne = 200;
 	private static final int levelTwo = 400;
 	private static final int levelThree = 600;
+	
+	private static int height;
 	
     public RunElevator() {
         // Use requires() here to declare subsystem dependencies
@@ -26,6 +31,7 @@ public class RunElevator extends CommandBase {
     protected void initialize() {
     	elevator.goTo(elevator.getPoint());
     }
+   
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
@@ -46,6 +52,26 @@ public class RunElevator extends CommandBase {
     	}
     	else {
     		elevator.goTo(elevator.getPoint() + (int)(10*oi.elevatorDir()));
+    	
+    	height = RobotMap.ELEVATOR_ENCODER.get();
+    	SmartDashboard.putNumber("Elevator Height", (double) height);
+    	if (height == levelZero)
+    		SmartDashboard.putString("Level", "0");
+    	if (height < 200 && height > 0)
+    		SmartDashboard.putString("Level", "0-1");
+    	if (height == 200)
+    		SmartDashboard.putString("Level", "1");
+    	if (height > 200 && height < 400)
+    		SmartDashboard.putString("Level", "1-2");
+    	if (height == 400)
+    		SmartDashboard.putString("Level", "2");
+    	if (height > 400 && height < 600)
+    		SmartDashboard.putString("Level", "2-3");
+    	if (height == 600)
+    		SmartDashboard.putString("Level", "3");
+    	else
+    		SmartDashboard.putString("Level", "N/A");
+    	
     	}
     }
 
