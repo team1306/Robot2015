@@ -99,47 +99,102 @@ public class OI {
      * triggers are pressed, both of them will be treated as zero. You can only
      * use one trigger at a time.
      */
+    
+    /**
+     * Returns the right trigger value from the auxiliary xbox controller.
+     * 
+     * @return	The value of the right trigger
+     */
     public double getAuxRT() {
         return deadband(-Math.min(xboxAux.getRawAxis(3), 0));
     }
 
+    /**
+     * Returns the left trigger value from the auxiliary xbox controller.
+     * 
+     * @return	The value of the left trigger
+     */
     public double getAuxLT() {
         return deadband(Math.max(xboxAux.getRawAxis(3), 0));
     }
     
+    /**
+     * Returns the right trigger value from the driving xbox controller.
+     * 
+     * @return	The value of the right trigger
+     */
     public double getDriveRT() {
         return deadband(-Math.min(xboxAux.getRawAxis(3), 0));
     }
     
+    /**
+     * Returns the left trigger value from the driving xbox controller.
+     * 
+     * @return	The value of the left trigger
+     */
     public double getDriveLT() {
         return deadband(Math.max(xboxAux.getRawAxis(3), 0));
     }
     
+    /**
+     * Returns the D-pad value from the auxiliary xbox controller.
+     * 
+     * @return	The value of the right trigger
+     */
     public double getAuxDPad() {
         return xboxAux.getRawAxis(6);
     }
 
-    //X axis for left side is moveX
+    /**
+     * Returns the direction to be moved in the x-axis based on the
+     * displacement in the x-axis of the left hand joystick.
+     * 
+     * @return	X component of movement
+     */
     public double moveX() {
     	return deadband(xboxDrive.getX(GenericHID.Hand.kLeft));
     }
 
-    //Y axis for left side is moveY
+    /**
+     * Returns the direction to be moved in the y-axis based on the
+     * displacement in the y-axis of the left hand joystick.
+     * 
+     * @return	Y component of movement
+     */
     public double moveY() {
     	return deadband(xboxDrive.getY(GenericHID.Hand.kLeft));
     }
     
+    /**
+     * Returns the amount of rotation specified by the movement in the
+     * x-axis of the right hand joystick.
+     * 
+     * @return	Amount of rotation
+     */
     public double rotation() {
     	return deadband(xboxDrive.getX(GenericHID.Hand.kRight));
     }
     
-    // movement for elevator from aux controller
+    /**
+     * Returns how fast and in what direction the elevator should go
+     * based on the y-axis of the right joystick of the auxiliary xbox
+     * controller.
+     * 
+     * @return	Elevator movement
+     */
     public double elevatorDir() {
     	return deadband(xboxAux.getY(GenericHID.Hand.kRight));
     }
 
-    public boolean getLevel(int i) {
-    	switch(i) {
+    /**
+     * Returns if a given button is pressed, specifying which to which
+     * level the elevator should go.
+     * 
+     * @param	level	Which level's button to check
+     * @return			State of button
+     */
+    public boolean getLevel(int level) {
+    	switch(level) {
     	case 0:
     		return buttonYAux.get();
     	case 1:
@@ -152,6 +207,13 @@ public class OI {
     	return false;
     }
     
+    /**
+     * Returns the input rounded to zero within the pre-specified
+     * deadband.
+     * 
+     * @param	value	Initial value to be rounded
+     * @return			Rounded value
+     */
     private double deadband(double original) {
         if (original < -DEADBAND) {
             return (original + DEADBAND) / (1.0 - DEADBAND);

@@ -8,6 +8,13 @@ public class XboxController extends Joystick{
         super(port);
     }
     
+    /**
+     * Get the x displacement of either joystick on an
+     * xbox controller.
+     * 
+     * @param	hand	Which joystick
+     * @return			Raw X displacement of joystick
+     */
     public double getX(Hand hand) {
         if (hand.equals(Hand.kLeft)) {
             return -getRawAxis(0);
@@ -16,6 +23,13 @@ public class XboxController extends Joystick{
         }
     }
     
+    /**
+     * Get the x displacement of either joystick on an
+     * xbox controller.
+     * 
+     * @param	hand	Which joystick
+     * @return			Raw X displacement of joystick
+     */
     public double getY(Hand hand) {
         if (hand.equals(Hand.kLeft)) {
             return -getRawAxis(1);
