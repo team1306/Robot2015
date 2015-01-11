@@ -2,6 +2,7 @@ package org.usfirst.frc.team1306.robot;
 
 import edu.wpi.first.wpilibj.BuiltInAccelerometer;
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -42,6 +43,8 @@ public class RobotMap {
 	// Manipulator actuators
 	public static Talon ELEVATOR_MOTOR;
 	public static Encoder ELEVATOR_ENCODER;
+	public static DoubleSolenoid GRABBER_RESIZER;
+	public static DoubleSolenoid GRABBER_CLAMP;
 
 	static {
 		DRIVE_FRONT_LEFT = new Talon(3);
@@ -63,5 +66,8 @@ public class RobotMap {
 
 		ELEVATOR_MOTOR = new Talon(4);
 		ELEVATOR_ENCODER = new Encoder(2, 3);
+		
+		GRABBER_RESIZER = new DoubleSolenoid(0, 1);
+		GRABBER_CLAMP = new DoubleSolenoid(2, 3);
 	}
 }
