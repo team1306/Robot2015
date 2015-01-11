@@ -1,19 +1,20 @@
 package org.usfirst.frc.team1306.robot.commands.elevator;
 
-import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team1306.robot.commands.CommandBase;
 
 /**
  *
  */
-public class ResizeGrabber extends Command {
+public class ClampGrabber extends CommandBase {
 
-    public ResizeGrabber() {
+    public ClampGrabber() {
         // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+        requires(grabber);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	grabber.clamp();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -22,7 +23,7 @@ public class ResizeGrabber extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true
