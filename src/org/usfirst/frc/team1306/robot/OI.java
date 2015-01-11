@@ -36,6 +36,9 @@ public class OI {
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
 	
+	// There are a few additional built in buttons you can use. Additionally,
+	// by subclassing Button you can create custom triggers and bind those to
+	// commands the same as any other Button.
 
     private final XboxController xboxDrive;
     private final XboxController xboxAux;
@@ -227,4 +230,3 @@ public class OI {
     private static final double DEADBAND = 0.15;
     
 }
-

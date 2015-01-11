@@ -1,4 +1,3 @@
-
 package org.usfirst.frc.team1306.robot.subsystems;
 
 import org.usfirst.frc.team1306.robot.RobotMap;
@@ -10,10 +9,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *
  */
 public class MecanumDrive extends Subsystem {
-    
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
-	
+
+	// Put methods for controlling this subsystem
+	// here. Call these from Commands.
+
 	public MecanumDrive() {
 	}
 
@@ -35,4 +34,3 @@ public class MecanumDrive extends Subsystem {
     	RobotMap.DRIVETRAIN.mecanumDrive_Cartesian(0.0, 0.0, 0.0, 0.0);
     }
 }
-

@@ -11,26 +11,25 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class PIDMecanumDrive extends PIDSubsystem {
 
-    // Initialize your subsystem here
-    public PIDMecanumDrive() {
-        // Use these to get going:
-        // setSetpoint() -  Sets where the PID controller should move the system
-        //                  to
-        // enable() - Enables the PID controller.
-    	
-    	super("Drivetrain", 0.0005, 0.0, 0.0);
-    	
-		
+	// Initialize your subsystem here
+	public PIDMecanumDrive() {
+		// Use these to get going:
+		// setSetpoint() - Sets where the PID controller should move the system
+		// to
+		// enable() - Enables the PID controller.
+
+		super("Drivetrain", 0.0005, 0.0, 0.0);
+
 		pidOut = 0.0;
-		
-	    getPIDController().setContinuous();
+
+		getPIDController().setContinuous();
 		setInputRange(0.0, 360.0);
 		setOutputRange(-1.0, 1.0);
 		setAbsoluteTolerance(5.0);
 		changeSetpoint();
-		
+
 		SmartDashboard.putData("PID", getPIDController());
-		
+
 		enable();
 		
     }

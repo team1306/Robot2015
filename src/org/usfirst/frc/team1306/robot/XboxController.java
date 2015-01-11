@@ -2,7 +2,7 @@ package org.usfirst.frc.team1306.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 
-public class XboxController extends Joystick{
+public class XboxController extends Joystick {
 
     public XboxController(int port) {
         super(port);

@@ -9,10 +9,7 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public abstract class CommandBase extends Command {
 
-    private static OI oi;
-    public static OI getOI() {
-        return oi;
-    }
+	private static OI oi;
 
     // Create a single static instance of all of your subsystems
     public static PIDMecanumDrive drivetrain;
@@ -30,17 +27,17 @@ public abstract class CommandBase extends Command {
         drivetrain = new PIDMecanumDrive();
         elevator = new PIDElevator();
         vision = new Vision();
+	}
 
-        
-        // Show what command your subsystem is running on the SmartDashboard
-        
-    }
+	public CommandBase(String name) {
+		super(name);
+	}
 
-    public CommandBase(String name) {
-        super(name);
-    }
+	public CommandBase() {
+		super();
+	}
 
-    public CommandBase() {
-        super();
-    }
+	public static OI getOI() {
+		return oi;
+	}
 }

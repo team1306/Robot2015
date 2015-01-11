@@ -12,25 +12,24 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class PIDElevator extends PIDSubsystem {
 
 	private double pidOut;
-	
-    // Initialize your subsystem here
-    public PIDElevator() {
-        // Use these to get going:
-        // setSetpoint() -  Sets where the PID controller should move the system
-        //                  to
-        // enable() - Enables the PID controller.
-    	super("Elevator", 0.005, 0.0, 0.0);
-    	
-		
+
+	// Initialize your subsystem here
+	public PIDElevator() {
+		// Use these to get going:
+		// setSetpoint() - Sets where the PID controller should move the system
+		// to
+		// enable() - Enables the PID controller.
+		super("Elevator", 0.005, 0.0, 0.0);
+
 		pidOut = 0.0;
-		
-	    getPIDController().setContinuous(false);
+
+		getPIDController().setContinuous(false);
 		setInputRange(0.0, 1000.0); // range of encoder values
 		setOutputRange(-1.0, 1.0); // range of motor speeds
 		setAbsoluteTolerance(5.0); // tolerance in encoder ticks
-		
+
 		SmartDashboard.putData("Elevator PID", getPIDController());
-		
+
 		enable();
     }
     

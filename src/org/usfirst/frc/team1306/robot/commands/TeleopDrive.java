@@ -6,7 +6,7 @@ import org.usfirst.frc.team1306.robot.OI;
  *
  */
 public class TeleopDrive extends CommandBase {
-	
+
 	private final OI oi;
 
 	public TeleopDrive() {
