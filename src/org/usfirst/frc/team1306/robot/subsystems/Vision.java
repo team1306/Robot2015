@@ -5,6 +5,7 @@ import org.usfirst.frc.team1306.robot.commands.ProcessImage;
 import com.ni.vision.NIVision;
 import com.ni.vision.NIVision.ColorMode;
 import com.ni.vision.NIVision.Image;
+import com.ni.vision.NIVision.ParticleInfoMode;
 import com.ni.vision.NIVision.Range;
 
 import edu.wpi.first.wpilibj.CameraServer;
@@ -47,17 +48,19 @@ public class Vision extends Subsystem {
 		// NIVision.imaqInverse(frame, frame, null);
 		// SmartDashboard.putNumber("Particle Count",
 		// NIVision.imaqCountParticles(frame, 8));
+		
 		try {
-			NIVision.GetParticleInfoResult result = NIVision
-					.imaqGetParticleInfo(frame, 8,
-							NIVision.ParticleInfoMode.ALL_INFO);
+	    NIVision.imaqGetParticleInfo(frame, 1,	ParticleInfoMode.ALL_INFO);
+		} catch (Exception e) {
+			
+		}
+	    
+	    /*
 			if (result.array.length > 0) {
 				SmartDashboard.putNumber("Particle 1 Area",
 						result.array[0].area);
 			}
-		} catch (Exception e) {
-			SmartDashboard.putString("Exception", e.getStackTrace().toString());
-		}
+		*/
 		// NIVision.imaqConvexHull(frame, frame, 1);
 
 		CameraServer.getInstance().setImage(frame);
