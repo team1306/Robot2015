@@ -31,48 +31,49 @@ public class PIDMecanumDrive extends PIDSubsystem {
 		SmartDashboard.putData("PID", getPIDController());
 
 		enable();
-		
-    }
-    
-    public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        setDefaultCommand(new TeleopDrive());
-    }
-    
-    protected double returnPIDInput() {
-        // Return your input value for the PID loop
-        // e.g. a sensor, like a potentiometer:
-        // yourPot.getAverageVoltage() / kYourMaxVoltage;
-    	return RobotMap.GYRO.getAngle();
-    }
-    
-    private double pidOut;
-    
-    protected void usePIDOutput(double output) {
-        // Use output to drive your system, like a motor
-        // e.g. yourMotor.set(output);
-    	
-    	pidOut = -output;
-    	
-    }
-        
-    public void drive(double x, double y, double rotation) {
-    	if (rotation == 0.0) {
-    		rotation = pidOut;
-    	} else {
-    		changeSetpoint();
-    	}
-    	SmartDashboard.putNumber("Rotation", rotation);
-    	RobotMap.DRIVETRAIN.mecanumDrive_Cartesian(x, y, rotation, RobotMap.GYRO.getAngle());
-    	
-    	SmartDashboard.putNumber("Gyro", RobotMap.GYRO.getAngle());
-    }
-    
-    public void stop() {
-    	RobotMap.DRIVETRAIN.mecanumDrive_Cartesian(0.0, 0.0, 0.0, 0.0);
-    }
-    
-    private void changeSetpoint() {
-    	//setSetpoint((int)Math.round(RobotMap.GYRO.getAngle()) % 360);
-    }
+
+	}
+
+	public void initDefaultCommand() {
+		// Set the default command for a subsystem here.
+		setDefaultCommand(new TeleopDrive());
+	}
+
+	protected double returnPIDInput() {
+		// Return your input value for the PID loop
+		// e.g. a sensor, like a potentiometer:
+		// yourPot.getAverageVoltage() / kYourMaxVoltage;
+		return RobotMap.GYRO.getAngle();
+	}
+
+	private double pidOut;
+
+	protected void usePIDOutput(double output) {
+		// Use output to drive your system, like a motor
+		// e.g. yourMotor.set(output);
+
+		pidOut = -output;
+
+	}
+
+	public void drive(double x, double y, double rotation) {
+		if (rotation == 0.0) {
+			rotation = pidOut;
+		} else {
+			changeSetpoint();
+		}
+		SmartDashboard.putNumber("Rotation", rotation);
+		RobotMap.DRIVETRAIN.mecanumDrive_Cartesian(x, y, rotation,
+				RobotMap.GYRO.getAngle());
+
+		SmartDashboard.putNumber("Gyro", RobotMap.GYRO.getAngle());
+	}
+
+	public void stop() {
+		RobotMap.DRIVETRAIN.mecanumDrive_Cartesian(0.0, 0.0, 0.0, 0.0);
+	}
+
+	private void changeSetpoint() {
+		// setSetpoint((int)Math.round(RobotMap.GYRO.getAngle()) % 360);
+	}
 }
