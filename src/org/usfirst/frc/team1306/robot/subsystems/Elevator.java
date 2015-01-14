@@ -1,6 +1,8 @@
 package org.usfirst.frc.team1306.robot.subsystems;
 
 import org.usfirst.frc.team1306.robot.RobotMap;
+import org.usfirst.frc.team1306.robot.commands.elevator.RunElevator;
+
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -17,6 +19,7 @@ public class Elevator extends Subsystem {
 	}
 
 	public void initDefaultCommand() {
+		setDefaultCommand(new RunElevator());
 	}
 
 	/**

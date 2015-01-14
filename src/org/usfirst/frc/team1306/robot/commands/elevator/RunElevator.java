@@ -41,7 +41,7 @@ public class RunElevator extends CommandBase {
 		if (elevator.hitBottom()) {
 			RobotMap.ELEVATOR_ENCODER.reset();
 		}
-		if (oi.getLevel(0)) {
+		/*if (oi.getLevel(0)) {
 			elevator.goTo(levelZero);
 		} else if (oi.getLevel(1)) {
 			elevator.goTo(levelOne);
@@ -50,8 +50,9 @@ public class RunElevator extends CommandBase {
 		} else if (oi.getLevel(3)) {
 			elevator.goTo(levelThree);
 		} else {
-			elevator.goTo(elevator.getPoint() + (int) (10 * oi.elevatorDir()));
-		}
+		*/
+			elevator.drive(oi.elevatorDir());
+		//}
 
 		height = RobotMap.ELEVATOR_ENCODER.get();
 		SmartDashboard.putNumber("Elevator Height", (double) height);
@@ -85,7 +86,7 @@ public class RunElevator extends CommandBase {
 	 * This method called once after isFinished returns true.
 	 */
 	protected void end() {
-		elevator.goTo(elevator.getPoint());
+		elevator.stop();
 	}
 
 	/**
@@ -93,6 +94,6 @@ public class RunElevator extends CommandBase {
 	 * subsystems is scheduled to run
 	 */
 	protected void interrupted() {
-		elevator.goTo(elevator.getPoint());
+		elevator.stop();
 	}
 }

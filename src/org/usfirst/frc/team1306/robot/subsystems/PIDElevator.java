@@ -51,6 +51,7 @@ public class PIDElevator extends PIDSubsystem {
 	 * @param point Target point
 	 */
 	public void goTo(int point) {
+		enable();
 		if (point - getPoint() > 0 && hitTop()) {
 			setSetpoint(getPoint());
 		} else if (point - getPoint() < 0 && hitBottom()) {
@@ -58,6 +59,15 @@ public class PIDElevator extends PIDSubsystem {
 		} else {
 			setSetpoint(point);
 		}
+	}
+	
+	
+	public void drive(double speed) {
+		disable();
+		RobotMap.ELEVATOR_MOTOR.set(speed);
+	}
+	public void stop() {
+		drive(0.0);
 	}
 
 	/**
@@ -87,6 +97,6 @@ public class PIDElevator extends PIDSubsystem {
 		// Use output to drive your system, like a motor
 		// e.g. yourMotor.set(output);
 		pidOut = output;
-		RobotMap.ELEVATOR_MOTOR.set(output);
+		//RobotMap.ELEVATOR_MOTOR.set(output);
 	}
 }
