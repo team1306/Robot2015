@@ -54,19 +54,19 @@ public class RunElevator extends CommandBase {
 
 			height = RobotMap.ELEVATOR_ENCODER.get();
 			SmartDashboard.putNumber("Elevator Height", (double) height);
-			if (height == levelZero)
+			if (height == 0)
 				SmartDashboard.putString("Level", "0");
-			if (height < 200 && height > 0)
+			else if (height < 200 && height > 0)
 				SmartDashboard.putString("Level", "0-1");
-			if (height == 200)
+			else if (height == 200)
 				SmartDashboard.putString("Level", "1");
-			if (height > 200 && height < 400)
+			else if (height > 200 && height < 400)
 				SmartDashboard.putString("Level", "1-2");
-			if (height == 400)
+			else if (height == 400)
 				SmartDashboard.putString("Level", "2");
-			if (height > 400 && height < 600)
+			else if (height > 400 && height < 600)
 				SmartDashboard.putString("Level", "2-3");
-			if (height == 600)
+			else if (height == 600)
 				SmartDashboard.putString("Level", "3");
 			else
 				SmartDashboard.putString("Level", "N/A");
