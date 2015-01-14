@@ -51,27 +51,27 @@ public class RunElevator extends CommandBase {
 			elevator.goTo(levelThree);
 		} else {
 			elevator.goTo(elevator.getPoint() + (int) (10 * oi.elevatorDir()));
-
-			height = RobotMap.ELEVATOR_ENCODER.get();
-			SmartDashboard.putNumber("Elevator Height", (double) height);
-			if (height == 0)
-				SmartDashboard.putString("Level", "0");
-			else if (height < 200 && height > 0)
-				SmartDashboard.putString("Level", "0-1");
-			else if (height == 200)
-				SmartDashboard.putString("Level", "1");
-			else if (height > 200 && height < 400)
-				SmartDashboard.putString("Level", "1-2");
-			else if (height == 400)
-				SmartDashboard.putString("Level", "2");
-			else if (height > 400 && height < 600)
-				SmartDashboard.putString("Level", "2-3");
-			else if (height == 600)
-				SmartDashboard.putString("Level", "3");
-			else
-				SmartDashboard.putString("Level", "N/A");
-
 		}
+
+		height = RobotMap.ELEVATOR_ENCODER.get();
+		SmartDashboard.putNumber("Elevator Height", (double) height);
+		if (height == 0)
+			SmartDashboard.putString("Level", "0");
+		else if (height < 200 && height > 0)
+			SmartDashboard.putString("Level", "0-1");
+		else if (height == 200)
+			SmartDashboard.putString("Level", "1");
+		else if (height > 200 && height < 400)
+			SmartDashboard.putString("Level", "1-2");
+		else if (height == 400)
+			SmartDashboard.putString("Level", "2");
+		else if (height > 400 && height < 600)
+			SmartDashboard.putString("Level", "2-3");
+		else if (height == 600)
+			SmartDashboard.putString("Level", "3");
+		else
+			SmartDashboard.putString("Level", "N/A");
+
 	}
 
 	/**
