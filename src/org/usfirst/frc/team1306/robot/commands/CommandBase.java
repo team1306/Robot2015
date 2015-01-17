@@ -1,8 +1,8 @@
 package org.usfirst.frc.team1306.robot.commands;
 
 import org.usfirst.frc.team1306.robot.OI;
-import org.usfirst.frc.team1306.robot.subsystems.Grabber;
 import org.usfirst.frc.team1306.robot.subsystems.PIDElevator;
+import org.usfirst.frc.team1306.robot.subsystems.PIDGrabber;
 import org.usfirst.frc.team1306.robot.subsystems.PIDMecanumDrive;
 import org.usfirst.frc.team1306.robot.subsystems.DriverCamera;
 import org.usfirst.frc.team1306.robot.subsystems.Vision;
@@ -16,7 +16,7 @@ public abstract class CommandBase extends Command {
 	// Create a single static instance of all of your subsystems
 	public static final PIDMecanumDrive drivetrain = new PIDMecanumDrive();
 	public static final PIDElevator elevator = new PIDElevator();
-	public static final Grabber grabber = new Grabber();
+	public static final PIDGrabber grabber = new PIDGrabber();
 	public static final DriverCamera camera = new DriverCamera();
 	public static final Vision vision = new Vision();
 

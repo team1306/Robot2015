@@ -1,5 +1,10 @@
 package org.usfirst.frc.team1306.robot;
 
+import org.usfirst.frc.team1306.robot.commands.elevator.ElevatorOne;
+import org.usfirst.frc.team1306.robot.commands.elevator.ElevatorThree;
+import org.usfirst.frc.team1306.robot.commands.elevator.ElevatorTwo;
+import org.usfirst.frc.team1306.robot.commands.elevator.ElevatorZero;
+
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -93,6 +98,10 @@ public class OI {
 		buttonLSAux = new JoystickButton(xboxAux, XboxController.LS);
 		buttonRSAux = new JoystickButton(xboxAux, XboxController.RS);
 
+		buttonAAux.whenPressed(new ElevatorZero());
+		buttonBAux.whenPressed(new ElevatorOne());
+		buttonXAux.whenPressed(new ElevatorTwo());
+		buttonYAux.whenPressed(new ElevatorThree());
 	}
 
 	/**
@@ -210,6 +219,7 @@ public class OI {
 		return false;
 	}
 
+	
 	/**
 	 * Returns the input rounded to zero within the pre-specified deadband.
 	 * 

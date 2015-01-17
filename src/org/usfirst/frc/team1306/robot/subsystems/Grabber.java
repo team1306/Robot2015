@@ -19,18 +19,18 @@ public class Grabber extends Subsystem {
 	}
 
 	public void open() {
-		RobotMap.GRABBER_RESIZER.set(Value.kReverse);
+		
 	}
 
 	public void close() {
-		RobotMap.GRABBER_RESIZER.set(Value.kForward);
+		
 	}
 	
 	public void clamp() {
-		RobotMap.GRABBER_CLAMP.set(Value.kForward);
+		
 	}
 	
 	public void unclamp() {
-		RobotMap.GRABBER_CLAMP.set(Value.kReverse);
+		
 	}
 }
