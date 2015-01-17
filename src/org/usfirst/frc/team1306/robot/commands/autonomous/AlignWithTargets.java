@@ -1,15 +1,17 @@
 package org.usfirst.frc.team1306.robot.commands.autonomous;
 
-import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team1306.robot.RobotMap;
+import org.usfirst.frc.team1306.robot.commands.CommandBase;
+
+import edu.wpi.first.wpilibj.command.PIDCommand;
 
 /**
  *
  */
-public class AlignWithTargets extends Command {
+public class AlignWithTargets extends CommandBase {
 
     public AlignWithTargets() {
         // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
@@ -33,4 +35,5 @@ public class AlignWithTargets extends Command {
     // subsystems is scheduled to run
     protected void interrupted() {
     }
+
 }
