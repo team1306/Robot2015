@@ -53,7 +53,7 @@ public class RobotMap {
 	public static Encoder GRABBER_ENCODER;
 	
 	// Subsystems
-	public static final PIDMecanumDrive drivetrain;
+	public static final PIDMecanumDrive DRIVETRAIN_SUBSYSTEM;
 	public static final PIDElevator elevator;
 	public static final PIDGrabber grabber;
 	public static final DriverCamera camera;
@@ -87,7 +87,7 @@ public class RobotMap {
 		GRABBER_ENCODER = new Encoder(4, 5);
 		
 		
-		drivetrain = new PIDMecanumDrive();
+		DRIVETRAIN_SUBSYSTEM = new PIDMecanumDrive();
 		elevator = new PIDElevator();
 		grabber = new PIDGrabber();
 		camera = new DriverCamera();

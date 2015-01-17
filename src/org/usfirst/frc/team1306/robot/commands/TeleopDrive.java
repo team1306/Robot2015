@@ -15,7 +15,7 @@ public class TeleopDrive extends Command {
 	public TeleopDrive() {
 		super("Drive");
 		// Use requires() here to declare subsystem dependencies
-		requires(RobotMap.drivetrain);
+		requires(RobotMap.DRIVETRAIN_SUBSYSTEM);
 		oi = RobotMap.oi;
 	}
 
@@ -29,7 +29,7 @@ public class TeleopDrive extends Command {
 	 * and turns it into movements for the mecanum drivetrain.
 	 */
 	protected void execute() {
-		RobotMap.drivetrain.drive(oi.moveX(), oi.moveY(), oi.rotation());
+		RobotMap.DRIVETRAIN_SUBSYSTEM.drive(oi.moveX(), oi.moveY(), oi.rotation());
 	}
 
 	/**
@@ -43,7 +43,7 @@ public class TeleopDrive extends Command {
 	 * Called once after isFinished returns true.
 	 */
 	protected void end() {
-		RobotMap.drivetrain.stop();
+		RobotMap.DRIVETRAIN_SUBSYSTEM.stop();
 	}
 
 	/**
@@ -51,6 +51,6 @@ public class TeleopDrive extends Command {
 	 * subsystems is scheduled to run.
 	 */
 	protected void interrupted() {
-		RobotMap.drivetrain.stop();
+		RobotMap.DRIVETRAIN_SUBSYSTEM.stop();
 	}
 }
