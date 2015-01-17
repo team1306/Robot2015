@@ -1,6 +1,6 @@
 package org.usfirst.frc.team1306.robot.subsystems;
 
-import org.usfirst.frc.team1306.robot.commands.UpdateImage;
+import org.usfirst.frc.team1306.robot.commands.UpdateDriverImage;
 
 import com.ni.vision.NIVision;
 import com.ni.vision.NIVision.ColorMode;
@@ -22,7 +22,7 @@ public class DriverCamera extends Subsystem {
 
 	public void initDefaultCommand() {
 		// Set the default command for a subsystem here.
-		setDefaultCommand(new UpdateImage());
+		setDefaultCommand(new UpdateDriverImage());
 	}
 
 	private final int session;

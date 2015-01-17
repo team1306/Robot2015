@@ -5,6 +5,7 @@ import org.usfirst.frc.team1306.robot.subsystems.Grabber;
 import org.usfirst.frc.team1306.robot.subsystems.PIDElevator;
 import org.usfirst.frc.team1306.robot.subsystems.PIDMecanumDrive;
 import org.usfirst.frc.team1306.robot.subsystems.DriverCamera;
+import org.usfirst.frc.team1306.robot.subsystems.Vision;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -16,7 +17,8 @@ public abstract class CommandBase extends Command {
 	public static final PIDMecanumDrive drivetrain = new PIDMecanumDrive();
 	public static final PIDElevator elevator = new PIDElevator();
 	public static final Grabber grabber = new Grabber();
-	public static final DriverCamera vision = new DriverCamera();
+	public static final DriverCamera camera = new DriverCamera();
+	public static final Vision vision = new Vision();
 
 	public static void init() {
 		// This MUST be here. If the OI creates Commands (which it very likely
