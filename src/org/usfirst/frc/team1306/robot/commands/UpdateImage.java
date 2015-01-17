@@ -3,9 +3,9 @@ package org.usfirst.frc.team1306.robot.commands;
 /**
  *
  */
-public class ProcessImage extends CommandBase {
+public class UpdateImage extends CommandBase {
 
-	public ProcessImage() {
+	public UpdateImage() {
 		// Use requires() here to declare subsystem dependencies
 		requires(vision);
 	}
@@ -17,7 +17,7 @@ public class ProcessImage extends CommandBase {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		vision.processImage();
+		vision.sendImage();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
