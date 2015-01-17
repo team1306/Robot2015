@@ -21,7 +21,7 @@ public class Vision extends Subsystem {
     }
     
     public void processImage() {
-    	//James, put communication with the coprocessor here
+    	// TODO James, put communication with the coprocessor here
     }
     
     public double getDistance() {
