@@ -14,7 +14,7 @@ public class OpenGrabber extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	grabber.open();
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run

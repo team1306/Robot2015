@@ -14,7 +14,7 @@ public class ClampGrabber extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	grabber.clamp();
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run

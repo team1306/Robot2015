@@ -43,8 +43,8 @@ public class RobotMap {
 	// Manipulator actuators
 	public static Talon ELEVATOR_MOTOR;
 	public static Encoder ELEVATOR_ENCODER;
-	public static DoubleSolenoid GRABBER_RESIZER;
-	public static DoubleSolenoid GRABBER_CLAMP;
+	public static Talon GRABBER_MOTOR;
+	public static Encoder GRABBER_ENCODER;
 
 	static {
 		DRIVE_FRONT_LEFT = new Talon(3);
@@ -67,7 +67,9 @@ public class RobotMap {
 		ELEVATOR_MOTOR = new Talon(4);
 		ELEVATOR_ENCODER = new Encoder(2, 3);
 		
-		GRABBER_RESIZER = new DoubleSolenoid(0, 1);
-		GRABBER_CLAMP = new DoubleSolenoid(2, 3);
+		GRABBER_MOTOR = new Talon(5);
+		GRABBER_ENCODER = new Encoder(4, 5);
+		
+
 	}
 }
