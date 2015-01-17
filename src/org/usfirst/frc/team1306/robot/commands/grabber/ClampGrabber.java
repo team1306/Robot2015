@@ -1,4 +1,4 @@
-package org.usfirst.frc.team1306.robot.commands.elevator;
+package org.usfirst.frc.team1306.robot.commands.grabber;
 
 import org.usfirst.frc.team1306.robot.RobotMap;
 
@@ -7,9 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class UnclampGrabber extends Command {
+public class ClampGrabber extends Command {
 
-    public UnclampGrabber() {
+    public ClampGrabber() {
         // Use requires() here to declare subsystem dependencies
         requires(RobotMap.grabber);
     }
@@ -21,6 +21,7 @@ public class UnclampGrabber extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	RobotMap.grabber.clamp();
     }
 
     // Make this return true when this Command no longer needs to run execute()
