@@ -6,6 +6,7 @@ import org.usfirst.frc.team1306.robot.subsystems.PIDGrabber;
 import org.usfirst.frc.team1306.robot.subsystems.PIDMecanumDrive;
 import org.usfirst.frc.team1306.robot.subsystems.Vision;
 
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.BuiltInAccelerometer;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
@@ -45,6 +46,7 @@ public class RobotMap {
 	public static DigitalInput ELEVATOR_TOP_LIMIT;
 	public static Gyro GYRO;
 	public static Accelerometer ACCEL;
+	public static AnalogInput SONIC;
 
 	// Manipulator actuators
 	public static Talon ELEVATOR_MOTOR;
@@ -79,6 +81,7 @@ public class RobotMap {
 		ELEVATOR_TOP_LIMIT = new DigitalInput(1);
 		GYRO = new Gyro(0);
 		ACCEL = new BuiltInAccelerometer();
+		SONIC = new AnalogInput(1);
 
 		ELEVATOR_MOTOR = new Talon(4);
 		ELEVATOR_ENCODER = new Encoder(2, 3);
