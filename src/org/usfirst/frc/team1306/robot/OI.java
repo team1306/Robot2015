@@ -4,6 +4,8 @@ import org.usfirst.frc.team1306.robot.commands.elevator.ElevatorOne;
 import org.usfirst.frc.team1306.robot.commands.elevator.ElevatorThree;
 import org.usfirst.frc.team1306.robot.commands.elevator.ElevatorTwo;
 import org.usfirst.frc.team1306.robot.commands.elevator.ElevatorZero;
+import org.usfirst.frc.team1306.robot.commands.grabber.ClampGrabber;
+import org.usfirst.frc.team1306.robot.commands.grabber.UnclampGrabber;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -47,7 +49,7 @@ public class OI {
 	// commands the same as any other Button.
 
 	private final XboxController xboxDrive;
-	private final XboxController xboxAux;
+	private final static XboxController xboxAux = new XboxController(1);
 
 	private final Button buttonADrive;
 	private final Button buttonBDrive;
@@ -74,7 +76,6 @@ public class OI {
 	public OI() {
 
 		xboxDrive = new XboxController(0);
-		xboxAux = new XboxController(1);
 
 		buttonADrive = new JoystickButton(xboxDrive, XboxController.A);
 		buttonBDrive = new JoystickButton(xboxDrive, XboxController.B);
@@ -102,6 +103,9 @@ public class OI {
 		buttonBAux.whenPressed(new ElevatorOne());
 		buttonXAux.whenPressed(new ElevatorTwo());
 		buttonYAux.whenPressed(new ElevatorThree());
+		
+		buttonStartAux.whenPressed(new ClampGrabber());
+		buttonBackAux.whenPressed(new UnclampGrabber());
 	}
 
 	/**
@@ -146,6 +150,10 @@ public class OI {
 	 */
 	public double getDriveLT() {
 		return deadband(Math.max(xboxAux.getRawAxis(3), 0));
+	}
+	
+	public static double getGrabberSpeed() {
+		return xboxAux.getRawAxis(XboxController.TRIGGERS);
 	}
 
 	/**
@@ -205,7 +213,7 @@ public class OI {
 	 *            Which level's button to check
 	 * @return State of button
 	 */
-	public boolean getLevel(int level) {
+	/*public boolean getLevel(int level) {
 		switch (level) {
 		case 0:
 			return buttonYAux.get();
@@ -218,8 +226,8 @@ public class OI {
 		}
 		return false;
 	}
+	*/
 
-	
 	/**
 	 * Returns the input rounded to zero within the pre-specified deadband.
 	 * 

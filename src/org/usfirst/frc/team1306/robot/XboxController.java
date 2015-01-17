@@ -48,4 +48,5 @@ public class XboxController extends Joystick {
 	public final static int START = 8;
 	public final static int LS = 9;
 	public final static int RS = 10;
+	public final static int TRIGGERS = 3;
 }
