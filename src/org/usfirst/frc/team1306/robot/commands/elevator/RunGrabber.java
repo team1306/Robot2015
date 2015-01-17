@@ -1,8 +1,9 @@
 package org.usfirst.frc.team1306.robot.commands.elevator;
 
-import org.usfirst.frc.team1306.robot.commands.CommandBase;
+import edu.wpi.first.wpilibj.command.Command;
 
-public class RunGrabber extends CommandBase{
+
+public class RunGrabber extends Command{
 
 	
 	protected void end() {

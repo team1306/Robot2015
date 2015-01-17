@@ -1,19 +1,22 @@
 package org.usfirst.frc.team1306.robot.commands;
 
 import org.usfirst.frc.team1306.robot.OI;
+import org.usfirst.frc.team1306.robot.RobotMap;
+
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class TeleopDrive extends CommandBase {
+public class TeleopDrive extends Command {
 
 	private final OI oi;
 
 	public TeleopDrive() {
 		super("Drive");
 		// Use requires() here to declare subsystem dependencies
-		requires(drivetrain);
-		oi = getOI();
+		requires(RobotMap.drivetrain);
+		oi = RobotMap.oi;
 	}
 
 	// Called just before this Command runs the first time
@@ -26,7 +29,7 @@ public class TeleopDrive extends CommandBase {
 	 * and turns it into movements for the mecanum drivetrain.
 	 */
 	protected void execute() {
-		drivetrain.drive(oi.moveX(), oi.moveY(), oi.rotation());
+		RobotMap.drivetrain.drive(oi.moveX(), oi.moveY(), oi.rotation());
 	}
 
 	/**
@@ -40,7 +43,7 @@ public class TeleopDrive extends CommandBase {
 	 * Called once after isFinished returns true.
 	 */
 	protected void end() {
-		drivetrain.stop();
+		RobotMap.drivetrain.stop();
 	}
 
 	/**
@@ -48,6 +51,6 @@ public class TeleopDrive extends CommandBase {
 	 * subsystems is scheduled to run.
 	 */
 	protected void interrupted() {
-		drivetrain.stop();
+		RobotMap.drivetrain.stop();
 	}
 }

@@ -2,15 +2,15 @@ package org.usfirst.frc.team1306.robot.commands.elevator;
 
 import org.usfirst.frc.team1306.robot.OI;
 import org.usfirst.frc.team1306.robot.RobotMap;
-import org.usfirst.frc.team1306.robot.commands.CommandBase;
 
+import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.WaitCommand;
 import edu.wpi.first.wpilibj.smartdashboard.*;
 
 /**
  *
  */
-public class RunElevator extends CommandBase {
+public class RunElevator extends Command {
 
 	private final OI oi;
 	private static final int levelZero = 0;
@@ -23,22 +23,22 @@ public class RunElevator extends CommandBase {
 	public RunElevator() {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
-		requires(elevator);
-		oi = getOI();
+		requires(RobotMap.elevator);
+		oi = RobotMap.oi;
 	}
 
 	/**
 	 * This method is called just before this Command runs the first time.
 	 */
 	protected void initialize() {
-		elevator.goTo(elevator.getPoint());
+		RobotMap.elevator.goTo(RobotMap.elevator.getPoint());
 	}
 
 	/**
 	 * This method is called repeatedly when this Command is scheduled to run.
 	 */
 	protected void execute() {
-		if (elevator.hitBottom()) {
+		if (RobotMap.elevator.hitBottom()) {
 			RobotMap.ELEVATOR_ENCODER.reset();
 		}
 		/*if (oi.getLevel(0)) {
@@ -51,7 +51,7 @@ public class RunElevator extends CommandBase {
 			elevator.goTo(levelThree);
 		} else {
 		*/
-			elevator.drive(oi.elevatorDir());
+		RobotMap.elevator.drive(oi.elevatorDir());
 		//}
 
 		height = RobotMap.ELEVATOR_ENCODER.get();
@@ -86,7 +86,7 @@ public class RunElevator extends CommandBase {
 	 * This method called once after isFinished returns true.
 	 */
 	protected void end() {
-		elevator.stop();
+		RobotMap.elevator.stop();
 	}
 
 	/**
@@ -94,6 +94,6 @@ public class RunElevator extends CommandBase {
 	 * subsystems is scheduled to run
 	 */
 	protected void interrupted() {
-		elevator.stop();
+		RobotMap.elevator.stop();
 	}
 }

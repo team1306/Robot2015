@@ -1,5 +1,11 @@
 package org.usfirst.frc.team1306.robot;
 
+import org.usfirst.frc.team1306.robot.subsystems.DriverCamera;
+import org.usfirst.frc.team1306.robot.subsystems.PIDElevator;
+import org.usfirst.frc.team1306.robot.subsystems.PIDGrabber;
+import org.usfirst.frc.team1306.robot.subsystems.PIDMecanumDrive;
+import org.usfirst.frc.team1306.robot.subsystems.Vision;
+
 import edu.wpi.first.wpilibj.BuiltInAccelerometer;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
@@ -45,6 +51,16 @@ public class RobotMap {
 	public static Encoder ELEVATOR_ENCODER;
 	public static Talon GRABBER_MOTOR;
 	public static Encoder GRABBER_ENCODER;
+	
+	// Subsystems
+	public static final PIDMecanumDrive drivetrain;
+	public static final PIDElevator elevator;
+	public static final PIDGrabber grabber;
+	public static final DriverCamera camera;
+	public static final Vision vision;
+	
+	// Operator Interface
+	public final static OI oi;
 
 	static {
 		DRIVE_FRONT_LEFT = new Talon(3);
@@ -70,6 +86,14 @@ public class RobotMap {
 		GRABBER_MOTOR = new Talon(5);
 		GRABBER_ENCODER = new Encoder(4, 5);
 		
+		
+		drivetrain = new PIDMecanumDrive();
+		elevator = new PIDElevator();
+		grabber = new PIDGrabber();
+		camera = new DriverCamera();
+		vision = new Vision();
+		
+		oi = new OI();
 
 	}
 }

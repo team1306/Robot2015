@@ -1,20 +1,21 @@
 package org.usfirst.frc.team1306.robot.commands.autonomous;
 
 import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.command.Command;
 
-import org.usfirst.frc.team1306.robot.commands.CommandBase;
 import org.usfirst.frc.team1306.robot.OI;
+import org.usfirst.frc.team1306.robot.RobotMap;
 
 /**
  *
  */
-public class DriveForward extends CommandBase {
+public class DriveForward extends Command {
 	private final OI oi;
 
 	public DriveForward() {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
-		oi = getOI();
+		oi = RobotMap.oi;
 	}
 
 	double startTime;
@@ -27,7 +28,7 @@ public class DriveForward extends CommandBase {
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
 
-		drivetrain.drive(0.5, 0, 0);
+		RobotMap.drivetrain.drive(0.5, 0, 0);
 
 	}
 
@@ -38,7 +39,7 @@ public class DriveForward extends CommandBase {
 
 	// Called once after isFinished returns true
 	protected void end() {
-		drivetrain.stop();
+		RobotMap.drivetrain.stop();
 	}
 
 	// Called when another command which requires one or more of the same

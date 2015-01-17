@@ -1,16 +1,16 @@
 package org.usfirst.frc.team1306.robot.commands.autonomous;
 
 import org.usfirst.frc.team1306.robot.RobotMap;
-import org.usfirst.frc.team1306.robot.commands.CommandBase;
 
 import edu.wpi.first.wpilibj.command.PIDCommand;
 
 /**
  *
  */
-public class AlignWithTargets extends CommandBase {
+public class AlignWithTargets extends PIDCommand {
 
     public AlignWithTargets() {
+    	super(0.005, 0.0, 0.0);
         // Use requires() here to declare subsystem dependencies
     }
 
@@ -35,5 +35,17 @@ public class AlignWithTargets extends CommandBase {
     // subsystems is scheduled to run
     protected void interrupted() {
     }
+
+	@Override
+	protected double returnPIDInput() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	protected void usePIDOutput(double output) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

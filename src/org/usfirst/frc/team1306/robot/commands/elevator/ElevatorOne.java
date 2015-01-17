@@ -1,13 +1,16 @@
 package org.usfirst.frc.team1306.robot.commands.elevator;
 
-import org.usfirst.frc.team1306.robot.commands.CommandBase;
 
-public class ElevatorOne extends CommandBase{
+import org.usfirst.frc.team1306.robot.RobotMap;
+
+import edu.wpi.first.wpilibj.command.Command;
+
+public class ElevatorOne extends Command {
 
 	private static final int levelOne = 200;
 	
 	public ElevatorOne(){
-		requires(elevator);
+		requires(RobotMap.elevator);
 	}
 	
 	protected void end() {
@@ -21,19 +24,19 @@ public class ElevatorOne extends CommandBase{
 
 
 	protected void initialize() {
-		elevator.goTo(levelOne);
+		RobotMap.elevator.goTo(levelOne);
 	}
 
 
 	protected void interrupted() {
-		elevator.stop();
+		RobotMap.elevator.stop();
 		
 	}
 
 	@Override
 	protected boolean isFinished() {
 		
-		return elevator.onTarget();
+		return RobotMap.elevator.onTarget();
 	}
 
 }

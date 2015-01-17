@@ -1,15 +1,17 @@
 package org.usfirst.frc.team1306.robot.commands.elevator;
 
-import org.usfirst.frc.team1306.robot.commands.CommandBase;
+import org.usfirst.frc.team1306.robot.RobotMap;
+
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class UnclampGrabber extends CommandBase {
+public class UnclampGrabber extends Command {
 
     public UnclampGrabber() {
         // Use requires() here to declare subsystem dependencies
-        requires(grabber);
+        requires(RobotMap.grabber);
     }
 
     // Called just before this Command runs the first time
