@@ -66,9 +66,9 @@ public class RobotMap {
 
 	static {
 		DRIVE_FRONT_LEFT = new Talon(3);
-		DRIVE_REAR_LEFT = new Talon(2);
-		DRIVE_FRONT_RIGHT = new Talon(1);
-		DRIVE_REAR_RIGHT = new Talon(0);
+		DRIVE_REAR_LEFT = new Talon(1);
+		DRIVE_FRONT_RIGHT = new Talon(0);
+		DRIVE_REAR_RIGHT = new Talon(2);
 
 		DRIVETRAIN = new RobotDrive(DRIVE_FRONT_LEFT, DRIVE_REAR_LEFT,
 				DRIVE_FRONT_RIGHT, DRIVE_REAR_RIGHT);
