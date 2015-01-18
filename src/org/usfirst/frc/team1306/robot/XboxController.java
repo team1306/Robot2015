@@ -17,9 +17,9 @@ public class XboxController extends Joystick {
 	 */
 	public double getX(Hand hand) {
 		if (hand.equals(Hand.kLeft)) {
-			return -getRawAxis(0);
+			return getRawAxis(0);
 		} else {
-			return -getRawAxis(4);
+			return getRawAxis(4);
 		}
 	}
 
@@ -36,6 +36,22 @@ public class XboxController extends Joystick {
 		} else {
 			return -getRawAxis(5);
 		}
+	}
+	
+	public boolean getTrigger(Hand hand) {
+		if (hand.equals(Hand.kLeft)) {
+			return getRawAxis(2) > 0.5;
+		} else {
+			return getRawAxis(3) > 0.5;
+		}
+	}
+	
+	public double getLT() {
+		return getRawAxis(2);
+	}
+	
+	public double getRT() {
+		return getRawAxis(3);
 	}
 
 	public final static int A = 1;

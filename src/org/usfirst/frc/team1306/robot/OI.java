@@ -108,62 +108,11 @@ public class OI {
 		buttonBackAux.whenPressed(new UnclampGrabber());
 	}
 
-	/**
-	 * Warning! getRightTrigger() and getLeftTrigger() both use getRawAxis(3).
-	 * As getRawAxis(3) goes below zero, getRightTrigger() increases, and as
-	 * getRawAxis(3) goes above zero, getLeftTrigger() increases. If both
-	 * triggers are pressed, both of them will be treated as zero. You can only
-	 * use one trigger at a time.
-	 */
-
-	/**
-	 * Returns the right trigger value from the auxiliary xbox controller.
-	 * 
-	 * @return The value of the right trigger
-	 */
-	public double getAuxRT() {
-		return deadband(-Math.min(xboxAux.getRawAxis(3), 0));
-	}
-
-	/**
-	 * Returns the left trigger value from the auxiliary xbox controller.
-	 * 
-	 * @return The value of the left trigger
-	 */
-	public double getAuxLT() {
-		return deadband(Math.max(xboxAux.getRawAxis(3), 0));
-	}
-
-	/**
-	 * Returns the right trigger value from the driving xbox controller.
-	 * 
-	 * @return The value of the right trigger
-	 */
-	public double getDriveRT() {
-		return deadband(-Math.min(xboxAux.getRawAxis(3), 0));
-	}
-
-	/**
-	 * Returns the left trigger value from the driving xbox controller.
-	 * 
-	 * @return The value of the left trigger
-	 */
-	public double getDriveLT() {
-		return deadband(Math.max(xboxAux.getRawAxis(3), 0));
-	}
 	
 	public static double getGrabberSpeed() {
-		return xboxAux.getRawAxis(XboxController.TRIGGERS);
+		return xboxAux.getRT() - xboxAux.getLT();
 	}
 
-	/**
-	 * Returns the D-pad value from the auxiliary xbox controller.
-	 * 
-	 * @return The value of the right trigger
-	 */
-	public double getAuxDPad() {
-		return xboxAux.getRawAxis(6);
-	}
 
 	/**
 	 * Returns the direction to be moved in the x-axis based on the displacement

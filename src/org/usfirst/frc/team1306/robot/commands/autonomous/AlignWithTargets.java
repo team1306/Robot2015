@@ -38,7 +38,7 @@ public class AlignWithTargets extends PIDCommand {
 
 	@Override
 	protected double returnPIDInput() {
-		RobotMap.DRIVETRAIN_SUBSYSTEM.getPIDController().setSetpoint(RobotMap.vision.getAngle());
+		//RobotMap.DRIVETRAIN_SUBSYSTEM.getPIDController().setSetpoint(RobotMap.vision.getAngle());
 		return RobotMap.GYRO.getAngle();
 	}
 

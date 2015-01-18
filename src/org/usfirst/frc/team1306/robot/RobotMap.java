@@ -1,6 +1,7 @@
 package org.usfirst.frc.team1306.robot;
 
 import org.usfirst.frc.team1306.robot.subsystems.DriverCamera;
+import org.usfirst.frc.team1306.robot.subsystems.MecanumDrive;
 import org.usfirst.frc.team1306.robot.subsystems.PIDElevator;
 import org.usfirst.frc.team1306.robot.subsystems.PIDGrabber;
 import org.usfirst.frc.team1306.robot.subsystems.PIDMecanumDrive;
@@ -55,7 +56,7 @@ public class RobotMap {
 	public static Encoder GRABBER_ENCODER;
 	
 	// Subsystems
-	public static final PIDMecanumDrive DRIVETRAIN_SUBSYSTEM;
+	public static final MecanumDrive DRIVETRAIN_SUBSYSTEM;
 	public static final PIDElevator elevator;
 	public static final PIDGrabber grabber;
 	public static final DriverCamera camera;
@@ -72,7 +73,7 @@ public class RobotMap {
 
 		DRIVETRAIN = new RobotDrive(DRIVE_FRONT_LEFT, DRIVE_REAR_LEFT,
 				DRIVE_FRONT_RIGHT, DRIVE_REAR_RIGHT);
-		DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
+		DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, false);
 		DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kFrontRight, false);
 		DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
 		DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
@@ -90,7 +91,7 @@ public class RobotMap {
 		GRABBER_ENCODER = new Encoder(4, 5);
 		
 		
-		DRIVETRAIN_SUBSYSTEM = new PIDMecanumDrive();
+		DRIVETRAIN_SUBSYSTEM = new MecanumDrive();
 		elevator = new PIDElevator();
 		grabber = new PIDGrabber();
 		camera = new DriverCamera();
