@@ -98,11 +98,6 @@ public class OI {
 		buttonStartAux = new JoystickButton(xboxAux, XboxController.START);
 		buttonLSAux = new JoystickButton(xboxAux, XboxController.LS);
 		buttonRSAux = new JoystickButton(xboxAux, XboxController.RS);
-
-		buttonAAux.whenPressed(new ElevatorZero());
-		buttonBAux.whenPressed(new ElevatorOne());
-		buttonXAux.whenPressed(new ElevatorTwo());
-		buttonYAux.whenPressed(new ElevatorThree());
 		
 		buttonStartAux.whenPressed(new ClampGrabber());
 		buttonBackAux.whenPressed(new UnclampGrabber());
