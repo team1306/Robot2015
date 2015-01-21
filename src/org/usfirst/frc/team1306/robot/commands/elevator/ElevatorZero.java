@@ -8,11 +8,9 @@ import edu.wpi.first.wpilibj.command.Command;
 public class ElevatorZero extends Command {
 	
 	private static final int levelZero = 0;
-	private final OI oi;
 	
 	public ElevatorZero() {
 		requires(RobotMap.elevator);
-		oi = RobotMap.oi;
 	}
 
 	protected void end() {
