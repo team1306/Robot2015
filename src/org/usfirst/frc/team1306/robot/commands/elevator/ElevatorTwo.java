@@ -4,6 +4,11 @@ import org.usfirst.frc.team1306.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
+/**
+ * Moves Elevator to level 2
+ */
+
+
 public class ElevatorTwo extends Command{
 
 	private static final int levelTwo = 400;
