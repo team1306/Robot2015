@@ -10,6 +10,8 @@ import edu.wpi.first.wpilibj.command.Command;
 public class UpdateDriverImage extends Command {
 
 	public UpdateDriverImage() {
+		setRunWhenDisabled(true);
+		
 		// Use requires() here to declare subsystem dependencies
 		requires(RobotMap.camera);
 	}

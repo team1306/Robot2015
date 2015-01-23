@@ -30,6 +30,9 @@ public class TeleopDrive extends Command {
 	 * and turns it into movements for the mecanum drivetrain.
 	 */
 	protected void execute() {
+		double x = RobotMap.ACCEL.getX();
+		double y = RobotMap.ACCEL.getY();
+		oi.setRumble((x*x + y*y) / 2.0);
 		RobotMap.DRIVETRAIN_SUBSYSTEM.drive(oi.moveX(), oi.moveY(), oi.rotation());
 	}
 
@@ -52,6 +55,6 @@ public class TeleopDrive extends Command {
 	 * subsystems is scheduled to run.
 	 */
 	protected void interrupted() {
-		RobotMap.DRIVETRAIN_SUBSYSTEM.stop();
+		end();
 	}
 }

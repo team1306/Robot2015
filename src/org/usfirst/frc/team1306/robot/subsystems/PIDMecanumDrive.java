@@ -52,7 +52,7 @@ public class PIDMecanumDrive extends PIDSubsystem {
 		// Use output to drive your system, like a motor
 		// e.g. yourMotor.set(output);
 
-		pidOut = -output;
+		pidOut = output;
 
 	}
 
@@ -69,10 +69,26 @@ public class PIDMecanumDrive extends PIDSubsystem {
 			changeSetpoint();
 		}
 		SmartDashboard.putNumber("Rotation", rotation);
-		RobotMap.DRIVETRAIN.mecanumDrive_Cartesian(x, y, rotation,
+		RobotMap.DRIVETRAIN.mecanumDrive_Cartesian(-x, y, -rotation,
 				RobotMap.GYRO.getAngle());
 
 		SmartDashboard.putNumber("Gyro", RobotMap.GYRO.getAngle());
+	}
+	
+	private double x;
+	
+	public void setXTranslation(double x) {
+		this.x = x;
+	}
+	
+	private double y;
+	
+	public void setYTranslation(double y) {
+		this.y = y;
+	}
+	
+	public void driveWithPID() {
+		RobotMap.DRIVETRAIN.mecanumDrive_Cartesian(-x, y, pidOut, RobotMap.GYRO.getAngle());
 	}
 
 	/**

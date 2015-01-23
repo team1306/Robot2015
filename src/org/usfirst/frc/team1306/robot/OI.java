@@ -8,6 +8,7 @@ import org.usfirst.frc.team1306.robot.commands.grabber.ClampGrabber;
 import org.usfirst.frc.team1306.robot.commands.grabber.UnclampGrabber;
 
 import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.Joystick.RumbleType;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
@@ -106,6 +107,10 @@ public class OI {
 	
 	public static double getGrabberSpeed() {
 		return xboxAux.getRT() - xboxAux.getLT();
+	}
+	
+	public void setRumble(double x) {
+		xboxDrive.setRumble(RumbleType.kLeftRumble, (float)x);
 	}
 
 

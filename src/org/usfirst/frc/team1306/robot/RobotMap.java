@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.interfaces.Accelerometer;
 
@@ -45,9 +46,13 @@ public class RobotMap {
 	// Misc inputs
 	public static DigitalInput ELEVATOR_BOTTOM_LIMIT;
 	public static DigitalInput ELEVATOR_TOP_LIMIT;
+	public static DigitalInput TOTE_SWITCH;
 	public static Gyro GYRO;
 	public static Accelerometer ACCEL;
 	public static AnalogInput SONIC;
+	
+	// Coprocessor
+	public static SPI COPROCESSOR;
 
 	// Manipulator actuators
 	public static Talon ELEVATOR_MOTOR;
@@ -56,7 +61,7 @@ public class RobotMap {
 	public static Encoder GRABBER_ENCODER;
 	
 	// Subsystems
-	public static final MecanumDrive DRIVETRAIN_SUBSYSTEM;
+	public static final PIDMecanumDrive DRIVETRAIN_SUBSYSTEM;
 	public static final PIDElevator elevator;
 	public static final PIDGrabber grabber;
 	public static final DriverCamera camera;
@@ -74,15 +79,18 @@ public class RobotMap {
 		DRIVETRAIN = new RobotDrive(DRIVE_FRONT_LEFT, DRIVE_REAR_LEFT,
 				DRIVE_FRONT_RIGHT, DRIVE_REAR_RIGHT);
 		DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, false);
-		DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kFrontRight, false);
-		DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
+		DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
+		DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kRearLeft, false);
 		DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
 
 		ELEVATOR_BOTTOM_LIMIT = new DigitalInput(0);
 		ELEVATOR_TOP_LIMIT = new DigitalInput(1);
+		TOTE_SWITCH = new DigitalInput(2);
 		GYRO = new Gyro(0);
 		ACCEL = new BuiltInAccelerometer();
 		SONIC = new AnalogInput(1);
+		
+		COPROCESSOR = new SPI(SPI.Port.kOnboardCS0);
 
 		ELEVATOR_MOTOR = new Talon(4);
 		ELEVATOR_ENCODER = new Encoder(2, 3);
@@ -91,7 +99,7 @@ public class RobotMap {
 		GRABBER_ENCODER = new Encoder(4, 5);
 		
 		
-		DRIVETRAIN_SUBSYSTEM = new MecanumDrive();
+		DRIVETRAIN_SUBSYSTEM = new PIDMecanumDrive();
 		elevator = new PIDElevator();
 		grabber = new PIDGrabber();
 		camera = new DriverCamera();
