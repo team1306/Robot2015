@@ -8,7 +8,8 @@ import edu.wpi.first.wpilibj.command.WaitCommand;
 import edu.wpi.first.wpilibj.smartdashboard.*;
 
 /**
- *
+ * Gets input from Joystick and converts it into elevator speed and direction.
+ * Calculates location compared to levels and prints to SmartDashboard
  */
 public class RunElevator extends Command {
 

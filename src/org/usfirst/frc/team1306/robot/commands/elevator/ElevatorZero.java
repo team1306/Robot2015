@@ -5,14 +5,16 @@ import org.usfirst.frc.team1306.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
+/**
+ * Moves Elevator to level 0
+ */
+
 public class ElevatorZero extends Command {
 	
 	private static final int levelZero = 0;
-	private final OI oi;
 	
 	public ElevatorZero() {
 		requires(RobotMap.elevator);
-		oi = RobotMap.oi;
 	}
 
 	protected void end() {

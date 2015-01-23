@@ -104,7 +104,10 @@ public class OI {
 		buttonBackAux.whenPressed(new UnclampGrabber());
 	}
 
-	
+	/**
+	 * Gets the speed at which the grabber should be moving
+	 * @return grabber speed (double)
+	 */
 	public static double getGrabberSpeed() {
 		return xboxAux.getRT() - xboxAux.getLT();
 	}
