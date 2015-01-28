@@ -5,7 +5,7 @@ import org.usfirst.frc.team1306.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Turns image from camera into distance to tote THEORETICALLY
  */
 public class ProcessVisionImage extends Command {
 

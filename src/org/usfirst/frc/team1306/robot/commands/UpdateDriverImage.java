@@ -5,7 +5,7 @@ import org.usfirst.frc.team1306.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Sends image from camera to the driver station
  */
 public class UpdateDriverImage extends Command {
 
