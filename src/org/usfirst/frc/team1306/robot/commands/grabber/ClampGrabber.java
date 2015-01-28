@@ -9,6 +9,9 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class ClampGrabber extends Command {
 
+	/**
+	 * Calls command to close the grabber
+	 */
     public ClampGrabber() {
         // Use requires() here to declare subsystem dependencies
         requires(RobotMap.grabber);
@@ -36,6 +39,7 @@ public class ClampGrabber extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	// Sets point to the current point so that the movement is discontinued
     	RobotMap.grabber.setSetpoint(RobotMap.GRABBER_ENCODER.get());
     }
 }
