@@ -62,7 +62,20 @@ public class PIDMecanumDrive extends PIDSubsystem {
 	 * @param y The y translation vector
 	 * @param rotation Angular velocity
 	 */
+	private static double maximumSpeed = 1;
+	
+	public static void setMaximumSpeed(double speed){
+		maximumSpeed = speed;
+	}
+
+	public static double getMaximumSpeed(){
+		return maximumSpeed;
+	}
+	
 	public void drive(double x, double y, double rotation) {
+		
+		setOutputRange(-maximumSpeed, maximumSpeed);
+		
 		if (rotation == 0.0) {
 			rotation = pidOut;
 		} else {

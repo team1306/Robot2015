@@ -1,9 +1,9 @@
 package org.usfirst.frc.team1306.robot;
 
-import org.usfirst.frc.team1306.robot.commands.elevator.ElevatorOne;
-import org.usfirst.frc.team1306.robot.commands.elevator.ElevatorThree;
-import org.usfirst.frc.team1306.robot.commands.elevator.ElevatorTwo;
-import org.usfirst.frc.team1306.robot.commands.elevator.ElevatorZero;
+import org.usfirst.frc.team1306.robot.commands.MaximumSpeed100;
+import org.usfirst.frc.team1306.robot.commands.MaximumSpeed25;
+import org.usfirst.frc.team1306.robot.commands.MaximumSpeed50;
+import org.usfirst.frc.team1306.robot.commands.MaximumSpeed75;
 import org.usfirst.frc.team1306.robot.commands.grabber.ClampGrabber;
 import org.usfirst.frc.team1306.robot.commands.grabber.UnclampGrabber;
 
@@ -102,6 +102,10 @@ public class OI {
 		
 		buttonStartAux.whenPressed(new ClampGrabber());
 		buttonBackAux.whenPressed(new UnclampGrabber());
+		buttonADrive.whenPressed(new MaximumSpeed100());
+		buttonBDrive.whenPressed(new MaximumSpeed75());
+		buttonYDrive.whenPressed(new MaximumSpeed50());
+		buttonXDrive.whenPressed(new MaximumSpeed25());
 	}
 
 	/**
