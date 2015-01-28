@@ -7,7 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class RunGrabber extends Command{
 	
-	
+	/**
+	 * Initializes command for continuous grabber movement
+	 */
 	public RunGrabber() {
 		// Use requires() to set subsystem dependencies
 		requires(RobotMap.grabber);

@@ -9,6 +9,9 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class UnclampGrabber extends Command {
 
+	/**
+	 * Initializes the command to unclamp the grabber
+	 */
     public UnclampGrabber() {
         // Use requires() here to declare subsystem dependencies
         requires(RobotMap.grabber);
