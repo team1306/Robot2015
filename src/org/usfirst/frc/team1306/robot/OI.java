@@ -116,6 +116,9 @@ public class OI {
 		return xboxAux.getRT() - xboxAux.getLT();
 	}
 	
+	/**
+	 * Sets the left rumble of the Xbox controller to a value between 0 and 1
+	 */
 	public void setRumble(double x) {
 		xboxDrive.setRumble(RumbleType.kLeftRumble, (float)x);
 	}
