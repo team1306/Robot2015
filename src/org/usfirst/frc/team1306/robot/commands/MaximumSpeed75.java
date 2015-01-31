@@ -5,11 +5,11 @@ import org.usfirst.frc.team1306.robot.subsystems.PIDMecanumDrive;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-/**
- *
- */
 public class MaximumSpeed75 extends Command {
 
+	/**
+	 * Initializes command for 75% speed
+	 */
     public MaximumSpeed75() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
