@@ -64,10 +64,18 @@ public class PIDMecanumDrive extends PIDSubsystem {
 	 */
 	private static double maximumSpeed = 1;
 	
+	/**
+	 * Sets the maximum output speed of the drivetrain
+	 * @param speed
+	 */
 	public static void setMaximumSpeed(double speed){
 		maximumSpeed = speed;
 	}
 
+	/**
+	 * Gets the maximum output of the drivetrain
+	 * @return (double) maximum speed
+	 */
 	public static double getMaximumSpeed(){
 		return maximumSpeed;
 	}

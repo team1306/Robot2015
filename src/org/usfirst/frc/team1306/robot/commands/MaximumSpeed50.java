@@ -10,6 +10,9 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class MaximumSpeed50 extends Command {
 
+	/**
+	 * Initializes command for 50% speed
+	 */
     public MaximumSpeed50() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
