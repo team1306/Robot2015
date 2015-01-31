@@ -5,13 +5,10 @@ import org.usfirst.frc.team1306.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Calls command to run grabber motor to open
  */
 public class UnclampGrabber extends Command {
 
-	/**
-	 * Initializes the command to unclamp the grabber
-	 */
     public UnclampGrabber() {
         // Use requires() here to declare subsystem dependencies
         requires(RobotMap.grabber);

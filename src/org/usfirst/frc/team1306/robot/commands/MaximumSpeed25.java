@@ -6,7 +6,7 @@ import org.usfirst.frc.team1306.robot.subsystems.PIDMecanumDrive;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Sets PIDMecanumDrive's maximum output to .25
  */
 public class MaximumSpeed25 extends Command {
 
