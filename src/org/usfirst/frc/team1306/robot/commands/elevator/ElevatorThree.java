@@ -7,39 +7,49 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  * Moves Elevator to level 3
  */
-
-public class ElevatorThree extends Command{
-
-	private static final int levelThree = 600;
+public class ElevatorThree extends Command {
 	
-	public ElevatorThree(){
+	private static final int levelThree = 0;
+	
+	public ElevatorThree() {
+		// Use requires() here to declare subsystem dependencies
+		// eg. requires(chassis);
 		requires(RobotMap.elevator);
 	}
+
+	/**
+	 * This method is called just before this Command runs the first time.
+	 */
+	protected void initialize() {
+		RobotMap.elevator.goTo(levelThree);
+	}
 	
+	/**
+	 * This method is called repeatedly when this Command is scheduled to run.
+	 */
+	protected void execute() {
+		
+	}
+	
+	/**
+	 * This method returns true when this Command no longer needs to run execute().
+	 */
+	protected boolean isFinished() {
+		return RobotMap.elevator.onTarget();
+	}
+	
+	/**
+	 * This method called once after isFinished returns true.
+	 */
 	protected void end() {
 		
 	}
 
-
-	protected void execute() {
-		
-	}
-
-
-	protected void initialize() {
-		RobotMap.elevator.goTo(levelThree);
-	}
-
-
+	/**
+	 * This method called when another command which requires one or more of the same
+	 * subsystems is scheduled to run
+	 */
 	protected void interrupted() {
 		RobotMap.elevator.stop();
-		
-	}
-
-	@Override
-	protected boolean isFinished() {
-		
-		return RobotMap.elevator.onTarget();
 	}
 }
-
