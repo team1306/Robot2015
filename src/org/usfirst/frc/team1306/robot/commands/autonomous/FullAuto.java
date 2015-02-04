@@ -25,6 +25,7 @@ public class FullAuto extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
+    	addParallel(new AlignWithTargets());
     	addSequential(new DriveToTote());
     }
 }

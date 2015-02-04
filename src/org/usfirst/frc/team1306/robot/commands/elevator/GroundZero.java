@@ -9,11 +9,11 @@ import edu.wpi.first.wpilibj.command.Command;
  * Moves Elevator to level 0
  */
 
-public class ElevatorZero extends Command {
+public class GroundZero extends Command {
 	
 	private static final int levelZero = 0;
 	
-	public ElevatorZero() {
+	public GroundZero() {
 		requires(RobotMap.elevator);
 	}
 

@@ -1,19 +1,20 @@
 package org.usfirst.frc.team1306.robot.commands.elevator;
 
+
 import org.usfirst.frc.team1306.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Moves Elevator to level 2
+ * Moves Elevator to level 1
  */
 
 
-public class ElevatorTwo extends Command{
+public class GroundOne extends Command {
 
-	private static final int levelTwo = 400;
+	private static final int levelOne = 200;
 	
-	public ElevatorTwo(){
+	public GroundOne(){
 		requires(RobotMap.elevator);
 	}
 	
@@ -28,7 +29,7 @@ public class ElevatorTwo extends Command{
 
 
 	protected void initialize() {
-		RobotMap.elevator.goTo(levelTwo);
+		RobotMap.elevator.goTo(levelOne);
 	}
 
 
@@ -42,4 +43,5 @@ public class ElevatorTwo extends Command{
 		
 		return RobotMap.elevator.onTarget();
 	}
+
 }

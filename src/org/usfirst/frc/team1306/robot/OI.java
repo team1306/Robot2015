@@ -1,9 +1,9 @@
 package org.usfirst.frc.team1306.robot;
 
-import org.usfirst.frc.team1306.robot.commands.elevator.ElevatorOne;
-import org.usfirst.frc.team1306.robot.commands.elevator.ElevatorThree;
-import org.usfirst.frc.team1306.robot.commands.elevator.ElevatorTwo;
-import org.usfirst.frc.team1306.robot.commands.elevator.ElevatorZero;
+import org.usfirst.frc.team1306.robot.commands.elevator.GroundOne;
+import org.usfirst.frc.team1306.robot.commands.elevator.GroundThree;
+import org.usfirst.frc.team1306.robot.commands.elevator.GroundTwo;
+import org.usfirst.frc.team1306.robot.commands.elevator.GroundZero;
 import org.usfirst.frc.team1306.robot.commands.grabber.ClampGrabber;
 import org.usfirst.frc.team1306.robot.commands.grabber.UnclampGrabber;
 

@@ -31,6 +31,7 @@ public class PIDMecanumDrive extends PIDSubsystem {
 		SmartDashboard.putData("PID", getPIDController());
 
 		enable();
+		
 
 	}
 
@@ -63,6 +64,7 @@ public class PIDMecanumDrive extends PIDSubsystem {
 	 * @param rotation Angular velocity
 	 */
 	public void drive(double x, double y, double rotation) {
+		SmartDashboard.putBoolean("Driving", true);
 		if (rotation == 0.0) {
 			rotation = pidOut;
 		} else {

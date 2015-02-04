@@ -27,6 +27,7 @@ public class Robot extends IterativeRobot {
 	 * used for any initialization code.
 	 */
 	public void robotInit() {
+		RobotMap.init();
 		// instantiate the command used for the autonomous period
 		// autonomousCommand = new ExampleCommand();
 	}
@@ -62,7 +63,6 @@ public class Robot extends IterativeRobot {
 	 * to reset subsystems before shutting down.
 	 */
 	public void disabledInit() {
-		RobotMap.DRIVETRAIN_SUBSYSTEM.stop();
 	}
 
 	/**
@@ -72,6 +72,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putNumber("Time", Timer.getFPGATimestamp() - time);
 		time = Timer.getFPGATimestamp();
 		Scheduler.getInstance().run();
+		SmartDashboard.putString("Drivetrain", RobotMap.DRIVETRAIN.toString());
 	}
 
 	/**
