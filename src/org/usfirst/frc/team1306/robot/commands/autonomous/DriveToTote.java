@@ -5,7 +5,9 @@ import org.usfirst.frc.team1306.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.PIDCommand;
 
 /**
- *
+ * Runs driveWithPID when the claw is not closed
+ * Drives forward at half speed when claw is closed
+ * Stops robot movement when a tote is detected in the claw
  */
 public class DriveToTote extends PIDCommand {
 

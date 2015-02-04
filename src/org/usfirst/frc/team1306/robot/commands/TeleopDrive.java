@@ -7,7 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
- *
+ * Turns off the drivetrain safety
+ * Gets the X and Y acceleration values and converts them into Xbox rumble
+ * Moves the drivetrain with the two Xbox joysticks
  */
 public class TeleopDrive extends Command {
 
@@ -30,8 +32,6 @@ public class TeleopDrive extends Command {
 
 	/**
 	 * This method is called repeatedly when this command is run.
-	 * It takes the values of the joysticks on the drive xbox controller
-	 * and turns it into movements for the mecanum drivetrain.
 	 */
 	protected void execute() {
 		double x = RobotMap.ACCEL.getX();

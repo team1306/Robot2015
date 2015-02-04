@@ -1,9 +1,9 @@
 package org.usfirst.frc.team1306.robot;
 
-import org.usfirst.frc.team1306.robot.commands.elevator.GroundOne;
-import org.usfirst.frc.team1306.robot.commands.elevator.GroundThree;
-import org.usfirst.frc.team1306.robot.commands.elevator.GroundTwo;
-import org.usfirst.frc.team1306.robot.commands.elevator.GroundZero;
+import org.usfirst.frc.team1306.robot.commands.MaximumSpeed100;
+import org.usfirst.frc.team1306.robot.commands.MaximumSpeed25;
+import org.usfirst.frc.team1306.robot.commands.MaximumSpeed50;
+import org.usfirst.frc.team1306.robot.commands.MaximumSpeed75;
 import org.usfirst.frc.team1306.robot.commands.grabber.ClampGrabber;
 import org.usfirst.frc.team1306.robot.commands.grabber.UnclampGrabber;
 
@@ -102,6 +102,10 @@ public class OI {
 		
 		buttonStartAux.whenPressed(new ClampGrabber());
 		buttonBackAux.whenPressed(new UnclampGrabber());
+		buttonADrive.whenPressed(new MaximumSpeed100());
+		buttonBDrive.whenPressed(new MaximumSpeed75());
+		buttonYDrive.whenPressed(new MaximumSpeed50());
+		buttonXDrive.whenPressed(new MaximumSpeed25());
 	}
 
 	/**
@@ -112,6 +116,9 @@ public class OI {
 		return xboxAux.getRT() - xboxAux.getLT();
 	}
 	
+	/**
+	 * Sets the left rumble of the Xbox controller to a value between 0 and 1
+	 */
 	public void setRumble(double x) {
 		xboxDrive.setRumble(RumbleType.kLeftRumble, (float)x);
 	}

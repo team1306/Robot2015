@@ -7,7 +7,7 @@ import org.usfirst.frc.team1306.robot.OI;
 import org.usfirst.frc.team1306.robot.RobotMap;
 
 /**
- *
+ * Drives robot forward as long at the timer is above 1
  */
 public class DriveForward extends Command {
 	private final OI oi;

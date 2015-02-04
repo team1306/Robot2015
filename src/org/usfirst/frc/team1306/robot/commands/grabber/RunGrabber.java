@@ -5,8 +5,11 @@ import org.usfirst.frc.team1306.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
+/**
+ * Takes Right and Left trigger inputs and converts them into grabber motion
+ */
+
 public class RunGrabber extends Command{
-	
 	
 	public RunGrabber() {
 		// Use requires() to set subsystem dependencies

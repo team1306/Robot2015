@@ -5,7 +5,7 @@ import org.usfirst.frc.team1306.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * Calls command to run grabber motor to open
  */
 public class UnclampGrabber extends Command {
 

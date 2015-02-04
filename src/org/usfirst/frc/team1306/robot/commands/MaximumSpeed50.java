@@ -1,33 +1,39 @@
-package org.usfirst.frc.team1306.robot.commands.grabber;
+package org.usfirst.frc.team1306.robot.commands;
 
 import org.usfirst.frc.team1306.robot.RobotMap;
+import org.usfirst.frc.team1306.robot.subsystems.PIDMecanumDrive;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Calls command to run grabber motor to close
+ * Sets PIDMecanumDrive's maximum output to .5
  */
-public class ClampGrabber extends Command {
+public class MaximumSpeed50 extends Command {
 
-    public ClampGrabber() {
+	/**
+	 * Initializes command for 50% speed
+	 */
+    public MaximumSpeed50() {
         // Use requires() here to declare subsystem dependencies
-        requires(RobotMap.grabber);
+        // eg. requires(chassis);
+    	requires(RobotMap.DRIVETRAIN_SUBSYSTEM);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	RobotMap.grabber.clamp();
+    	PIDMecanumDrive.setMaximumSpeed(.5);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
-    }
+        if (PIDMecanumDrive.getMaximumSpeed() == .5)
+        	return true;
+        return false;
+        }
 
     // Called once after isFinished returns true
     protected void end() {
@@ -36,7 +42,5 @@ public class ClampGrabber extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	// Sets point to the current point so that the movement is discontinued
-    	RobotMap.grabber.setSetpoint(RobotMap.GRABBER_ENCODER.get());
     }
 }

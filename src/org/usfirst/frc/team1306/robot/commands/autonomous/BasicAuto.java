@@ -3,7 +3,7 @@ package org.usfirst.frc.team1306.robot.commands.autonomous;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ * Runs during autonomous period
  */
 public class BasicAuto extends CommandGroup {
 
