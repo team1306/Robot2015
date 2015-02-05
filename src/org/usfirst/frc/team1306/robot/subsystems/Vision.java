@@ -19,8 +19,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Vision extends Subsystem {
 	
-	private static final String hostName = "10.13.6.5";
-	private static final int portNumber = 5800;
+	private static final String hostName = "10.13.6.32";
+	private static final int portNumber = 5802;
 	
 	private Socket jetsonSocket;
 	private PrintWriter out;
@@ -52,19 +52,23 @@ public class Vision extends Subsystem {
     }
 	
     public void processImage() {
-    	out.print("0.00");
+    	out.println("0.00");
+    	SmartDashboard.putString("this is", "a string");
     	
     	try {
 			distance = Double.parseDouble(in.readLine());
+			SmartDashboard.putNumber("dist", distance);
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
+			SmartDashboard.putString("error", "true");
 			e.printStackTrace();
-		} catch (IOException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
+			SmartDashboard.putString("error", "true");
 			e.printStackTrace();
 		}
     	
-    	SmartDashboard.putNumber("distance", distance);
+    	SmartDashboard.putNumber("Look at me!!!", distance);
     }
     
     public double getXTranslation() {

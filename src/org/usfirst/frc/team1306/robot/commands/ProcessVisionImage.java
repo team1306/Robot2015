@@ -3,6 +3,7 @@ package org.usfirst.frc.team1306.robot.commands;
 import org.usfirst.frc.team1306.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * THEORETICALLY turns image from camera into distance to tote
@@ -12,6 +13,7 @@ public class ProcessVisionImage extends Command {
     public ProcessVisionImage() {
         // Use requires() here to declare subsystem dependencies
         requires(RobotMap.vision);
+        setRunWhenDisabled(true);
     }
 
      //Called just before this Command runs the first time
