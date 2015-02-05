@@ -80,8 +80,7 @@ public class RobotMap {
 		DRIVE_FRONT_RIGHT = new Talon(2);
 		DRIVE_REAR_RIGHT = new Talon(3);
 
-		DRIVETRAIN = new RobotDrive(DRIVE_FRONT_LEFT, DRIVE_REAR_LEFT,
-				DRIVE_FRONT_RIGHT, DRIVE_REAR_RIGHT);
+		DRIVETRAIN = new RobotDrive(DRIVE_FRONT_LEFT, DRIVE_REAR_LEFT, DRIVE_FRONT_RIGHT, DRIVE_REAR_RIGHT);
 		DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, false);
 		DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
 		DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kRearLeft, false);
@@ -93,8 +92,6 @@ public class RobotMap {
 		GYRO = new Gyro(0);
 		ACCEL = new BuiltInAccelerometer();
 		SONIC = new AnalogInput(1);
-		
-		COPROCESSOR = new SPI(SPI.Port.kOnboardCS0);
 
 		ELEVATOR_MOTOR = new Talon(4);
 		ELEVATOR_ENCODER = new Encoder(3, 4);
