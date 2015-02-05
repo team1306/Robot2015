@@ -58,20 +58,20 @@ public class RobotMap {
 	public static Encoder GRABBER_ENCODER;
 	
 	// Subsystems
-	public static final PIDMecanumDrive DRIVETRAIN_SUBSYSTEM;
-	public static final PIDElevator elevator;
-	public static final PIDGrabber grabber;
-	public static final DriverCamera camera;
-	public static final Vision vision;
+	public static PIDMecanumDrive DRIVETRAIN_SUBSYSTEM;
+	public static PIDElevator elevator;
+	public static PIDGrabber grabber;
+	public static DriverCamera camera;
+	public static Vision vision;
 	
 	// Operator Interface
-	public final static OI oi;
+	public static OI oi;
 
-	static {
-		DRIVE_FRONT_LEFT = new Talon(3);
+	static void init() {
+		DRIVE_FRONT_LEFT = new Talon(0);
 		DRIVE_REAR_LEFT = new Talon(1);
-		DRIVE_FRONT_RIGHT = new Talon(0);
-		DRIVE_REAR_RIGHT = new Talon(2);
+		DRIVE_FRONT_RIGHT = new Talon(2);
+		DRIVE_REAR_RIGHT = new Talon(3);
 
 		DRIVETRAIN = new RobotDrive(DRIVE_FRONT_LEFT, DRIVE_REAR_LEFT, DRIVE_FRONT_RIGHT, DRIVE_REAR_RIGHT);
 		DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, false);
@@ -87,10 +87,10 @@ public class RobotMap {
 		SONIC = new AnalogInput(1);
 
 		ELEVATOR_MOTOR = new Talon(4);
-		ELEVATOR_ENCODER = new Encoder(2, 3);
+		ELEVATOR_ENCODER = new Encoder(3, 4);
 		
 		GRABBER_MOTOR = new Talon(5);
-		GRABBER_ENCODER = new Encoder(4, 5);
+		GRABBER_ENCODER = new Encoder(5, 6);
 		
 		
 		DRIVETRAIN_SUBSYSTEM = new PIDMecanumDrive();

@@ -4,6 +4,7 @@ import org.usfirst.frc.team1306.robot.OI;
 import org.usfirst.frc.team1306.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * Turns off the drivetrain safety
@@ -15,10 +16,13 @@ public class TeleopDrive extends Command {
 	private final OI oi;
 
 	public TeleopDrive() {
+		
 		super("Drive");
 		// Use requires() here to declare subsystem dependencies
 		requires(RobotMap.DRIVETRAIN_SUBSYSTEM);
 		oi = RobotMap.oi;
+		
+		SmartDashboard.putBoolean("Trying to Drive", true);
 	}
 
 	// Called just before this Command runs the first time
@@ -32,7 +36,6 @@ public class TeleopDrive extends Command {
 	protected void execute() {
 		double x = RobotMap.ACCEL.getX();
 		double y = RobotMap.ACCEL.getY();
-		oi.setRumble((x*x + y*y) / 2.0);
 		RobotMap.DRIVETRAIN_SUBSYSTEM.drive(oi.moveX(), oi.moveY(), oi.rotation());
 	}
 

@@ -31,6 +31,7 @@ public class PIDMecanumDrive extends PIDSubsystem {
 		SmartDashboard.putData("PID", getPIDController());
 
 		enable();
+		
 
 	}
 
@@ -81,6 +82,7 @@ public class PIDMecanumDrive extends PIDSubsystem {
 	}
 	
 	public void drive(double x, double y, double rotation) {
+		SmartDashboard.putBoolean("Driving", true);
 		
 		setOutputRange(-maximumSpeed, maximumSpeed);
 		

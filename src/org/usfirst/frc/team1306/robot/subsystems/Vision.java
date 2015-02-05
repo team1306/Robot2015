@@ -24,7 +24,7 @@ public class Vision extends Subsystem {
 	
 	private Socket jetsonSocket;
 	private PrintWriter out;
-	private BufferedReader in, stdIn;
+	private BufferedReader in;
 	
 	public Vision() {
 		super();
@@ -33,12 +33,10 @@ public class Vision extends Subsystem {
 			jetsonSocket = new Socket(hostName, portNumber);
 			out = new PrintWriter(jetsonSocket.getOutputStream(), true);
 			in = new BufferedReader(new InputStreamReader(jetsonSocket.getInputStream()));
-			stdIn = new BufferedReader(new InputStreamReader(System.in));
 		} catch(Exception e) {
 			jetsonSocket = null;
 			out = null;
 			in = null;
-			stdIn = null;
 			e.printStackTrace();
 		}
 	}
@@ -65,6 +63,7 @@ public class Vision extends Subsystem {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+    	
     	SmartDashboard.putNumber("distance", distance);
     }
     
