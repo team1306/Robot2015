@@ -50,6 +50,10 @@ public class RobotMap {
 	public static Gyro GYRO;
 	public static Accelerometer ACCEL;
 	public static AnalogInput SONIC;
+	public static Encoder DRIVE_FRONT_LEFT_ENCODER; //TODO: Map drive encoders to ports
+	public static Encoder DRIVE_REAR_LEFT_ENCODER;
+	public static Encoder DRIVE_FRONT_RIGHT_ENCODER;
+	public static Encoder DRIVE_REAR_RIGHT_ENCODER;
 	
 	// Coprocessor
 	public static SPI COPROCESSOR;
