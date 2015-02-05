@@ -12,6 +12,7 @@ import org.usfirst.frc.team1306.robot.RobotMap;
 import org.usfirst.frc.team1306.robot.commands.ProcessVisionImage;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -62,6 +63,7 @@ public class Vision extends Subsystem {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+    	SmartDashboard.putNumber("Vision Output", distance);
     }
     
     public double getXTranslation() {

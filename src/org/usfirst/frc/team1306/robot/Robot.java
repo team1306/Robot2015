@@ -1,5 +1,7 @@
 package org.usfirst.frc.team1306.robot;
 
+import org.usfirst.frc.team1306.robot.commands.autonomous.AlignWithTargets;
+
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
@@ -29,7 +31,7 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		RobotMap.init();
 		// instantiate the command used for the autonomous period
-		// autonomousCommand = new ExampleCommand();
+		autonomousCommand = new AlignWithTargets();
 	}
 
 	public void disabledPeriodic() {
