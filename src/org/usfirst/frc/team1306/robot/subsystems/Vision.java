@@ -52,7 +52,7 @@ public class Vision extends Subsystem {
     }
 	
     public void processImage() {
-    	out.print(Double.toString(RobotMap.SONIC.getVoltage()));
+    	out.print("0.00");
     	
     	try {
 			distance = Double.parseDouble(in.readLine());
