@@ -12,6 +12,7 @@ import org.usfirst.frc.team1306.robot.RobotMap;
 import org.usfirst.frc.team1306.robot.commands.ProcessVisionImage;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -53,9 +54,18 @@ public class Vision extends Subsystem {
     }
 	
     public void processImage() {
-    	out.print(String(RobotMap.rangeFinder.get()));
+    	out.print("0.00");
     	
-    	distance = Double.parseDouble(in.readLine());
+    	try {
+			distance = Double.parseDouble(in.readLine());
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	SmartDashboard.putNumber("distance", distance);
     }
     
     public double getXTranslation() {
