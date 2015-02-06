@@ -51,7 +51,7 @@ public class AlignWithTargets extends PIDCommand {
 	@Override
 	protected void usePIDOutput(double output) {
 		// may need to negate this value
-		RobotMap.DRIVETRAIN_SUBSYSTEM.setXTranslation(1.6/(1+Math.exp(-5*output)));
+		RobotMap.DRIVETRAIN_SUBSYSTEM.setXTranslation(1.6/(1+Math.exp(-5*output)) - 0.8);
 		
 	}
 
