@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.PIDCommand;
 public class AlignWithTargets extends PIDCommand {
 
     public AlignWithTargets() {
-    	super(1.0, 0.0, 0.0);
+    	super(0.7, 0.0, 0.0);
     	setInputRange(-1.0, 1.0);
         // Use requires() here to declare subsystem dependencies
     }
@@ -51,7 +51,7 @@ public class AlignWithTargets extends PIDCommand {
 	@Override
 	protected void usePIDOutput(double output) {
 		// may need to negate this value
-		RobotMap.DRIVETRAIN_SUBSYSTEM.setXTranslation(1.6/(1+Math.exp(-5*output)) - 0.8);
+		RobotMap.DRIVETRAIN_SUBSYSTEM.setXTranslation(Math.min(Math.max(output, -0.8), 0.8));
 		
 	}
 
