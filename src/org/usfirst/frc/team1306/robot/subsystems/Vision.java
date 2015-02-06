@@ -53,22 +53,16 @@ public class Vision extends Subsystem {
 	
     public void processImage() {
     	out.println("0.00");
-    	SmartDashboard.putString("this is", "a string");
     	
     	try {
 			distance = Double.parseDouble(in.readLine());
-			SmartDashboard.putNumber("dist", distance);
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
-			SmartDashboard.putString("error", "true");
 			e.printStackTrace();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			SmartDashboard.putString("error", "true");
 			e.printStackTrace();
 		}
-    	
-    	SmartDashboard.putNumber("Look at me!!!", distance);
     }
     
     public double getXTranslation() {
