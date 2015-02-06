@@ -18,14 +18,14 @@ public class PIDMecanumDrive extends PIDSubsystem {
 		// to
 		// enable() - Enables the PID controller.
 
-		super("Drivetrain", 0.0005, 0.0, 0.0);
+		super("Drivetrain", 0.01, 0.0, 0.05);
 
 		pidOut = 0.0;
 
 		getPIDController().setContinuous();
 		setInputRange(0.0, 360.0);
 		setOutputRange(-1.0, 1.0);
-		setAbsoluteTolerance(5.0);
+		setAbsoluteTolerance(1.0);
 		changeSetpoint();
 
 		SmartDashboard.putData("PID", getPIDController());
@@ -89,10 +89,10 @@ public class PIDMecanumDrive extends PIDSubsystem {
 		if (rotation == 0.0) {
 			rotation = pidOut;
 		} else {
-			changeSetpoint();
+			//changeSetpoint();
 		}
 		SmartDashboard.putNumber("Rotation", rotation);
-		RobotMap.DRIVETRAIN.mecanumDrive_Cartesian(-x, y, -rotation,
+		RobotMap.DRIVETRAIN.mecanumDrive_Cartesian(x, y, -rotation,
 				RobotMap.GYRO.getAngle());
 
 		SmartDashboard.putNumber("Gyro", RobotMap.GYRO.getAngle());
@@ -111,7 +111,7 @@ public class PIDMecanumDrive extends PIDSubsystem {
 	}
 	
 	public void driveWithPID() {
-		RobotMap.DRIVETRAIN.mecanumDrive_Cartesian(-x, y, pidOut, RobotMap.GYRO.getAngle());
+		RobotMap.DRIVETRAIN.mecanumDrive_Cartesian(x, y, -pidOut, RobotMap.GYRO.getAngle());
 	}
 
 	/**
