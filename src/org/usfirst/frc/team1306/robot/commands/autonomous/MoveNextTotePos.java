@@ -7,16 +7,12 @@ import org.usfirst.frc.team1306.robot.RobotMap;
 /**
  * Moves from one yellow tote to the next yellow tote in autonomous mode
  */
-public class MoveNextTote extends Command {
+public class MoveNextTotePos extends Command {
 
-    public MoveNextTote() {
+    public MoveNextTotePos() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(RobotMap.DRIVETRAIN_SUBSYSTEM);
-    	//requires(RobotMap.DRIVE_FRONT_LEFT_ENCODER);
-    	//requires(RobotMap.DRIVE_FRONT_RIGHT_ENCODER);
-    	//requires(RobotMap.DRIVE_REAR_LEFT_ENCODER);
-    	//requires(RobotMap.DRIVE_REAR_RIGHT_ENCODER);
     }
 
     //Fiddle with these values until we find something that works
