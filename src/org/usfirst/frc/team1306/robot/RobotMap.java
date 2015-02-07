@@ -100,6 +100,11 @@ public class RobotMap {
 		GRABBER_MOTOR = new Talon(5);
 		GRABBER_ENCODER = new Encoder(5, 6);
 		
+		DRIVE_FRONT_LEFT_ENCODER = new Encoder(7, 8);
+		DRIVE_FRONT_RIGHT_ENCODER = new Encoder(9, 10);
+		DRIVE_REAR_LEFT_ENCODER = new Encoder(11, 12);
+		DRIVE_REAR_RIGHT_ENCODER = new Encoder(13, 14);
+		
 		
 		DRIVETRAIN_SUBSYSTEM = new PIDMecanumDrive();
 		elevator = new PIDElevator();
