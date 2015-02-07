@@ -5,6 +5,7 @@ import org.usfirst.frc.team1306.robot.subsystems.MecanumDrive;
 import org.usfirst.frc.team1306.robot.subsystems.PIDElevator;
 import org.usfirst.frc.team1306.robot.subsystems.PIDGrabber;
 import org.usfirst.frc.team1306.robot.subsystems.PIDMecanumDrive;
+import org.usfirst.frc.team1306.robot.subsystems.PIDMotor;
 import org.usfirst.frc.team1306.robot.subsystems.Vision;
 
 import edu.wpi.first.wpilibj.AnalogInput;
@@ -37,10 +38,10 @@ public class RobotMap {
 	// public static int rangefinderModule = 1;
 
 	// Drive train motors
-	public static Talon DRIVE_FRONT_LEFT;
-	public static Talon DRIVE_REAR_LEFT;
-	public static Talon DRIVE_FRONT_RIGHT;
-	public static Talon DRIVE_REAR_RIGHT;
+	public static PIDMotor DRIVE_FRONT_LEFT;
+	public static PIDMotor DRIVE_REAR_LEFT;
+	public static PIDMotor DRIVE_FRONT_RIGHT;
+	public static PIDMotor DRIVE_REAR_RIGHT;
 
 	public static RobotDrive DRIVETRAIN;
 
@@ -76,10 +77,10 @@ public class RobotMap {
 	public static OI oi;
 
 	static void init() {
-		DRIVE_FRONT_LEFT = new Talon(0);
-		DRIVE_REAR_LEFT = new Talon(1);
-		DRIVE_FRONT_RIGHT = new Talon(2);
-		DRIVE_REAR_RIGHT = new Talon(3);
+		DRIVE_FRONT_LEFT = new PIDMotor(new Talon(0), new Encoder(0, 1));
+		DRIVE_REAR_LEFT = new PIDMotor(new Talon(1), new Encoder(2, 3));
+		DRIVE_FRONT_RIGHT = new PIDMotor(new Talon(2), new Encoder(4, 5));
+		DRIVE_REAR_RIGHT = new PIDMotor(new Talon(3), new Encoder(6, 7));
 
 		DRIVETRAIN = new RobotDrive(DRIVE_FRONT_LEFT, DRIVE_REAR_LEFT, DRIVE_FRONT_RIGHT, DRIVE_REAR_RIGHT);
 		DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, false);

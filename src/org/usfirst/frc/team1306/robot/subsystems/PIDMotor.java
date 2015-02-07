@@ -14,7 +14,7 @@ public class PIDMotor extends PIDSubsystem implements SpeedController {
 	private double set;
 	
     // Initialize your subsystem here
-	public PIDMotor(Encoder enc, SpeedController mot) {
+	public PIDMotor(SpeedController mot, Encoder enc) {
 
 		super("Drivetrain", 0.01, 0.0, 0.0);
 
