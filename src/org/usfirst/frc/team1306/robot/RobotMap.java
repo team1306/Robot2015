@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.interfaces.Accelerometer;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -98,6 +99,11 @@ public class RobotMap {
 		
 		GRABBER_MOTOR = new Talon(5);
 		GRABBER_ENCODER = new Encoder(5, 6);
+		
+		DRIVE_FRONT_LEFT_ENCODER = new Encoder(7, 8);
+		DRIVE_FRONT_RIGHT_ENCODER = new Encoder(9, 10);
+		DRIVE_REAR_LEFT_ENCODER = new Encoder(11, 12);
+		DRIVE_REAR_RIGHT_ENCODER = new Encoder(13, 14);
 		
 		
 		DRIVETRAIN_SUBSYSTEM = new PIDMecanumDrive();

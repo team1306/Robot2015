@@ -3,6 +3,7 @@ package org.usfirst.frc.team1306.robot.commands.autonomous;
 import org.usfirst.frc.team1306.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.PIDCommand;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -10,7 +11,7 @@ import edu.wpi.first.wpilibj.command.PIDCommand;
 public class AlignWithTargets extends PIDCommand {
 
     public AlignWithTargets() {
-    	super(1.0, 0.0, 0.0);
+    	super(0.6, 0.0, 0.5);
     	setInputRange(-1.0, 1.0);
         // Use requires() here to declare subsystem dependencies
     }
@@ -27,7 +28,8 @@ public class AlignWithTargets extends PIDCommand {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return RobotMap.SONIC.getVoltage() <= 0.300;
+        //return RobotMap.SONIC.getVoltage() <= 0.300;
+    	return false;
     }
 
     // Called once after isFinished returns true
@@ -49,7 +51,10 @@ public class AlignWithTargets extends PIDCommand {
 
 	@Override
 	protected void usePIDOutput(double output) {
-		RobotMap.DRIVETRAIN_SUBSYSTEM.setXTranslation(output);
+		// may need to negate this value
+		RobotMap.DRIVETRAIN_SUBSYSTEM.setXTranslation(Math.min(Math.max(output, -0.8), 0.8));
+		SmartDashboard.putNumber("translation", Math.min(Math.max(output, -0.8), 0.8));
+		RobotMap.DRIVETRAIN_SUBSYSTEM.setYTranslation(0.0);
 		
 	}
 
