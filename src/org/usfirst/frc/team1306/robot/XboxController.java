@@ -40,9 +40,9 @@ public class XboxController extends Joystick {
 	
 	public boolean getTrigger(Hand hand) {
 		if (hand.equals(Hand.kLeft)) {
-			return getRawAxis(2) > 0.5;
+			return getLT() > 0.5;
 		} else {
-			return getRawAxis(3) > 0.5;
+			return getRT() > 0.5;
 		}
 	}
 	

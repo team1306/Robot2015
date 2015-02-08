@@ -5,10 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.net.UnknownHostException;
-import java.nio.ByteBuffer;
 
-import org.usfirst.frc.team1306.robot.RobotMap;
 import org.usfirst.frc.team1306.robot.commands.ProcessVisionImage;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -29,16 +26,7 @@ public class Vision extends Subsystem {
 	public Vision() {
 		super();
 		
-		try {
-			jetsonSocket = new Socket(hostName, portNumber);
-			out = new PrintWriter(jetsonSocket.getOutputStream(), true);
-			in = new BufferedReader(new InputStreamReader(jetsonSocket.getInputStream()));
-		} catch(Exception e) {
-			jetsonSocket = null;
-			out = null;
-			in = null;
-			e.printStackTrace();
-		}
+		SmartDashboard.putBoolean("Vision Processing", connectToCoprocessor());
 	}
     
     // Put methods for controlling this subsystem
@@ -52,21 +40,45 @@ public class Vision extends Subsystem {
     }
 	
     public void processImage() {
-    	out.println("0.00");
     	
-    	try {
-			distance = Double.parseDouble(in.readLine());
-		} catch (NumberFormatException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    	boolean connected = (out != null);
+    	if (!connected) {
+    		connected = connectToCoprocessor();
+    		SmartDashboard.putBoolean("Vision Processing", connected);
+    	}
+    	
+    	if (connected) {
+    		out.println("0.00");
+    	
+    		try {
+    			distance = Double.parseDouble(in.readLine());
+			} catch (NumberFormatException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				distance = 0.0;
+			} catch (IOException e) {
+				SmartDashboard.putBoolean("Vision Processing", connectToCoprocessor());
+				distance = 0.0;
+			}
+    	}
     }
     
     public double getXTranslation() {
     	return distance;
+    }
+    
+    private boolean connectToCoprocessor() {
+		try {
+			jetsonSocket = new Socket(hostName, portNumber);
+			out = new PrintWriter(jetsonSocket.getOutputStream(), true);
+			in = new BufferedReader(new InputStreamReader(jetsonSocket.getInputStream()));
+			return true;
+		} catch(Exception e) {
+			jetsonSocket = null;
+			out = null;
+			in = null;
+			return false;
+		}
     }
 
 }
