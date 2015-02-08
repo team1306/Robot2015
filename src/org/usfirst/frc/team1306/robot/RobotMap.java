@@ -74,10 +74,10 @@ public class RobotMap {
 	public static OI oi;
 
 	static void init() {
-		DRIVE_FRONT_LEFT = new PIDMotor(new Talon(0), new Encoder(0, 1));
-		DRIVE_REAR_LEFT = new PIDMotor(new Talon(1), new Encoder(2, 3));
-		DRIVE_FRONT_RIGHT = new PIDMotor(new Talon(2), new Encoder(4, 5));
-		DRIVE_REAR_RIGHT = new PIDMotor(new Talon(3), new Encoder(6, 7));
+		DRIVE_FRONT_LEFT = new PIDMotor(new Talon(0), DRIVE_FRONT_LEFT_ENCODER);
+		DRIVE_REAR_LEFT = new PIDMotor(new Talon(1), DRIVE_REAR_LEFT_ENCODER);
+		DRIVE_FRONT_RIGHT = new PIDMotor(new Talon(2), DRIVE_FRONT_RIGHT_ENCODER);
+		DRIVE_REAR_RIGHT = new PIDMotor(new Talon(3), DRIVE_REAR_RIGHT_ENCODER);
 
 		DRIVETRAIN = new RobotDrive(DRIVE_FRONT_LEFT, DRIVE_REAR_LEFT, DRIVE_FRONT_RIGHT, DRIVE_REAR_RIGHT);
 		DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, false);

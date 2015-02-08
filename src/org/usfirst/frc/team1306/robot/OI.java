@@ -46,7 +46,7 @@ public class OI {
 	// commands the same as any other Button.
 
 	private final XboxController xboxDrive;
-	private final static XboxController xboxAux = new XboxController(1);
+	private final XboxController xboxAux;
 
 	//private final Button buttonADrive;
 	//private final Button buttonBDrive;
@@ -73,6 +73,7 @@ public class OI {
 	public OI() {
 
 		xboxDrive = new XboxController(0);
+		xboxAux = new XboxController(1);
 
 		//buttonADrive = new JoystickButton(xboxDrive, XboxController.A);
 		//buttonBDrive = new JoystickButton(xboxDrive, XboxController.B);
@@ -105,7 +106,7 @@ public class OI {
 	 * Gets the speed at which the grabber should be moving
 	 * @return grabber speed (double)
 	 */
-	public static double getGrabberSpeed() {
+	public double getGrabberSpeed() {
 		return xboxAux.getRT() - xboxAux.getLT();
 	}
 	

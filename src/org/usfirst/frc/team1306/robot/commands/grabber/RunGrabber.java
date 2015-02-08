@@ -1,6 +1,5 @@
 package org.usfirst.frc.team1306.robot.commands.grabber;
 
-import org.usfirst.frc.team1306.robot.OI;
 import org.usfirst.frc.team1306.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -22,7 +21,7 @@ public class RunGrabber extends Command{
 
 	// Runs after initialize(), called repeatedly when scheduled to run
 	protected void execute() {
-		RobotMap.grabber.drive(OI.getGrabberSpeed());
+		RobotMap.grabber.drive(RobotMap.oi.getGrabberSpeed());
 	}
 
 	// Called the first time the command is called to run
