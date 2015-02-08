@@ -11,8 +11,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class PIDElevator extends PIDSubsystem {
 
-	private double pidOut;
-
 	// Initialize your subsystem here
 	public PIDElevator() {
 		// Use these to get going:
@@ -20,8 +18,6 @@ public class PIDElevator extends PIDSubsystem {
 		// to
 		// enable() - Enables the PID controller.
 		super("Elevator", 0.005, 0.0, 0.0);
-
-		pidOut = 0.0;
 
 		getPIDController().setContinuous(false);
 		setInputRange(0.0, 1000.0); // range of encoder values
@@ -96,7 +92,6 @@ public class PIDElevator extends PIDSubsystem {
 	protected void usePIDOutput(double output) {
 		// Use output to drive your system, like a motor
 		// e.g. yourMotor.set(output);
-		pidOut = output;
 		RobotMap.ELEVATOR_MOTOR.set(output);
 	}
 }

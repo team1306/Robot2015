@@ -48,53 +48,53 @@ public class OI {
 	private final XboxController xboxDrive;
 	private final static XboxController xboxAux = new XboxController(1);
 
-	private final Button buttonADrive;
-	private final Button buttonBDrive;
-	private final Button buttonXDrive;
-	private final Button buttonYDrive;
-	private final Button buttonLBDrive;
-	private final Button buttonRBDrive;
-	private final Button buttonBackDrive;
-	private final Button buttonStartDrive;
-	private final Button buttonLSDrive;
-	private final Button buttonRSDrive;
+	//private final Button buttonADrive;
+	//private final Button buttonBDrive;
+	//private final Button buttonXDrive;
+	//private final Button buttonYDrive;
+	//private final Button buttonLBDrive;
+	//private final Button buttonRBDrive;
+	//private final Button buttonBackDrive;
+	//private final Button buttonStartDrive;
+	//private final Button buttonLSDrive;
+	//private final Button buttonRSDrive;
 
-	private final Button buttonAAux;
-	private final Button buttonBAux;
-	private final Button buttonXAux;
-	private final Button buttonYAux;
-	private final Button buttonLBAux;
-	private final Button buttonRBAux;
+	//private final Button buttonAAux;
+	//private final Button buttonBAux;
+	//private final Button buttonXAux;
+	//private final Button buttonYAux;
+	//private final Button buttonLBAux;
+	//private final Button buttonRBAux;
 	private final Button buttonBackAux;
 	private final Button buttonStartAux;
-	private final Button buttonLSAux;
-	private final Button buttonRSAux;
+	//private final Button buttonLSAux;
+	//private final Button buttonRSAux;
 
 	public OI() {
 
 		xboxDrive = new XboxController(0);
 
-		buttonADrive = new JoystickButton(xboxDrive, XboxController.A);
-		buttonBDrive = new JoystickButton(xboxDrive, XboxController.B);
-		buttonXDrive = new JoystickButton(xboxDrive, XboxController.X);
-		buttonYDrive = new JoystickButton(xboxDrive, XboxController.Y);
-		buttonLBDrive = new JoystickButton(xboxDrive, XboxController.LB);
-		buttonRBDrive = new JoystickButton(xboxDrive, XboxController.RB);
-		buttonBackDrive = new JoystickButton(xboxDrive, XboxController.BACK);
-		buttonStartDrive = new JoystickButton(xboxDrive, XboxController.START);
-		buttonLSDrive = new JoystickButton(xboxDrive, XboxController.LS);
-		buttonRSDrive = new JoystickButton(xboxDrive, XboxController.RS);
+		//buttonADrive = new JoystickButton(xboxDrive, XboxController.A);
+		//buttonBDrive = new JoystickButton(xboxDrive, XboxController.B);
+		//buttonXDrive = new JoystickButton(xboxDrive, XboxController.X);
+		//buttonYDrive = new JoystickButton(xboxDrive, XboxController.Y);
+		//buttonLBDrive = new JoystickButton(xboxDrive, XboxController.LB);
+		//buttonRBDrive = new JoystickButton(xboxDrive, XboxController.RB);
+		//buttonBackDrive = new JoystickButton(xboxDrive, XboxController.BACK);
+		//buttonStartDrive = new JoystickButton(xboxDrive, XboxController.START);
+		//buttonLSDrive = new JoystickButton(xboxDrive, XboxController.LS);
+		//buttonRSDrive = new JoystickButton(xboxDrive, XboxController.RS);
 
-		buttonAAux = new JoystickButton(xboxAux, XboxController.A);
-		buttonBAux = new JoystickButton(xboxAux, XboxController.B);
-		buttonXAux = new JoystickButton(xboxAux, XboxController.X);
-		buttonYAux = new JoystickButton(xboxAux, XboxController.Y);
-		buttonLBAux = new JoystickButton(xboxAux, XboxController.LB);
-		buttonRBAux = new JoystickButton(xboxAux, XboxController.RB);
+		//buttonAAux = new JoystickButton(xboxAux, XboxController.A);
+		//buttonBAux = new JoystickButton(xboxAux, XboxController.B);
+		//buttonXAux = new JoystickButton(xboxAux, XboxController.X);
+		//buttonYAux = new JoystickButton(xboxAux, XboxController.Y);
+		//buttonLBAux = new JoystickButton(xboxAux, XboxController.LB);
+		//buttonRBAux = new JoystickButton(xboxAux, XboxController.RB);
 		buttonBackAux = new JoystickButton(xboxAux, XboxController.BACK);
 		buttonStartAux = new JoystickButton(xboxAux, XboxController.START);
-		buttonLSAux = new JoystickButton(xboxAux, XboxController.LS);
-		buttonRSAux = new JoystickButton(xboxAux, XboxController.RS);
+		//buttonLSAux = new JoystickButton(xboxAux, XboxController.LS);
+		//buttonRSAux = new JoystickButton(xboxAux, XboxController.RS);
 		
 		buttonStartAux.whenPressed(new ClampGrabber());
 		buttonBackAux.whenPressed(new UnclampGrabber());

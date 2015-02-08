@@ -34,8 +34,7 @@ public class TeleopDrive extends Command {
 	 * This method is called repeatedly when this command is run.
 	 */
 	protected void execute() {
-		double x = RobotMap.ACCEL.getX();
-		double y = RobotMap.ACCEL.getY();
+
 		RobotMap.DRIVETRAIN_SUBSYSTEM.drive(oi.moveX(), oi.moveY(), oi.rotation());
 	}
 

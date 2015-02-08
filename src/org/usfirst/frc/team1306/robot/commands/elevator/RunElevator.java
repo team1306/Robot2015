@@ -13,10 +13,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class RunElevator extends Command {
 
 	private final OI oi;
-	private static final int levelZero = 0;
-	private static final int levelOne = 200;
-	private static final int levelTwo = 400;
-	private static final int levelThree = 600;
 
 	private static int height;
 
