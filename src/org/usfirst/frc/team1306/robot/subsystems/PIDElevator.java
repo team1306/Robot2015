@@ -25,8 +25,6 @@ public class PIDElevator extends PIDSubsystem {
 		setAbsoluteTolerance(5.0); // tolerance in encoder ticks
 
 		SmartDashboard.putData("Elevator PID", getPIDController());
-
-		enable();
 	}
 
 	public void initDefaultCommand() {
