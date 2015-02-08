@@ -1,13 +1,10 @@
 package org.usfirst.frc.team1306.robot;
 
-import org.usfirst.frc.team1306.robot.commands.MaximumSpeed100;
-import org.usfirst.frc.team1306.robot.commands.MaximumSpeed25;
-import org.usfirst.frc.team1306.robot.commands.MaximumSpeed50;
-import org.usfirst.frc.team1306.robot.commands.MaximumSpeed75;
 import org.usfirst.frc.team1306.robot.commands.grabber.ClampGrabber;
 import org.usfirst.frc.team1306.robot.commands.grabber.UnclampGrabber;
 
 import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.Joystick.RumbleType;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -102,10 +99,7 @@ public class OI {
 		
 		buttonStartAux.whenPressed(new ClampGrabber());
 		buttonBackAux.whenPressed(new UnclampGrabber());
-		buttonADrive.whenPressed(new MaximumSpeed100());
-		buttonBDrive.whenPressed(new MaximumSpeed75());
-		buttonYDrive.whenPressed(new MaximumSpeed50());
-		buttonXDrive.whenPressed(new MaximumSpeed25());
+
 	}
 
 	/**
@@ -131,7 +125,8 @@ public class OI {
 	 * @return X component of movement
 	 */
 	public double moveX() {
-		return deadband(xboxDrive.getX(GenericHID.Hand.kLeft));
+		double multiplier = 1.0 - (1.0 - PRECISION_SPEED) * xboxDrive.getLT();
+		return multiplier * deadband(xboxDrive.getX(Hand.kLeft));
 	}
 
 	/**
@@ -141,7 +136,8 @@ public class OI {
 	 * @return Y component of movement
 	 */
 	public double moveY() {
-		return deadband(xboxDrive.getY(GenericHID.Hand.kLeft));
+		double multiplier = 1.0 - (1.0 - PRECISION_SPEED) * xboxDrive.getLT();
+		return multiplier * deadband(xboxDrive.getY(Hand.kLeft));
 	}
 
 	/**
@@ -151,7 +147,8 @@ public class OI {
 	 * @return Amount of rotation
 	 */
 	public double rotation() {
-		return deadband(xboxDrive.getX(GenericHID.Hand.kRight));
+		double multiplier = 1.0 - (1.0 - PRECISION_SPEED) * xboxDrive.getRT();
+		return multiplier * deadband(xboxDrive.getX(Hand.kRight));
 	}
 
 	/**
@@ -161,7 +158,7 @@ public class OI {
 	 * @return Elevator movement
 	 */
 	public double elevatorDir() {
-		return deadband(xboxAux.getY(GenericHID.Hand.kRight));
+		return deadband(xboxAux.getY(Hand.kRight));
 	}
 
 	/**
@@ -205,5 +202,6 @@ public class OI {
 	}
 
 	private static final double DEADBAND = 0.15;
+	private static final double PRECISION_SPEED = 0.25;
 
 }
