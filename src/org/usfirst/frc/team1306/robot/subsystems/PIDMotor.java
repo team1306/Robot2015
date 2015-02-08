@@ -25,12 +25,12 @@ public class PIDMotor extends PIDSubsystem implements SpeedController {
 		setSetpoint(0.0);
 
 		SmartDashboard.putData("PID", getPIDController());
-
-		enable();
 		
 		encoder = enc;
 		motor = mot;
 		set = 0.0;
+		
+		enable();
     }
     
     public void initDefaultCommand() {
@@ -48,8 +48,9 @@ public class PIDMotor extends PIDSubsystem implements SpeedController {
     protected void usePIDOutput(double output) {
         // Use output to drive your system, like a motor
         // e.g. yourMotor.set(output);
-    	motor.set(output);
-    	set = output;
+    	double newSpeed = set + output;
+    	motor.set(newSpeed);
+    	set = newSpeed;
     }
 
 	public void pidWrite(double output) {
@@ -61,13 +62,10 @@ public class PIDMotor extends PIDSubsystem implements SpeedController {
 	}
 
 	public void set(double speed, byte syncGroup) {
-		motor.set(speed, syncGroup);
-		setSetpoint(speed);
-		set = speed;
+		throw new UnsupportedOperationException("use set(double) instead");
 	}
 
 	public void set(double speed) {
-		motor.set(speed);
 		setSetpoint(speed);
 		set = speed;
 	}
