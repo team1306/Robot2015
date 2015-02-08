@@ -34,24 +34,11 @@ public class RunElevator extends Command {
 	 * This method is called repeatedly when this Command is scheduled to run.
 	 */
 	protected void execute() {
-		if (RobotMap.elevator.hitBottom()) {
-			RobotMap.ELEVATOR_ENCODER.reset();
-		}
-		/*if (oi.getLevel(0)) {
-			elevator.goTo(levelZero);
-		} else if (oi.getLevel(1)) {
-			elevator.goTo(levelOne);
-		} else if (oi.getLevel(2)) {
-			elevator.goTo(levelTwo);
-		} else if (oi.getLevel(3)) {
-			elevator.goTo(levelThree);
-		} else {
-		*/
+
 		RobotMap.elevator.drive(oi.elevatorDir());
-		//}
 
 		height = RobotMap.ELEVATOR_ENCODER.get();
-		SmartDashboard.putNumber("Elevator Height", (double) height);
+		SmartDashboard.putNumber("Elevator Height", height);
 		if (height == 0)
 			SmartDashboard.putString("Level", "0");
 		else if (height < 200 && height > 0)

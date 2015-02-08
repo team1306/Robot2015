@@ -40,11 +40,11 @@ public class MoveNextTotePos extends Command {
     		RobotMap.DRIVETRAIN_SUBSYSTEM.drive(pol * aspd, 0.0, 0.0);
     	} else if (bspd >= 1) {
     		RobotMap.DRIVETRAIN_SUBSYSTEM.drive((double)pol, 0.0, 0.0);
-    	} else if (bspd < 1){
+    	} else if (bspd > inter){
     		RobotMap.DRIVETRAIN_SUBSYSTEM.drive(pol * bspd, 0.0, 0.0);
-    	} else if (bspd == inter){
+    	} else {
     		done = true;
-    		RobotMap.DRIVETRAIN_SUBSYSTEM.drive(0.0, 0.0, 0.0);
+    		RobotMap.DRIVETRAIN_SUBSYSTEM.stop();
     	}
     }
 
