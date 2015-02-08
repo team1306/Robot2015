@@ -97,6 +97,6 @@ public class PIDElevator extends PIDSubsystem {
 		// Use output to drive your system, like a motor
 		// e.g. yourMotor.set(output);
 		pidOut = output;
-		//RobotMap.ELEVATOR_MOTOR.set(output);
+		RobotMap.ELEVATOR_MOTOR.set(output);
 	}
 }
