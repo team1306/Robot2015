@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SPI;
+import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.interfaces.Accelerometer;
 
@@ -35,10 +36,10 @@ public class RobotMap {
 	// public static int rangefinderModule = 1;
 
 	// Drive train motors
-	public static PIDMotor DRIVE_FRONT_LEFT;
-	public static PIDMotor DRIVE_REAR_LEFT;
-	public static PIDMotor DRIVE_FRONT_RIGHT;
-	public static PIDMotor DRIVE_REAR_RIGHT;
+	public static SpeedController DRIVE_FRONT_LEFT;
+	public static SpeedController DRIVE_REAR_LEFT;
+	public static SpeedController DRIVE_FRONT_RIGHT;
+	public static SpeedController DRIVE_REAR_RIGHT;
 
 	public static RobotDrive DRIVETRAIN;
 
@@ -74,10 +75,17 @@ public class RobotMap {
 	public static OI oi;
 
 	static void init() {
+		/*
 		DRIVE_FRONT_LEFT = new PIDMotor(new Talon(0), DRIVE_FRONT_LEFT_ENCODER);
 		DRIVE_REAR_LEFT = new PIDMotor(new Talon(1), DRIVE_REAR_LEFT_ENCODER);
 		DRIVE_FRONT_RIGHT = new PIDMotor(new Talon(2), DRIVE_FRONT_RIGHT_ENCODER);
 		DRIVE_REAR_RIGHT = new PIDMotor(new Talon(3), DRIVE_REAR_RIGHT_ENCODER);
+		*/
+		
+		DRIVE_FRONT_LEFT = new Talon(0);
+		DRIVE_REAR_LEFT = new Talon(1);
+		DRIVE_FRONT_RIGHT = new Talon(2);
+		DRIVE_REAR_RIGHT = new Talon(3);
 
 		DRIVETRAIN = new RobotDrive(DRIVE_FRONT_LEFT, DRIVE_REAR_LEFT, DRIVE_FRONT_RIGHT, DRIVE_REAR_RIGHT);
 		DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, false);

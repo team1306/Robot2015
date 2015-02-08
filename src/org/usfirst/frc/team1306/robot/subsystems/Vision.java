@@ -36,7 +36,7 @@ public class Vision extends Subsystem {
 	
 	protected void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        setDefaultCommand(new ProcessVisionImage());
+        //setDefaultCommand(new ProcessVisionImage());
     }
 	
     public void processImage() {

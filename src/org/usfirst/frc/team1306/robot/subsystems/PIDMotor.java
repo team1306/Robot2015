@@ -62,7 +62,7 @@ public class PIDMotor extends PIDSubsystem implements SpeedController {
 	}
 
 	public void set(double speed, byte syncGroup) {
-		throw new UnsupportedOperationException("use set(double) instead");
+		set(speed);
 	}
 
 	public void set(double speed) {
