@@ -3,14 +3,10 @@ package org.usfirst.frc.team1306.robot.subsystems;
 import org.usfirst.frc.team1306.robot.commands.UpdateDriverImage;
 
 import com.ni.vision.NIVision;
-import com.ni.vision.NIVision.ColorMode;
 import com.ni.vision.NIVision.Image;
-import com.ni.vision.NIVision.ParticleInfoMode;
-import com.ni.vision.NIVision.Range;
 
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *

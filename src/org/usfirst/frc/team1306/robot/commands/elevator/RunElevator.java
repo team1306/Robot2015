@@ -4,8 +4,7 @@ import org.usfirst.frc.team1306.robot.OI;
 import org.usfirst.frc.team1306.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.command.WaitCommand;
-import edu.wpi.first.wpilibj.smartdashboard.*;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * Gets input from Joystick and converts it into elevator speed and direction.

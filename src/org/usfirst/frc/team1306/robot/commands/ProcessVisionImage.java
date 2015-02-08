@@ -3,7 +3,6 @@ package org.usfirst.frc.team1306.robot.commands;
 import org.usfirst.frc.team1306.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * THEORETICALLY turns image from camera into distance to tote

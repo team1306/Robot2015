@@ -1,7 +1,6 @@
 package org.usfirst.frc.team1306.robot;
 
 import org.usfirst.frc.team1306.robot.subsystems.DriverCamera;
-import org.usfirst.frc.team1306.robot.subsystems.MecanumDrive;
 import org.usfirst.frc.team1306.robot.subsystems.PIDElevator;
 import org.usfirst.frc.team1306.robot.subsystems.PIDGrabber;
 import org.usfirst.frc.team1306.robot.subsystems.PIDMecanumDrive;
@@ -11,14 +10,12 @@ import org.usfirst.frc.team1306.robot.subsystems.Vision;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.BuiltInAccelerometer;
 import edu.wpi.first.wpilibj.DigitalInput;
-import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.interfaces.Accelerometer;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
