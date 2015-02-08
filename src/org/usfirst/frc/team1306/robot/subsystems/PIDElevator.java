@@ -90,6 +90,14 @@ public class PIDElevator extends PIDSubsystem {
 	protected void usePIDOutput(double output) {
 		// Use output to drive your system, like a motor
 		// e.g. yourMotor.set(output);
+		if (RobotMap.ELEVATOR_BOTTOM_LIMIT.get()) {
+			RobotMap.ELEVATOR_ENCODER.reset();
+			if (output < 0.0) {
+				output = 0.0;
+			}
+		} else if (RobotMap.ELEVATOR_TOP_LIMIT.get() && output > 0.0) {
+			output = 0.0;
+		}
 		RobotMap.ELEVATOR_MOTOR.set(output);
 	}
 }

@@ -90,6 +90,6 @@ public class RunElevator extends Command {
 	 * subsystems is scheduled to run
 	 */
 	protected void interrupted() {
-		RobotMap.elevator.stop();
+		end();
 	}
 }
