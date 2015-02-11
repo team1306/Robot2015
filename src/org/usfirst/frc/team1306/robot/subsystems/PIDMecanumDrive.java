@@ -89,7 +89,7 @@ public class PIDMecanumDrive extends PIDSubsystem {
 		if (rotation == 0.0) {
 			rotation = pidOut;
 		} else {
-			//changeSetpoint();
+			changeSetpoint();
 		}
 		SmartDashboard.putNumber("Rotation", rotation);
 		RobotMap.DRIVETRAIN.mecanumDrive_Cartesian(x, y, -rotation,

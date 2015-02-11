@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.hal.CanTalonSRX;
 import edu.wpi.first.wpilibj.interfaces.Accelerometer;
 
 /**
@@ -61,7 +62,7 @@ public class RobotMap {
 	// Manipulator actuators
 	public static Talon ELEVATOR_MOTOR;
 	public static Encoder ELEVATOR_ENCODER;
-	public static Talon GRABBER_MOTOR;
+	public static CanTalonSRX GRABBER_MOTOR;
 	public static Encoder GRABBER_ENCODER;
 	
 	// Subsystems
@@ -103,7 +104,7 @@ public class RobotMap {
 		ELEVATOR_MOTOR = new Talon(4);
 		ELEVATOR_ENCODER = new Encoder(3, 4);
 		
-		GRABBER_MOTOR = new Talon(5);
+		GRABBER_MOTOR = new CanTalonSRX(0);
 		GRABBER_ENCODER = new Encoder(5, 6);
 		
 		DRIVE_FRONT_LEFT_ENCODER = new Encoder(7, 8);

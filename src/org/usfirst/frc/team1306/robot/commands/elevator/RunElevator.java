@@ -27,7 +27,7 @@ public class RunElevator extends Command {
 	 * This method is called just before this Command runs the first time.
 	 */
 	protected void initialize() {
-		RobotMap.elevator.goTo(RobotMap.elevator.getPoint());
+		
 	}
 
 	/**
@@ -35,7 +35,7 @@ public class RunElevator extends Command {
 	 */
 	protected void execute() {
 
-		RobotMap.elevator.drive(oi.elevatorDir());
+		RobotMap.elevator.drive(-oi.elevatorDir());
 
 		height = RobotMap.ELEVATOR_ENCODER.get();
 		SmartDashboard.putNumber("Elevator Height", height);

@@ -26,7 +26,7 @@ public class DriverCamera extends Subsystem {
 
 	public DriverCamera() {
 		frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
-		session = NIVision.IMAQdxOpenCamera("cam0",
+		session = NIVision.IMAQdxOpenCamera("cam2",
 				NIVision.IMAQdxCameraControlMode.CameraControlModeController);
 		NIVision.IMAQdxConfigureGrab(session);
 	}
