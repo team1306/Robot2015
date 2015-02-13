@@ -12,7 +12,7 @@ public class AlignWithTargets extends PIDCommand {
 
     public AlignWithTargets() {
     	super(0.6, 0.0, 0.5);
-    	setInputRange(-1.0, 1.0);
+    	setInputRange(-3.0, 3.0);
         // Use requires() here to declare subsystem dependencies
     }
 

@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Vision extends Subsystem {
 	
-	private static final String hostName = "10.13.6.32";
+	private static final String hostName = "10.13.6.20";
 	private static final int portNumber = 5802;
 	
 	private Socket jetsonSocket;
@@ -36,7 +36,7 @@ public class Vision extends Subsystem {
 	
 	protected void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        //setDefaultCommand(new ProcessVisionImage());
+        setDefaultCommand(new ProcessVisionImage());
     }
 	
     public void processImage() {
@@ -60,6 +60,7 @@ public class Vision extends Subsystem {
 				SmartDashboard.putBoolean("Vision Processing", connectToCoprocessor());
 				distance = 0.0;
 			}
+    		SmartDashboard.putNumber("Lateral Distance", distance);
     	}
     }
     
