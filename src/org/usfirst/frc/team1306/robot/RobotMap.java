@@ -1,6 +1,7 @@
 package org.usfirst.frc.team1306.robot;
 
 import org.usfirst.frc.team1306.robot.subsystems.DriverCamera;
+import org.usfirst.frc.team1306.robot.subsystems.MecanumDrive;
 import org.usfirst.frc.team1306.robot.subsystems.PIDElevator;
 import org.usfirst.frc.team1306.robot.subsystems.PIDGrabber;
 import org.usfirst.frc.team1306.robot.subsystems.PIDMecanumDrive;
@@ -105,12 +106,11 @@ public class RobotMap {
 		ELEVATOR_ENCODER = new Encoder(3, 4);
 		
 		GRABBER_MOTOR = new CanTalonSRX(0);
-		GRABBER_ENCODER = new Encoder(5, 6);
 		
-		DRIVE_FRONT_LEFT_ENCODER = new Encoder(7, 8);
-		DRIVE_FRONT_RIGHT_ENCODER = new Encoder(9, 10);
-		DRIVE_REAR_LEFT_ENCODER = new Encoder(11, 12);
-		DRIVE_REAR_RIGHT_ENCODER = new Encoder(13, 14);
+		DRIVE_FRONT_LEFT_ENCODER = new Encoder(10, 11);
+		DRIVE_FRONT_RIGHT_ENCODER = new Encoder(12, 13);
+		DRIVE_REAR_LEFT_ENCODER = new Encoder(16, 17);
+		DRIVE_REAR_RIGHT_ENCODER = new Encoder(14, 15);
 		
 		
 		DRIVETRAIN_SUBSYSTEM = new PIDMecanumDrive();
