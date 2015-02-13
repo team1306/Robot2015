@@ -86,14 +86,14 @@ public class PIDMecanumDrive extends PIDSubsystem {
 		
 		setOutputRange(-maximumSpeed, maximumSpeed);
 		
-		if (rotation == 0.0) {
+		/*if (rotation == 0.0) {
 			rotation = pidOut;
 		} else {
 			changeSetpoint();
-		}
+		}*/
 		SmartDashboard.putNumber("Rotation", rotation);
-		RobotMap.DRIVETRAIN.mecanumDrive_Cartesian(x, y, -rotation,
-				RobotMap.GYRO.getAngle());
+		RobotMap.DRIVETRAIN.mecanumDrive_Cartesian(x, y, -rotation, 0
+				/*RobotMap.GYRO.getAngle()*/);
 
 		SmartDashboard.putNumber("Gyro", RobotMap.GYRO.getAngle());
 	}
