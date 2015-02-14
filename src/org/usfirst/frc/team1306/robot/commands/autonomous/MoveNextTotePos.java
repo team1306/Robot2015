@@ -33,13 +33,9 @@ public class MoveNextTotePos extends Command {
     protected void execute() {
     	double avg = (
     			Math.abs(RobotMap.DRIVE_FRONT_LEFT_ENCODER.get()) + Math.abs(RobotMap.DRIVE_FRONT_RIGHT_ENCODER.get()) + 
-    			Math.abs(RobotMap.DRIVE_REAR_LEFT_ENCODER.get()) + Math.abs(RobotMap.DRIVE_REAR_RIGHT_ENCODER.get())) / 4;
+    			Math.abs(RobotMap.DRIVE_REAR_LEFT_ENCODER.get()) + Math.abs(RobotMap.DRIVE_REAR_RIGHT_ENCODER.get())) / 2;
     	double aspd = (slope * avg) + inter;
-    	if (aspd < 1){
-    		RobotMap.DRIVETRAIN_SUBSYSTEM.drive(pol * aspd, 0.0, 0.0);
-    	} else {
-    		RobotMap.DRIVETRAIN_SUBSYSTEM.drive(pol, 0.0, 0.0);
-    	}
+    		RobotMap.DRIVETRAIN_SUBSYSTEM.drive(Math.min(pol * aspd, 1.0), 0.0, 0.0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
