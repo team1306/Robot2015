@@ -4,6 +4,7 @@ import org.usfirst.frc.team1306.robot.RobotMap;
 import org.usfirst.frc.team1306.robot.commands.TeleopDrive;
 
 import edu.wpi.first.wpilibj.Gyro;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -82,14 +83,15 @@ public class PIDMecanumDrive extends PIDSubsystem {
 		return maximumSpeed;
 	}
 	
+	private double lastTimeTurning;
 	public void drive(double x, double y, double rotation) {
 		
 		setOutputRange(-1.0, 1.0);
 		
-		if (rotation == 0.0) {
-			rotation = pidOut;
-		} else {
+		if (rotation != 0.0 || Timer.getFPGATimestamp() - lastTimeTurning < 0.5 && RobotMap.GYRO.getRate() > 5.0) {
 			changeSetpoint();
+		} else {
+			rotation = pidOut;
 		}
 		SmartDashboard.putNumber("Rotation", rotation);
 		SmartDashboard.putNumber("X", x);
@@ -132,6 +134,7 @@ public class PIDMecanumDrive extends PIDSubsystem {
 	 */
 	private void changeSetpoint() {
 		setSetpoint(modulus(RobotMap.GYRO.getAngle()));
+		lastTimeTurning = Timer.getFPGATimestamp();
 	}
 	
 	private int modulus(double x) {
