@@ -1,6 +1,7 @@
 package org.usfirst.frc.team1306.robot;
 
 import org.usfirst.frc.team1306.robot.commands.ResetGyro;
+import org.usfirst.frc.team1306.robot.commands.ToggleRobotCenter;
 import org.usfirst.frc.team1306.robot.commands.grabber.ClampGrabber;
 import org.usfirst.frc.team1306.robot.commands.grabber.UnclampGrabber;
 
@@ -49,7 +50,7 @@ public class OI {
 	private final XboxController xboxDrive;
 	private final XboxController xboxAux;
 
-	//private final Button buttonADrive;
+	private final Button buttonADrive;
 	//private final Button buttonBDrive;
 	//private final Button buttonXDrive;
 	//private final Button buttonYDrive;
@@ -76,7 +77,7 @@ public class OI {
 		xboxDrive = new XboxController(0);
 		xboxAux = new XboxController(1);
 
-		//buttonADrive = new JoystickButton(xboxDrive, XboxController.A);
+		buttonADrive = new JoystickButton(xboxDrive, XboxController.A);
 		//buttonBDrive = new JoystickButton(xboxDrive, XboxController.B);
 		//buttonXDrive = new JoystickButton(xboxDrive, XboxController.X);
 		//buttonYDrive = new JoystickButton(xboxDrive, XboxController.Y);
@@ -102,6 +103,7 @@ public class OI {
 		buttonBackAux.whenPressed(new UnclampGrabber());
 		
 		buttonStartDrive.whenPressed(new ResetGyro());
+		buttonADrive.whenPressed(new ToggleRobotCenter());
 
 	}
 

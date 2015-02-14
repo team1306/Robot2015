@@ -96,8 +96,14 @@ public class PIDMecanumDrive extends PIDSubsystem {
 		SmartDashboard.putNumber("Rotation", rotation);
 		SmartDashboard.putNumber("X", x);
 		SmartDashboard.putNumber("Y", y);
-		RobotMap.DRIVETRAIN.mecanumDrive_Cartesian(-x, y, -rotation,
+		if(robotCenter) {
+			RobotMap.DRIVETRAIN.mecanumDrive_Cartesian(-x, y, -rotation,
+				0);
+		}
+		else {
+			RobotMap.DRIVETRAIN.mecanumDrive_Cartesian(-x, y, -rotation,
 				RobotMap.GYRO.getAngle());
+		}
 
 		SmartDashboard.putNumber("Gyro", modulus(RobotMap.GYRO.getAngle()));
 		SmartDashboard.putNumber("FL Encoder", RobotMap.DRIVE_FRONT_LEFT_ENCODER.getRate());
@@ -139,6 +145,12 @@ public class PIDMecanumDrive extends PIDSubsystem {
 	
 	private int modulus(double x) {
 		return (int)Math.round(x) % 360;
+	}
+	
+	private boolean robotCenter = false;
+	
+	public void toggleCenter() {
+		robotCenter = !robotCenter;
 	}
 
 }
