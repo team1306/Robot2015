@@ -2,6 +2,8 @@ package org.usfirst.frc.team1306.robot;
 
 import org.usfirst.frc.team1306.robot.commands.ResetGyro;
 import org.usfirst.frc.team1306.robot.commands.ToggleRobotCenter;
+import org.usfirst.frc.team1306.robot.commands.elevator.ElevatorDown;
+import org.usfirst.frc.team1306.robot.commands.elevator.ElevatorUp;
 import org.usfirst.frc.team1306.robot.commands.grabber.ClampGrabber;
 import org.usfirst.frc.team1306.robot.commands.grabber.UnclampGrabber;
 
@@ -61,14 +63,14 @@ public class OI {
 	//private final Button buttonLSDrive;
 	//private final Button buttonRSDrive;
 
-	//private final Button buttonAAux;
+	private final Button buttonAAux;
 	//private final Button buttonBAux;
 	//private final Button buttonXAux;
-	//private final Button buttonYAux;
+	private final Button buttonYAux;
 	//private final Button buttonLBAux;
 	//private final Button buttonRBAux;
-	private final Button buttonBackAux;
-	private final Button buttonStartAux;
+	//private final Button buttonBackAux;
+	//private final Button buttonStartAux;
 	//private final Button buttonLSAux;
 	//private final Button buttonRSAux;
 
@@ -88,22 +90,22 @@ public class OI {
 		//buttonLSDrive = new JoystickButton(xboxDrive, XboxController.LS);
 		//buttonRSDrive = new JoystickButton(xboxDrive, XboxController.RS);
 
-		//buttonAAux = new JoystickButton(xboxAux, XboxController.A);
+		buttonAAux = new JoystickButton(xboxAux, XboxController.A);
 		//buttonBAux = new JoystickButton(xboxAux, XboxController.B);
 		//buttonXAux = new JoystickButton(xboxAux, XboxController.X);
-		//buttonYAux = new JoystickButton(xboxAux, XboxController.Y);
+		buttonYAux = new JoystickButton(xboxAux, XboxController.Y);
 		//buttonLBAux = new JoystickButton(xboxAux, XboxController.LB);
 		//buttonRBAux = new JoystickButton(xboxAux, XboxController.RB);
-		buttonBackAux = new JoystickButton(xboxAux, XboxController.BACK);
-		buttonStartAux = new JoystickButton(xboxAux, XboxController.START);
+		//buttonBackAux = new JoystickButton(xboxAux, XboxController.BACK);
+		//buttonStartAux = new JoystickButton(xboxAux, XboxController.START);
 		//buttonLSAux = new JoystickButton(xboxAux, XboxController.LS);
 		//buttonRSAux = new JoystickButton(xboxAux, XboxController.RS);
-		
-		buttonStartAux.whenPressed(new ClampGrabber());
-		buttonBackAux.whenPressed(new UnclampGrabber());
-		
+				
 		buttonStartDrive.whenPressed(new ResetGyro());
 		buttonADrive.whenPressed(new ToggleRobotCenter());
+		
+		buttonAAux.whenPressed(new ElevatorDown());
+		buttonYAux.whenPressed(new ElevatorUp());
 
 	}
 

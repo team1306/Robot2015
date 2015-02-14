@@ -17,7 +17,7 @@ public class PIDElevator extends PIDSubsystem {
 		// setSetpoint() - Sets where the PID controller should move the system
 		// to
 		// enable() - Enables the PID controller.
-		super("Elevator", 0.005, 0.0, 0.0);
+		super("Elevator", 0.001, 0.0, 0.0);
 
 		getPIDController().setContinuous(false);
 		setInputRange(0.0, 1000.0); // range of encoder values
@@ -49,7 +49,6 @@ public class PIDElevator extends PIDSubsystem {
 	 * @param point Target point
 	 */
 	public void goTo(int point) {
-		enable();
 		if (point - getPoint() > 0 && hitTop()) {
 			setSetpoint(getPoint());
 		} else if (point - getPoint() < 0 && hitBottom()) {
@@ -57,6 +56,7 @@ public class PIDElevator extends PIDSubsystem {
 		} else {
 			setSetpoint(point);
 		}
+		enable();
 	}
 	
 	
