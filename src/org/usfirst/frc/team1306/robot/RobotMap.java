@@ -95,15 +95,15 @@ public class RobotMap {
 		DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kRearLeft, false);
 		DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
 
-		ELEVATOR_BOTTOM_LIMIT = new DigitalInput(0);
-		ELEVATOR_TOP_LIMIT = new DigitalInput(1);
+		ELEVATOR_BOTTOM_LIMIT = new DigitalInput(1);
+		ELEVATOR_TOP_LIMIT = new DigitalInput(0);
 		TOTE_SWITCH = new DigitalInput(2);
 		GYRO = new Gyro(0);
 		ACCEL = new BuiltInAccelerometer();
 		SONIC = new AnalogInput(1);
 
 		ELEVATOR_MOTOR = new Talon(4);
-		ELEVATOR_ENCODER = new Encoder(3, 4);
+		ELEVATOR_ENCODER = new Encoder(18, 19);
 		
 		GRABBER_MOTOR = new CanTalonSRX(0);
 		

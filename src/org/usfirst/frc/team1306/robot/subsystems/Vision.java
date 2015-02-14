@@ -52,11 +52,7 @@ public class Vision extends Subsystem {
     	
     		try {
     			distance = Double.parseDouble(in.readLine());
-			} catch (NumberFormatException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				distance = 0.0;
-			} catch (IOException e) {
+			} catch (Exception e) {
 				SmartDashboard.putBoolean("Vision Processing", connectToCoprocessor());
 				distance = 0.0;
 			}

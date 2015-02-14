@@ -14,7 +14,7 @@ public class RunElevator extends Command {
 
 	private final OI oi;
 
-	private static int height;
+	private static double height;
 
 	public RunElevator() {
 		// Use requires() here to declare subsystem dependencies
@@ -36,7 +36,6 @@ public class RunElevator extends Command {
 	protected void execute() {
 
 		RobotMap.elevator.drive(-oi.elevatorDir());
-		SmartDashboard.putNumber("Elevator Encoder", RobotMap.ELEVATOR_ENCODER);
 
 		height = RobotMap.ELEVATOR_ENCODER.get();
 		SmartDashboard.putNumber("Elevator Height", height);

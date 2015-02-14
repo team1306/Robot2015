@@ -3,6 +3,7 @@ package org.usfirst.frc.team1306.robot.subsystems;
 import org.usfirst.frc.team1306.robot.RobotMap;
 import org.usfirst.frc.team1306.robot.commands.TeleopDrive;
 
+import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -44,7 +45,7 @@ public class PIDMecanumDrive extends PIDSubsystem {
 		// Return your input value for the PID loop
 		// e.g. a sensor, like a potentiometer:
 		// yourPot.getAverageVoltage() / kYourMaxVoltage;
-		return RobotMap.GYRO.getAngle();
+		return modulus(RobotMap.GYRO.getAngle());
 	}
 
 	private double pidOut;
@@ -96,7 +97,7 @@ public class PIDMecanumDrive extends PIDSubsystem {
 		RobotMap.DRIVETRAIN.mecanumDrive_Cartesian(-x, y, -rotation,
 				RobotMap.GYRO.getAngle());
 
-		SmartDashboard.putNumber("Gyro", RobotMap.GYRO.getAngle());
+		SmartDashboard.putNumber("Gyro", modulus(RobotMap.GYRO.getAngle()));
 		SmartDashboard.putNumber("FL Encoder", RobotMap.DRIVE_FRONT_LEFT_ENCODER.getRate());
 		SmartDashboard.putNumber("RL Encoder", RobotMap.DRIVE_REAR_LEFT_ENCODER.getRate());
 		SmartDashboard.putNumber("FR Encoder", RobotMap.DRIVE_FRONT_RIGHT_ENCODER.getRate());
@@ -130,6 +131,11 @@ public class PIDMecanumDrive extends PIDSubsystem {
 	 * Changes setpoint to the direction the robot is currently facing
 	 */
 	private void changeSetpoint() {
-		setSetpoint((int)Math.round(RobotMap.GYRO.getAngle()) % 360);
+		setSetpoint(modulus(RobotMap.GYRO.getAngle()));
 	}
+	
+	private int modulus(double x) {
+		return (int)Math.round(x) % 360;
+	}
+
 }

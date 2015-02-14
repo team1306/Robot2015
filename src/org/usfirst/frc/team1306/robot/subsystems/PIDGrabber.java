@@ -40,7 +40,7 @@ public class PIDGrabber extends PIDSubsystem{
 	 */
 	protected void initDefaultCommand() {
 		
-		//setDefaultCommand(new RunGrabber());
+		setDefaultCommand(new RunGrabber());
 	}
 	
 	/**
