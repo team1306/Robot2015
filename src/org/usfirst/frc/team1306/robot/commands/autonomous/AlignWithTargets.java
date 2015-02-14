@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class AlignWithTargets extends PIDCommand {
 
     public AlignWithTargets() {
-    	super(0.6, 0.0, 0.5);
+    	super(0.4, 0.01, 0.0);
     	setInputRange(-3.0, 3.0);
         // Use requires() here to declare subsystem dependencies
     }

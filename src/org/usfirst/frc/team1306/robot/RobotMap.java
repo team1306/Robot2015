@@ -13,6 +13,8 @@ import edu.wpi.first.wpilibj.BuiltInAccelerometer;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Gyro;
+import edu.wpi.first.wpilibj.Relay;
+import edu.wpi.first.wpilibj.Relay.Value;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.SpeedController;
@@ -44,6 +46,8 @@ public class RobotMap {
 	public static SpeedController DRIVE_REAR_RIGHT;
 
 	public static RobotDrive DRIVETRAIN;
+	
+	public static Relay LIGHTS;
 
 	// Misc inputs
 	public static DigitalInput ELEVATOR_BOTTOM_LIMIT;
@@ -94,6 +98,9 @@ public class RobotMap {
 		DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
 		DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kRearLeft, false);
 		DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
+		
+		LIGHTS = new Relay(0);
+		LIGHTS.set(Value.kForward);
 
 		ELEVATOR_BOTTOM_LIMIT = new DigitalInput(1);
 		ELEVATOR_TOP_LIMIT = new DigitalInput(0);

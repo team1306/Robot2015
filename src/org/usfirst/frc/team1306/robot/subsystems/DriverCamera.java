@@ -18,17 +18,22 @@ public class DriverCamera extends Subsystem {
 
 	public void initDefaultCommand() {
 		// Set the default command for a subsystem here.
-		setDefaultCommand(new UpdateDriverImage());
+		//setDefaultCommand(new UpdateDriverImage());
 	}
 
-	private final int session;
-	private final Image frame;
+	private  int session;
+	private  Image frame;
 
 	public DriverCamera() {
+		try {
 		frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
 		session = NIVision.IMAQdxOpenCamera("cam2",
 				NIVision.IMAQdxCameraControlMode.CameraControlModeController);
 		NIVision.IMAQdxConfigureGrab(session);
+		} catch (Exception e) {
+			session = 0;
+			frame = null;
+		}
 	}
 
 	public void startAcquisition() {

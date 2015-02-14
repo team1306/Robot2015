@@ -23,6 +23,7 @@ public class PIDElevator extends PIDSubsystem {
 		setInputRange(0.0, 1000.0); // range of encoder values
 		setOutputRange(-1.0, 1.0); // range of motor speeds
 		setAbsoluteTolerance(5.0); // tolerance in encoder ticks
+		
 
 		SmartDashboard.putData("Elevator PID", getPIDController());
 		
@@ -61,6 +62,15 @@ public class PIDElevator extends PIDSubsystem {
 	
 	public void drive(double speed) {
 		disable();
+		SmartDashboard.putBoolean("Hit Top", hitTop());
+		SmartDashboard.putBoolean("Hit Bottom", hitBottom());
+		SmartDashboard.putNumber("Elevator Height", RobotMap.ELEVATOR_ENCODER.get());
+		
+		if (speed < 0.0) {
+			speed /= 4.0;
+		}
+		
+		if (!(hitTop() && speed > 0 || hitBottom() && speed < 0))
 		RobotMap.ELEVATOR_MOTOR.set(-speed);
 	}
 	public void stop() {
@@ -72,7 +82,7 @@ public class PIDElevator extends PIDSubsystem {
 	 * @return true if at upper limit
 	 */
 	public boolean hitTop() {
-		return RobotMap.ELEVATOR_TOP_LIMIT.get();
+		return !RobotMap.ELEVATOR_TOP_LIMIT.get();
 	}
 
 	/**
@@ -80,7 +90,11 @@ public class PIDElevator extends PIDSubsystem {
 	 * @return true if at bottom limit
 	 */
 	public boolean hitBottom() {
-		return RobotMap.ELEVATOR_BOTTOM_LIMIT.get();
+		boolean hit = !RobotMap.ELEVATOR_BOTTOM_LIMIT.get();
+		if (hit) {
+			RobotMap.ELEVATOR_ENCODER.reset();
+		}
+		return hit;
 	}
 	
 	protected double returnPIDInput() {
@@ -93,14 +107,9 @@ public class PIDElevator extends PIDSubsystem {
 	protected void usePIDOutput(double output) {
 		// Use output to drive your system, like a motor
 		// e.g. yourMotor.set(output);
-		if (RobotMap.ELEVATOR_BOTTOM_LIMIT.get()) {
-			RobotMap.ELEVATOR_ENCODER.reset();
-			if (output < 0.0) {
-				output = 0.0;
-			}
-		} else if (RobotMap.ELEVATOR_TOP_LIMIT.get() && output > 0.0) {
+		if (hitTop() && output > 0.0 || hitBottom() && output < 0.0) {
 			output = 0.0;
 		}
-		RobotMap.ELEVATOR_MOTOR.set(output);
+		RobotMap.ELEVATOR_MOTOR.set(-output);
 	}
 }
