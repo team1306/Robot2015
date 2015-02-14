@@ -36,6 +36,7 @@ public class RunElevator extends Command {
 	protected void execute() {
 
 		RobotMap.elevator.drive(-oi.elevatorDir());
+		SmartDashboard.putNumber("Elevator Encoder", RobotMap.ELEVATOR_ENCODER);
 
 		height = RobotMap.ELEVATOR_ENCODER.get();
 		SmartDashboard.putNumber("Elevator Height", height);
