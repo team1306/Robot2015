@@ -61,7 +61,7 @@ public class PIDElevator extends PIDSubsystem {
 	
 	public void drive(double speed) {
 		disable();
-		RobotMap.ELEVATOR_MOTOR.set(speed);
+		RobotMap.ELEVATOR_MOTOR.set(-speed);
 	}
 	public void stop() {
 		drive(0.0);
