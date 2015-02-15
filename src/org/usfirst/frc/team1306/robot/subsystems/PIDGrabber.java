@@ -69,4 +69,8 @@ public class PIDGrabber extends PIDSubsystem{
 	public void drive(double speed){
 		RobotMap.GRABBER_MOTOR.Set(speed);
 	}
+	
+	public void stop() {
+		RobotMap.GRABBER_MOTOR.Set(0.0);
+	}
 }

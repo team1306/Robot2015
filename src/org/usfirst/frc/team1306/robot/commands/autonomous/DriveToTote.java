@@ -12,8 +12,8 @@ import edu.wpi.first.wpilibj.command.PIDCommand;
 public class DriveToTote extends PIDCommand {
 
     public DriveToTote() {
-    	super(1.0, 0.0, 0.0);
-    	setInputRange(0.293, 4.885);
+    	super(MIN_SPEED / MIN_DISTANCE, 0.0, 0.0);
+    	setInputRange(0.0, 4.885);
     	
         // Use requires() here to declare subsystem dependencies
         requires(RobotMap.DRIVETRAIN_SUBSYSTEM);
@@ -27,7 +27,7 @@ public class DriveToTote extends PIDCommand {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	if (isClose()) {
-    		RobotMap.DRIVETRAIN_SUBSYSTEM.drive(0.0, 0.5, 0.0);
+    		RobotMap.DRIVETRAIN_SUBSYSTEM.drive(0.0, MIN_SPEED, 0.0);
     	} else {
     		RobotMap.DRIVETRAIN_SUBSYSTEM.driveWithPID();
     	}
@@ -35,7 +35,7 @@ public class DriveToTote extends PIDCommand {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return RobotMap.TOTE_SWITCH.get();
+        return !RobotMap.TOTE_SWITCH.get();
     }
 
     // Called once after isFinished returns true
@@ -62,7 +62,10 @@ public class DriveToTote extends PIDCommand {
 		
 	}
 	
-	private boolean isClose() {
-		return RobotMap.SONIC.getVoltage() <= 0.300;
+	public static boolean isClose() {
+		return RobotMap.SONIC.getVoltage() <= MIN_DISTANCE;
 	}
+	
+	private static final double MIN_SPEED = 0.3;
+	private static final double MIN_DISTANCE = 0.31;
 }

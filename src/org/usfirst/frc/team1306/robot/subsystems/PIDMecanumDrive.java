@@ -85,6 +85,7 @@ public class PIDMecanumDrive extends PIDSubsystem {
 	
 	private double lastTimeTurning;
 	public void drive(double x, double y, double rotation) {
+		RobotMap.DRIVETRAIN.setSafetyEnabled(false);
 		
 		setOutputRange(-1.0, 1.0);
 		
@@ -125,7 +126,8 @@ public class PIDMecanumDrive extends PIDSubsystem {
 	}
 	
 	public void driveWithPID() {
-		RobotMap.DRIVETRAIN.mecanumDrive_Cartesian(x, y, -pidOut, RobotMap.GYRO.getAngle());
+		RobotMap.DRIVETRAIN.setSafetyEnabled(false);
+		RobotMap.DRIVETRAIN.mecanumDrive_Cartesian(x, -y, -pidOut, RobotMap.GYRO.getAngle());
 	}
 
 	/**

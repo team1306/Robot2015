@@ -1,6 +1,7 @@
 package org.usfirst.frc.team1306.robot;
 
 import org.usfirst.frc.team1306.robot.commands.autonomous.AlignWithTargets;
+import org.usfirst.frc.team1306.robot.commands.autonomous.DriveToTote;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Timer;
