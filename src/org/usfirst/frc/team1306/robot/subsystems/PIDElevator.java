@@ -17,10 +17,10 @@ public class PIDElevator extends PIDSubsystem {
 		// setSetpoint() - Sets where the PID controller should move the system
 		// to
 		// enable() - Enables the PID controller.
-		super("Elevator", 0.001, 0.0, 0.0);
+		super("Elevator", 0.002, 0.0, 0.0);
 
 		getPIDController().setContinuous(false);
-		setInputRange(0.0, 1000.0); // range of encoder values
+		setInputRange(0.0, 100000.0); // range of encoder values
 		setOutputRange(-1.0, 1.0); // range of motor speeds
 		setAbsoluteTolerance(5.0); // tolerance in encoder ticks
 		
@@ -61,17 +61,23 @@ public class PIDElevator extends PIDSubsystem {
 	
 	
 	public void drive(double speed) {
-		disable();
+		if (speed == 0.0) {
+			enable();
+		} else {
+			disable();
+			setSetpoint(getPoint());
+			if (speed < 0.0) {
+				speed /= 4.0;
+			}
+			if (!(hitTop() && speed > 0 || hitBottom() && speed < 0))
+				RobotMap.ELEVATOR_MOTOR.set(-speed);
+		}
 		SmartDashboard.putBoolean("Hit Top", hitTop());
 		SmartDashboard.putBoolean("Hit Bottom", hitBottom());
-		SmartDashboard.putNumber("Elevator Height", RobotMap.ELEVATOR_ENCODER.get());
 		
-		if (speed < 0.0) {
-			speed /= 4.0;
-		}
+
 		
-		if (!(hitTop() && speed > 0 || hitBottom() && speed < 0))
-		RobotMap.ELEVATOR_MOTOR.set(-speed);
+
 	}
 	public void stop() {
 		drive(0.0);

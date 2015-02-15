@@ -2,6 +2,7 @@ package org.usfirst.frc.team1306.robot.commands.autonomous;
 
 import org.usfirst.frc.team1306.robot.RobotMap;
 
+import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.PIDCommand;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -10,25 +11,42 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class AlignWithTargets extends PIDCommand {
 
+	Command driveToTote;
+	
     public AlignWithTargets() {
-    	super(0.4, 0.01, 0.0);
+    	super(0.6, 0.0, 1.0);
+    	SmartDashboard.putData("Alignment", getPIDController());
+    	
+        driveToTote = new DriveToTote();
     	setInputRange(-3.0, 3.0);
+    	getPIDController().setAbsoluteTolerance(0.1);
         // Use requires() here to declare subsystem dependencies
+    	
+    	startedDriving = false;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
     	setSetpoint(0.0);
     }
+    
+    private boolean startedDriving;
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	RobotMap.DRIVETRAIN_SUBSYSTEM.driveWithPID();
+    	if (!DriveToTote.isClose()) {
+    		RobotMap.DRIVETRAIN_SUBSYSTEM.driveWithPID();
+        	if (getPIDController().onTarget() && !driveToTote.isRunning()) {
+        		driveToTote.start();
+        		startedDriving = true;
+        	}
+    	}
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return DriveToTote.isClose();
+        return startedDriving && !driveToTote.isRunning();
     }
 
     // Called once after isFinished returns true

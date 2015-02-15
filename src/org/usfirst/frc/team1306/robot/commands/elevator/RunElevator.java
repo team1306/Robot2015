@@ -38,7 +38,6 @@ public class RunElevator extends Command {
 		RobotMap.elevator.drive(oi.elevatorDir());
 
 		height = RobotMap.ELEVATOR_ENCODER.get();
-		SmartDashboard.putNumber("Elevator Height", height);
 		if (height == 0)
 			SmartDashboard.putString("Level", "0");
 		else if (height < 200 && height > 0)

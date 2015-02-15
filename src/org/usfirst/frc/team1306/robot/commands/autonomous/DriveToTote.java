@@ -28,8 +28,6 @@ public class DriveToTote extends PIDCommand {
     protected void execute() {
     	if (isClose()) {
     		RobotMap.DRIVETRAIN_SUBSYSTEM.drive(0.0, MIN_SPEED, 0.0);
-    	} else {
-    		RobotMap.DRIVETRAIN_SUBSYSTEM.driveWithPID();
     	}
     }
 
@@ -66,6 +64,6 @@ public class DriveToTote extends PIDCommand {
 		return RobotMap.SONIC.getVoltage() <= MIN_DISTANCE;
 	}
 	
-	private static final double MIN_SPEED = 0.3;
+	private static final double MIN_SPEED = 0.1;
 	private static final double MIN_DISTANCE = 0.31;
 }

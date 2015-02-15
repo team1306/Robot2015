@@ -2,6 +2,7 @@ package org.usfirst.frc.team1306.robot;
 
 import org.usfirst.frc.team1306.robot.commands.autonomous.AlignWithTargets;
 import org.usfirst.frc.team1306.robot.commands.autonomous.DriveToTote;
+import org.usfirst.frc.team1306.robot.commands.autonomous.FullAuto;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Timer;
@@ -32,7 +33,7 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		RobotMap.init();
 		// instantiate the command used for the autonomous period
-		autonomousCommand = new AlignWithTargets();
+		autonomousCommand = new FullAuto();
 	}
 
 	public void disabledPeriodic() {

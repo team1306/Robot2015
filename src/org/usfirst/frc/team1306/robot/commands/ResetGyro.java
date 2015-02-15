@@ -15,28 +15,18 @@ public class ResetGyro extends Command {
         requires(RobotMap.DRIVETRAIN_SUBSYSTEM);
     }
 
-    private double startTime;
-    private boolean isGyroReset;
     // Called just before this Command runs the first time
     protected void initialize() {
-    	startTime = Timer.getFPGATimestamp();
-    	isGyroReset = false;
+    	RobotMap.GYRO.reset();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	
-    	if (Timer.getFPGATimestamp() - startTime > 0.5 && !isGyroReset) {
-    		RobotMap.GYRO.reset();
-    		setInterruptible(false);
-    		isGyroReset = true;
-    	}
-    	RobotMap.DRIVETRAIN_SUBSYSTEM.stop();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Timer.getFPGATimestamp() - startTime > 1.5;
+    	return Math.abs(RobotMap.GYRO.getAngle()) <= 0.5;
     }
 
     // Called once after isFinished returns true

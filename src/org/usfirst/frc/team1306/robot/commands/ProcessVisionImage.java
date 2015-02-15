@@ -25,6 +25,7 @@ public class ProcessVisionImage extends Command {
     protected void execute() {
     	RobotMap.vision.processImage();
     	SmartDashboard.putNumber("Ultrasonic", RobotMap.SONIC.getVoltage());
+    	SmartDashboard.putNumber("Elevator Height", RobotMap.ELEVATOR_ENCODER.get());
     }
 
     /**

@@ -1,5 +1,7 @@
 package org.usfirst.frc.team1306.robot.commands.autonomous;
 
+import org.usfirst.frc.team1306.robot.commands.ResetGyro;
+
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
@@ -24,8 +26,8 @@ public class FullAuto extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	
+    	addSequential(new ResetGyro());
     	addParallel(new AlignWithTargets());
-    	addSequential(new DriveToTote());
+    	//addSequential(new DriveToTote());
     }
 }

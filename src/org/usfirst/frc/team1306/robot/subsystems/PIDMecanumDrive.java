@@ -20,7 +20,7 @@ public class PIDMecanumDrive extends PIDSubsystem {
 		// to
 		// enable() - Enables the PID controller.
 
-		super("Drivetrain", 0.01, 0.0, 0.05);
+		super("Drivetrain", 0.05, 0.0, 0.05);
 
 		pidOut = 0.0;
 
