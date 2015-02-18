@@ -22,7 +22,7 @@ public class PIDElevator extends PIDSubsystem {
 		getPIDController().setContinuous(false);
 		setInputRange(0.0, 100000.0); // range of encoder values
 		setOutputRange(-1.0, 1.0); // range of motor speeds
-		setAbsoluteTolerance(5.0); // tolerance in encoder ticks
+		setAbsoluteTolerance(100.0); // tolerance in encoder ticks
 		
 
 		SmartDashboard.putData("Elevator PID", getPIDController());

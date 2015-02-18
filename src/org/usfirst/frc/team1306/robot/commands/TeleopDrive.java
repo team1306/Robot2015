@@ -27,6 +27,7 @@ public class TeleopDrive extends Command {
 
 	// Called just before this Command runs the first time
 	protected void initialize() {
+		RobotMap.GYRO.reset();
 		RobotMap.DRIVETRAIN.setSafetyEnabled(false);
 	}
 

@@ -122,11 +122,14 @@ public class PIDMecanumDrive extends PIDSubsystem {
 	private double y;
 	
 	public void setYTranslation(double y) {
+		SmartDashboard.putNumber("Y Translation", this.y);
 		this.y = y;
+		SmartDashboard.putNumber("Set Y Translation", this.y);
 	}
 	
 	public void driveWithPID() {
 		RobotMap.DRIVETRAIN.setSafetyEnabled(false);
+		SmartDashboard.putString("Driving", x + " " + -y + " " + -pidOut);
 		RobotMap.DRIVETRAIN.mecanumDrive_Cartesian(x, -y, -pidOut, RobotMap.GYRO.getAngle());
 	}
 

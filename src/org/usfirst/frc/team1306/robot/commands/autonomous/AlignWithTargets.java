@@ -19,7 +19,8 @@ public class AlignWithTargets extends PIDCommand {
     	
         driveToTote = new DriveToTote();
     	setInputRange(-3.0, 3.0);
-    	getPIDController().setAbsoluteTolerance(0.1);
+    	getPIDController().setAbsoluteTolerance(0.3);
+    	getPIDController().setOutputRange(-0.8, 0.8);
         // Use requires() here to declare subsystem dependencies
     	
     	startedDriving = false;
@@ -34,8 +35,11 @@ public class AlignWithTargets extends PIDCommand {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	SmartDashboard.putBoolean("Close?", DriveToTote.isClose());
+    	
     	if (!DriveToTote.isClose()) {
     		RobotMap.DRIVETRAIN_SUBSYSTEM.driveWithPID();
+    		SmartDashboard.putBoolean("On Target", getPIDController().onTarget());
         	if (getPIDController().onTarget() && !driveToTote.isRunning()) {
         		driveToTote.start();
         		startedDriving = true;
@@ -69,9 +73,8 @@ public class AlignWithTargets extends PIDCommand {
 	@Override
 	protected void usePIDOutput(double output) {
 		// may need to negate this value
-		RobotMap.DRIVETRAIN_SUBSYSTEM.setXTranslation(Math.min(Math.max(output, -0.8), 0.8));
-		SmartDashboard.putNumber("translation", Math.min(Math.max(output, -0.8), 0.8));
-		RobotMap.DRIVETRAIN_SUBSYSTEM.setYTranslation(0.0);
+		RobotMap.DRIVETRAIN_SUBSYSTEM.setXTranslation(output);
+		SmartDashboard.putNumber("translation", output);
 		
 	}
 
