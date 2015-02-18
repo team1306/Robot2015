@@ -18,6 +18,7 @@ public class ResetGyro extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	RobotMap.GYRO.reset();
+    	RobotMap.DRIVETRAIN_SUBSYSTEM.setSetpoint(0.0);
     }
 
     // Called repeatedly when this Command is scheduled to run

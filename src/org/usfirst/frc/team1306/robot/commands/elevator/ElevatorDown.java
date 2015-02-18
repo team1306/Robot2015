@@ -25,7 +25,7 @@ public class ElevatorDown extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return RobotMap.elevator.hitBottom();
+        return RobotMap.elevator.onTarget();
     }
 
     // Called once after isFinished returns true
