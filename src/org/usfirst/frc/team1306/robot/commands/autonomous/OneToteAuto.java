@@ -2,6 +2,7 @@ package org.usfirst.frc.team1306.robot.commands.autonomous;
 
 import org.usfirst.frc.team1306.robot.commands.elevator.ElevatorUp;
 import org.usfirst.frc.team1306.robot.commands.grabber.ClampGrabber;
+import org.usfirst.frc.team1306.robot.commands.grabber.UnclampGrabber;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -35,6 +36,8 @@ public class OneToteAuto extends CommandGroup {
     	addSequential(new ClampGrabber(), 1.0); //Edit this double to change the time before the next command begins
     	
     	addParallel(new ElevatorUp());
+    	addSequential(new RevToAutoZone());
     	
+    	addSequential(new UnclampGrabber(), 1.0);
     }
 }
