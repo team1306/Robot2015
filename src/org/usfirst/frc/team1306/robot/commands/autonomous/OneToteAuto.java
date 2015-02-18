@@ -33,11 +33,11 @@ public class OneToteAuto extends CommandGroup {
     	
     	addSequential(new DriveToTote());
     	
-    	addSequential(new ClampGrabber(), 1.0); //Edit this double to change the time before the next command begins
+    	addSequential(new ClampGrabber());
     	
     	addParallel(new ElevatorUp());
     	addSequential(new RevToAutoZone());
     	
-    	addSequential(new UnclampGrabber(), 1.0);
+    	addSequential(new UnclampGrabber());
     }
 }
