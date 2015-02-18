@@ -167,6 +167,10 @@ public class OI {
 	public double elevatorDir() {
 		return deadband(xboxAux.getY(Hand.kRight));
 	}
+	
+	public int getPOV() {
+		return xboxDrive.getPOV();
+	}
 
 	/**
 	 * Returns if a given button is pressed, specifying which to which level the

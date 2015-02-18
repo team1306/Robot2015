@@ -86,9 +86,7 @@ public class PIDMecanumDrive extends PIDSubsystem {
 	private double lastTimeTurning;
 	public void drive(double x, double y, double rotation) {
 		RobotMap.DRIVETRAIN.setSafetyEnabled(false);
-		
-		setOutputRange(-1.0, 1.0);
-		
+				
 		if (rotation != 0.0 || Timer.getFPGATimestamp() - lastTimeTurning < 0.5 && RobotMap.GYRO.getRate() > 5.0) {
 			changeSetpoint();
 		} else {
