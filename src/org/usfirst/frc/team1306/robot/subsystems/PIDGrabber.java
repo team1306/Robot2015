@@ -19,7 +19,7 @@ public class PIDGrabber extends PIDSubsystem{
 		
 		SmartDashboard.putData("Grabber PID", getPIDController());
 		
-		enable();
+		//enable();
 	}
 
 	/**
@@ -60,13 +60,16 @@ public class PIDGrabber extends PIDSubsystem{
 	 * Sets motor to go backwards to unclamp grabber
 	 */
 	public void unclamp() {
-		RobotMap.GRABBER_MOTOR.Set(-1.0);
+		RobotMap.GRABBER_MOTOR.Set(-0.75);
 	}
 	/**
 	 * Drives grabber at the given speed in the param
 	 * @param speed
 	 */
 	public void drive(double speed){
+		if (speed < 0.0) {
+			speed *= 0.75;
+		}
 		RobotMap.GRABBER_MOTOR.Set(speed);
 	}
 	
