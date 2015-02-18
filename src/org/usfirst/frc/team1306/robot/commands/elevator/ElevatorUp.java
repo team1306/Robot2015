@@ -39,5 +39,5 @@ public class ElevatorUp extends Command {
     	end();
     }
     
-    private static final int SETPOINT = 5000;
+    private static final int SETPOINT = 6700;
 }

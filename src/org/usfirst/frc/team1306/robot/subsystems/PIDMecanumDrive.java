@@ -20,7 +20,7 @@ public class PIDMecanumDrive extends PIDSubsystem {
 		// to
 		// enable() - Enables the PID controller.
 
-		super("Drivetrain", 0.05, 0.0, 0.05);
+		super("Drivetrain", 0.05, 0.0, 0.02);
 
 		pidOut = 0.0;
 
@@ -97,7 +97,7 @@ public class PIDMecanumDrive extends PIDSubsystem {
 		SmartDashboard.putNumber("Y", y);
 		if(robotCenter) {
 			RobotMap.DRIVETRAIN.mecanumDrive_Cartesian(-x, y, -rotation,
-				0);
+				0.0);
 		}
 		else {
 			RobotMap.DRIVETRAIN.mecanumDrive_Cartesian(-x, y, -rotation,
@@ -146,8 +146,15 @@ public class PIDMecanumDrive extends PIDSubsystem {
 		lastTimeTurning = Timer.getFPGATimestamp();
 	}
 	
-	private int modulus(double x) {
-		return (int)Math.round(x) % 360;
+	private double modulus(double x) {
+		while (x < 360.0) {
+			x += 360.0;
+		}
+		while (x >= 360.0) {
+			x -= 360.0;
+		}
+		return x;
+		//return (int)Math.round(x) % 360;
 	}
 	
 	private boolean robotCenter = false;
