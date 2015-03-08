@@ -12,7 +12,7 @@ public class ProcessVisionImage extends Command {
 
     public ProcessVisionImage() {
         // Use requires() here to declare subsystem dependencies
-        //requires(RobotMap.vision);
+        requires(RobotMap.vision);
         setRunWhenDisabled(true);
     }
 
@@ -23,7 +23,7 @@ public class ProcessVisionImage extends Command {
     
     //Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	//RobotMap.vision.processImage();
+    	RobotMap.vision.processImage();
     	SmartDashboard.putNumber("Ultrasonic", RobotMap.SONIC.getVoltage());
     	SmartDashboard.putNumber("Elevator Height", RobotMap.ELEVATOR_ENCODER.get());
     }

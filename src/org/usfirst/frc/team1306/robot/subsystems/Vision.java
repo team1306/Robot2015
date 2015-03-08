@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Vision extends Subsystem {
 	
-	private static final String hostName = "10.13.6.20";
+	private static final String hostName = "10.13.6.32";
 	private static final int portNumber = 5802;
 	
 	private Socket jetsonSocket;

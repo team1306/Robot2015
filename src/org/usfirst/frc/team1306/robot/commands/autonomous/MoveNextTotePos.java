@@ -38,8 +38,7 @@ public class MoveNextTotePos extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        //return RobotMap.vision.getXTranslation() != 0.0;
-    	return true;
+        return RobotMap.vision.getXTranslation() != 0.0;
     }
 
     // Called once after isFinished returns true

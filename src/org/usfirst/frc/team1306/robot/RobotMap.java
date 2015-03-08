@@ -76,7 +76,7 @@ public class RobotMap {
 	public static PIDElevator elevator;
 	public static PIDGrabber grabber;
 	public static DriverCamera camera;
-	//public static Vision vision;
+	public static Vision vision;
 	
 	// Operator Interface
 	public static OI oi;
@@ -137,7 +137,7 @@ public class RobotMap {
 		elevator = new PIDElevator();
 		grabber = new PIDGrabber();
 		camera = new DriverCamera();
-		//vision = new Vision();
+		vision = new Vision();
 		
 		oi = new OI();
 
