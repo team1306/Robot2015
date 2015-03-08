@@ -105,10 +105,6 @@ public class PIDMecanumDrive extends PIDSubsystem {
 		}
 
 		SmartDashboard.putNumber("Gyro", modulus(RobotMap.GYRO.getAngle()));
-		SmartDashboard.putNumber("FL Encoder", RobotMap.DRIVE_FRONT_LEFT_ENCODER.getRate());
-		SmartDashboard.putNumber("RL Encoder", RobotMap.DRIVE_REAR_LEFT_ENCODER.getRate());
-		SmartDashboard.putNumber("FR Encoder", RobotMap.DRIVE_FRONT_RIGHT_ENCODER.getRate());
-		SmartDashboard.putNumber("RR Encoder", RobotMap.DRIVE_REAR_RIGHT_ENCODER.getRate());
 	}
 	
 	private double x;

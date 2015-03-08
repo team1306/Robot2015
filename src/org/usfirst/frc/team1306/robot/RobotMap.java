@@ -114,6 +114,7 @@ public class RobotMap {
 		
 		GRABBER_MOTOR = new CanTalonSRX(0);
 		
+		/*
 		DRIVE_FRONT_LEFT_ENCODER = new Encoder(10, 11);
 		DRIVE_FRONT_LEFT_ENCODER.setSamplesToAverage(10);
 		DRIVE_FRONT_RIGHT_ENCODER = new Encoder(12, 13);
@@ -122,7 +123,7 @@ public class RobotMap {
 		DRIVE_REAR_LEFT_ENCODER.setSamplesToAverage(10);
 		DRIVE_REAR_RIGHT_ENCODER = new Encoder(14, 15);
 		DRIVE_REAR_RIGHT_ENCODER.setSamplesToAverage(10);
-		
+		*/
 		
 		DRIVETRAIN_SUBSYSTEM = new PIDMecanumDrive();
 		elevator = new PIDElevator();
