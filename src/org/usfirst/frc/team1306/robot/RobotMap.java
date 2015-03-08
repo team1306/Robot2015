@@ -19,6 +19,7 @@ import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.hal.CanTalonSRX;
 import edu.wpi.first.wpilibj.interfaces.Accelerometer;
 
@@ -75,7 +76,7 @@ public class RobotMap {
 	public static PIDElevator elevator;
 	public static PIDGrabber grabber;
 	public static DriverCamera camera;
-	public static Vision vision;
+	//public static Vision vision;
 	
 	// Operator Interface
 	public static OI oi;
@@ -88,16 +89,23 @@ public class RobotMap {
 		DRIVE_REAR_RIGHT = new PIDMotor(new Talon(3), DRIVE_REAR_RIGHT_ENCODER);
 		*/
 		
-		DRIVE_FRONT_LEFT = new Talon(1);
-		DRIVE_REAR_LEFT = new Talon(3);
-		DRIVE_FRONT_RIGHT = new Talon(0);
-		DRIVE_REAR_RIGHT = new Talon(2);
+		DRIVE_FRONT_LEFT = new Victor(1);
+		DRIVE_REAR_LEFT = new Victor(3);
+		DRIVE_FRONT_RIGHT = new Victor(0);
+		DRIVE_REAR_RIGHT = new Victor(2);
 
 		DRIVETRAIN = new RobotDrive(DRIVE_FRONT_LEFT, DRIVE_REAR_LEFT, DRIVE_FRONT_RIGHT, DRIVE_REAR_RIGHT);
+		DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
+		DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kFrontRight, false);
+		DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
+		DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
+		
+		/*
 		DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, false);
 		DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
 		DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kRearLeft, false);
 		DRIVETRAIN.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
+		*/
 		
 		LIGHTS = new Relay(0);
 		LIGHTS.set(Value.kForward);
@@ -129,7 +137,7 @@ public class RobotMap {
 		elevator = new PIDElevator();
 		grabber = new PIDGrabber();
 		camera = new DriverCamera();
-		vision = new Vision();
+		//vision = new Vision();
 		
 		oi = new OI();
 

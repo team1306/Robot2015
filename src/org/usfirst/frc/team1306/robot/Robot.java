@@ -67,14 +67,18 @@ public class Robot extends IterativeRobot {
 	public void disabledInit() {
 	}
 
+	int teleopCycles;
 	/**
 	 * This function is called periodically during operator control
 	 */
 	public void teleopPeriodic() {
+		SmartDashboard.putBoolean("Teleop started", true);
+		SmartDashboard.putNumber("teleop cycles", teleopCycles);
 		SmartDashboard.putNumber("Time", Timer.getFPGATimestamp() - time);
 		time = Timer.getFPGATimestamp();
 		Scheduler.getInstance().run();
 		SmartDashboard.putString("Drivetrain", RobotMap.DRIVETRAIN.toString());
+		teleopCycles += 1;
 	}
 
 	/**
