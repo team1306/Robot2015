@@ -1,11 +1,13 @@
 package org.usfirst.frc.team1306.robot;
 
 import org.usfirst.frc.team1306.robot.subsystems.DriverCamera;
+import org.usfirst.frc.team1306.robot.subsystems.LeftIntake;
 import org.usfirst.frc.team1306.robot.subsystems.MecanumDrive;
 import org.usfirst.frc.team1306.robot.subsystems.PIDElevator;
 import org.usfirst.frc.team1306.robot.subsystems.PIDGrabber;
 import org.usfirst.frc.team1306.robot.subsystems.PIDMecanumDrive;
 import org.usfirst.frc.team1306.robot.subsystems.PIDMotor;
+import org.usfirst.frc.team1306.robot.subsystems.RightIntake;
 import org.usfirst.frc.team1306.robot.subsystems.Vision;
 
 import edu.wpi.first.wpilibj.AnalogInput;
@@ -70,11 +72,15 @@ public class RobotMap {
 	public static Encoder ELEVATOR_ENCODER;
 	public static CanTalonSRX GRABBER_MOTOR;
 	public static Encoder GRABBER_ENCODER;
+	public static Victor LEFT_INTAKE_MOTOR;
+	public static Victor RIGHT_INTAKE_MOTOR;
 	
 	// Subsystems
 	public static PIDMecanumDrive DRIVETRAIN_SUBSYSTEM;
 	public static PIDElevator elevator;
 	public static PIDGrabber grabber;
+	public static LeftIntake intakeLeft;
+	public static RightIntake intakeRight;
 	public static DriverCamera camera;
 	public static Vision vision;
 	
@@ -120,6 +126,9 @@ public class RobotMap {
 		ELEVATOR_MOTOR = new Talon(4);
 		ELEVATOR_ENCODER = new Encoder(18, 19);
 		
+		LEFT_INTAKE_MOTOR = new Victor(5);
+		RIGHT_INTAKE_MOTOR = new Victor(6);
+		
 		GRABBER_MOTOR = new CanTalonSRX(0);
 		
 		/*
@@ -136,6 +145,8 @@ public class RobotMap {
 		DRIVETRAIN_SUBSYSTEM = new PIDMecanumDrive();
 		elevator = new PIDElevator();
 		grabber = new PIDGrabber();
+		intakeLeft = new LeftIntake();
+		intakeRight = new RightIntake();
 		camera = new DriverCamera();
 		vision = new Vision();
 		

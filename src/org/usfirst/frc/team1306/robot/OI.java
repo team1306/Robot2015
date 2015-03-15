@@ -5,6 +5,8 @@ import org.usfirst.frc.team1306.robot.commands.ToggleRobotCenter;
 import org.usfirst.frc.team1306.robot.commands.elevator.ElevatorDown;
 import org.usfirst.frc.team1306.robot.commands.elevator.ElevatorUp;
 import org.usfirst.frc.team1306.robot.commands.grabber.ClampGrabber;
+import org.usfirst.frc.team1306.robot.commands.grabber.ReverseLeftIntake;
+import org.usfirst.frc.team1306.robot.commands.grabber.ReverseRightIntake;
 import org.usfirst.frc.team1306.robot.commands.grabber.UnclampGrabber;
 
 import edu.wpi.first.wpilibj.GenericHID.Hand;
@@ -56,8 +58,8 @@ public class OI {
 	//private final Button buttonBDrive;
 	//private final Button buttonXDrive;
 	//private final Button buttonYDrive;
-	//private final Button buttonLBDrive;
-	//private final Button buttonRBDrive;
+	private final Button buttonLBDrive;
+	private final Button buttonRBDrive;
 	//private final Button buttonBackDrive;
 	private final Button buttonStartDrive;
 	//private final Button buttonLSDrive;
@@ -83,8 +85,8 @@ public class OI {
 		//buttonBDrive = new JoystickButton(xboxDrive, XboxController.B);
 		//buttonXDrive = new JoystickButton(xboxDrive, XboxController.X);
 		//buttonYDrive = new JoystickButton(xboxDrive, XboxController.Y);
-		//buttonLBDrive = new JoystickButton(xboxDrive, XboxController.LB);
-		//buttonRBDrive = new JoystickButton(xboxDrive, XboxController.RB);
+		buttonLBDrive = new JoystickButton(xboxDrive, XboxController.LB);
+		buttonRBDrive = new JoystickButton(xboxDrive, XboxController.RB);
 		//buttonBackDrive = new JoystickButton(xboxDrive, XboxController.BACK);
 		buttonStartDrive = new JoystickButton(xboxDrive, XboxController.START);
 		//buttonLSDrive = new JoystickButton(xboxDrive, XboxController.LS);
@@ -106,6 +108,9 @@ public class OI {
 		
 		buttonAAux.whenPressed(new ElevatorDown());
 		buttonYAux.whenPressed(new ElevatorUp());
+		
+		buttonLBDrive.whileHeld(new ReverseLeftIntake());
+		buttonRBDrive.whileHeld(new ReverseRightIntake());
 
 	}
 
@@ -170,6 +175,14 @@ public class OI {
 	
 	public int getPOV() {
 		return xboxDrive.getPOV();
+	}
+	
+	public double leftIntake() {
+		return xboxDrive.getLT();
+	}
+	
+	public double rightIntake() {
+		return xboxDrive.getRT();
 	}
 
 	/**

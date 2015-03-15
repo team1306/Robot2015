@@ -35,13 +35,11 @@ public class DriveToTote extends PIDCommand {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        //return !RobotMap.TOTE_SWITCH.get();
-    	return false;
+        return !RobotMap.TOTE_SWITCH.get();
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	RobotMap.DRIVETRAIN_SUBSYSTEM.setYTranslation(0.0);
     	RobotMap.DRIVETRAIN_SUBSYSTEM.stop();
     }
 
@@ -60,7 +58,7 @@ public class DriveToTote extends PIDCommand {
 	@Override
 	protected void usePIDOutput(double output) {
 		SmartDashboard.putNumber("Y Translation", output);
-		RobotMap.DRIVETRAIN_SUBSYSTEM.setYTranslation(output);
+		RobotMap.DRIVETRAIN_SUBSYSTEM.drive(0.0, output, 0.0);
 		
 	}
 	
