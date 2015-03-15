@@ -31,6 +31,7 @@ public class OneToteAuto extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
+    	addParallel(new DriveIntakeFull());
     	addSequential(new DriveToTote());
     	
     	addSequential(new ClampGrabber());
